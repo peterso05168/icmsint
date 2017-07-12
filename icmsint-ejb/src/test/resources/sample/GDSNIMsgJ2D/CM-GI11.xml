@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI11</Prefix>
+		<BatchSerialNumber>7</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<CourtPayment>
+		<RecordPrefix>CM-GI11</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>ES</CourtSys>
+			<CaseType>N</CaseType>
+			<CaseSerialNumber>51</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU1077/2016/208</DepartmentReferenceNumber>
+		<PaymentSequenceNumber>1</PaymentSequenceNumber>
+		<PartyType>DEF</PartyType>
+		<PartyNo>1</PartyNo>
+		<PaymentDate>2016-09-01</PaymentDate>
+		<PaymentCentre>ES</PaymentCentre>
+		<PaymentTypeCode>0</PaymentTypeCode>
+		<PaymentMethod>1</PaymentMethod>
+		<DishonoredChequeIndicator>N</DishonoredChequeIndicator>
+		<ReceiptNumber>ES001001000009</ReceiptNumber>
+		<RecordStatus>N</RecordStatus>
+		<Payments>
+			<PaymentDetail>
+				<PaymentItemInternalNumber>1</PaymentItemInternalNumber>
+				<PaymentCode>FIN</PaymentCode>
+				<PaymentCodeAmount>500</PaymentCodeAmount>
+			</PaymentDetail>
+		</Payments>
+	</CourtPayment>
+</GDSNIMsgJ2D>

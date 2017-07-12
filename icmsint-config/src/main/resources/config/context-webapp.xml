@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                           http://www.springframework.org/schema/aop  
+ 						   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+                           http://www.springframework.org/schema/jee
+                           http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+                    
+		 
+		 <!--EJB facade (start) -->
+<!-- 			<jee:local-slsb id="projectFacade" jndi-name="ejb/projectFacade" -->
+<!-- 				business-interface="hk.judiciary.icmsint.model.sample.facade.ProjectFacade" /> -->
+			
+			<jee:local-slsb id="genericFacade" jndi-name="ejb/genericFacade"
+				business-interface="hk.judiciary.icmsint.model.sysinf.facade.GenericFacade" />
+				
+			<jee:local-slsb id="legacyFacade" jndi-name="ejb/legacyFacade"
+				business-interface="hk.judiciary.icmsint.model.sysinf.facade.LegacyFacade" />
+				
+			<jee:local-slsb id="controlFacade" jndi-name="ejb/controlFacade"
+				business-interface="hk.judiciary.icmsint.model.sysinf.facade.ControlFacade" />
+		<!--EJB facade (end) -->
+		
+</beans>
+                      
+		
+
+                      

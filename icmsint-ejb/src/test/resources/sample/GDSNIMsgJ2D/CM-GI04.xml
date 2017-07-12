@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI04</Prefix>
+		<BatchSerialNumber>82</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<AppealReviewGrant>
+		<RecordPrefix>CM-GI04</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>ES</CourtSys>
+			<CaseType>S</CaseType>
+			<CaseSerialNumber>31</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>MS840007/2016</DepartmentReferenceNumber>
+		<RecordSequenceNumber>1</RecordSequenceNumber>
+		<AppealInternalNumber>1</AppealInternalNumber>
+		<AppealReviewFilingDate>2016-08-30</AppealReviewFilingDate>
+		<RecordStatus>N</RecordStatus>
+	</AppealReviewGrant>
+</GDSNIMsgJ2D>

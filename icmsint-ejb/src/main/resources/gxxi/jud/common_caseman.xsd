@@ -1,0 +1,2335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+            attributeFormDefault="unqualified" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT"
+            xmlns:hdc="HDC">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+	<xsd:import namespace="CCT" schemaLocation="../ref/gov/cct/cct.xsd"/>
+	<xsd:import namespace="HDC" schemaLocation="../ref/if/hksarg_department_code_v1_0.xsd"/>
+
+<!--
+ *ADDRESS DETAILS FOR CASEMAN
+-->
+    <xsd:complexType name="Address.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>address details consists of 
+                               a) Address territory
+                                  1 - HK
+                                  2 - KLN
+                                  3 - NT
+                                  4 - Outlying Islands
+                                  5 - Others
+                               b) Address in English
+                               c) Address in Chinese
+                               d) District code
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="AddressTerritory" type="AddressTerritory.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="EnglishAddress" type="EnglishAddress.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ChineseAddress" type="ChineseAddress.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="DistrictCode" type="DistrictCode.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *ADDRESS DETAILS FOR CASEMAN VERSION 1.1
+-->
+    <xsd:complexType name="Address.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>address details consists of 
+                               a) Address territory
+                                  1 - HK
+                                  2 - KLN
+                                  3 - NT
+                                  4 - Outlying Islands
+                                  5 - Others
+                               b) Address in English (v1.1)
+                               c) Address in Chinese (v1.1)
+                               d) District code
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="AddressTerritory" type="AddressTerritory.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="EnglishAddress" type="EnglishAddress.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="ChineseAddress" type="ChineseAddress.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="DistrictCode" type="DistrictCode.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *ADDRESS DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Address.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>address details consists of 
+                               a) Address territory
+                                  1 - HK
+                                  2 - KLN
+                                  3 - NT
+                                  4 - Outlying Islands
+                                  5 - Others
+                               b) Address in English (v1.2)
+                               c) Address in Chinese (v1.2)
+                               d) District code
+                               e) Overseas Indicator
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="AddressTerritory" type="AddressTerritory.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="EnglishAddress" type="EnglishAddress.V1.2.CT" minOccurs="0"/>
+            <xsd:element name="ChineseAddress" type="ChineseAddress.V1.2.CT" minOccurs="0"/>
+            <xsd:element name="DistrictCode" type="DistrictCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OverseasIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AddressTerritory.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>address territory code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:length value="1"/>
+               <xsd:pattern value="[1-5]{1}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="EnglishAddress.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>English address lines</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="AddressLine" type="AddressLine.V1.0.CT" maxOccurs="3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="EnglishAddress.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>English address lines version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="EnglishAddressLine" type="EnglishAddressLine.V1.1.CT" maxOccurs="5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="EnglishAddress.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>English address lines version 1.2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="EnglishAddressLine" type="EnglishAddressLine.V1.1.CT" maxOccurs="3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ChineseAddress.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Chinese address lines</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="AddressLine" type="AddressLine.V1.0.CT" maxOccurs="3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ChineseAddress.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Chinese address lines version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ChineseAddressLine" type="ChineseAddressLine.V1.1.CT" maxOccurs="5"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ChineseAddress.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Chinese address lines version 1.2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ChineseAddressLine" type="ChineseAddressLine.V1.1.CT" maxOccurs="3"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AddressLine.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Address line, carriage return and line feed chars NOT allowed</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                   <xsd:maxLength value="60"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="EnglishAddressLine.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>English Address line version 1.1, carriage return and line feed chars NOT allowed</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                   <xsd:maxLength value="60"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ChineseAddressLine.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Chinese Address line version 1.1, carriage return and line feed chars NOT allowed</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                   <xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DistrictCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>district code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *CASE DETAILS
+-->
+    <xsd:complexType name="Case.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>case details derived from CaseNumber object
+                               found in common_jud.xsd, additional fields consist of 
+                               a) Prosecution Department Code (v1.1)
+                               b) Department Reference Number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="CaseNumber.V1.0.CT">
+                <xsd:sequence>
+                    <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+                    <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+                </xsd:sequence>
+            </xsd:extension>
+       </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ProsecutionDepartmentCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>prosecution department code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="hdc:HKSARGDepartmentCode.V1.0.CT">
+               <xsd:maxLength value="8"/>
+               <xsd:pattern value="[A-Z]{1,8}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProsecutionDepartmentCode.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>prosecution department code version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="hdc:HKSARGDepartmentCode.V1.0.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="8"/>               
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>    
+
+    <xsd:complexType name="DepartmentReferenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>case reference number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProsecutionDepartmentUnit.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>prosecution department unit</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="10"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProsecutionDepartmentStation.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>prosecution department station</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="10"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *DEFENDANT DETAILS
+-->
+    <xsd:complexType name="Defendant.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant object derives from Party
+                               object found in common_jud.xsd, additional
+                               elements include :
+                               a) Defendant Type 
+                               b) Address Object
+                               c) Interpret Language
+                               d) Special Arrangement
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.0.CT">
+                <xsd:sequence>
+                    <xsd:element name="DefendantType" type="DefendantType.V1.0.CT"/>
+                    <xsd:element name="Address" type="Address.V1.0.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+<!--
+ *DEFENDANT DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="Defendant.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant version 1.1 object derives from Party (V1.1)
+                               object found in common_jud.xsd, additional
+                               elements include :
+                               a) Defendant Type
+                               b) Address Object (V1.1)
+                               c) Interpret Language (v1.1)
+                               d) Defendant District Code
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.1.CT">
+                <xsd:sequence>
+                    <xsd:element name="DefendantType" type="DefendantType.V1.0.CT"/>
+                    <xsd:element name="Address" type="Address.V1.1.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                    <xsd:element name="DefendantDistrictCode" type="BailiffDistrictCode.V1.0.CT"  minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+<!--
+ *DEFENDANT DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Defendant.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant version 1.2 object derives from Party (V1.1)
+                               object found in common_jud.xsd, additional
+                               elements include :
+                               a) Defendant Type
+                               b) Address Object (V1.1)
+                               c) Interpret Language (v1.1)
+                               d) Special Arrangement
+                               e) Defendant District Code
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.1.CT">
+                <xsd:sequence>
+                    <xsd:element name="DefendantType" type="DefendantType.V1.0.CT"/>
+                    <xsd:element name="Address" type="Address.V1.1.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="DefendantDistrictCode" type="BailiffDistrictCode.V1.0.CT"  minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+<!--
+ *DEFENDANT DETAILS VERSION 1.3
+-->
+    <xsd:complexType name="Defendant.V1.3.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant version 1.3 object derives from Party (V1.2)
+                               object found in common_jud.xsd, additional
+                               elements include :
+                               a) Defendant Type
+                               b) Defendant Alias Name in English
+                               c) Defendant Alias Name in Chinese
+                               d) Address Object (V1.2)
+                               e) Interpret Language (v1.1)
+                               f) Special Arrangement
+                               g) Defendant District Code
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.2.CT">
+                <xsd:sequence>
+                    <xsd:element name="DefendantType" type="DefendantType.V1.0.CT"/>
+                    <xsd:element name="PartyEnglishAliasName" type="PartyEnglishAliasName.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="PartyChineseAliasName" type="PartyChineseAliasName.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="Address" type="Address.V1.2.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="DefendantDistrictCode" type="BailiffDistrictCode.V1.0.CT"  minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DefendantType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant type, A-Adult, J-Juvenile, C-Company</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					 <xsd:maxLength value="1"/>
+                <xsd:enumeration value="A"/>
+                <xsd:enumeration value="C"/>
+                <xsd:enumeration value="J"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+	<xsd:complexType name="BailiffDistrictCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>bailiff district code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SpecialArrangement.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>special arrangement</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyEnglishAliasName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party alias name in english</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="400"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyChineseAliasName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party alias name in chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="60"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *INFORMANT DETAILS
+-->
+    <xsd:complexType name="Informant.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>informant object derives from Party object found in common_jud.xsd</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.0.CT">
+            </xsd:extension>
+        </xsd:complexContent>    
+    </xsd:complexType>
+
+<!--
+ *INFORMANT DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="Informant.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>informant version 1.1 object derives from Party v1.1 object found in common_jud.xsd</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.1.CT">
+            </xsd:extension>
+        </xsd:complexContent>    
+    </xsd:complexType>
+    
+<!--
+ *INFORMANT DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Informant.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>informant version 1.2 object derives from Party v1.2 object found in common_jud.xsd</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Party.V1.2.CT">
+                <xsd:sequence>
+                    <xsd:element name="StaffNumber" type="StaffNumber.V1.0.CT" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>    
+    </xsd:complexType>
+    
+<!--
+ *WITNESS DETAILS
+-->
+    <xsd:complexType name="Witness.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>witness object derives from Party
+                               object found in common_jud.xsd, additional
+                               elements include : 
+                               a) Address Object
+                               b) Interpret Language
+                               c) Special Arrangement
+                               d) Item To Be Brought
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>       
+            <xsd:extension base="Party.V1.0.CT">
+                <xsd:sequence>
+                    <xsd:element name="Address" type="Address.V1.0.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="ItemToBeBrought" type="ItemToBeBrought.V1.0.CT" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+<!--
+ *WITNESS DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="Witness.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>witness version 1.1 object derives from Party.V1.1.CT
+                               object found in common_jud.xsd, additional
+                               elements include : 
+                               a) Address Object (v1.1)
+                               b) Interpret Language (v1.1)
+                               c) Special Arrangement
+                               d) Item To Be Brought
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>       
+            <xsd:extension base="Party.V1.1.CT">
+                <xsd:sequence>
+                    <xsd:element name="Address" type="Address.V1.1.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="ItemToBeBrought" type="ItemToBeBrought.V1.0.CT" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+<!--
+ *WITNESS DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Witness.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>witness version 1.2 object derives from Party.V1.2.CT
+                               object found in common_jud.xsd, additional
+                               elements include : 
+                               a) Address Object (v1.2)
+                               b) Interpret Language (v1.1)
+                               c) Special Arrangement
+                               d) Item To Be Brought
+                               e) Witness Sequence Number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>       
+            <xsd:extension base="Party.V1.2.CT">
+                <xsd:sequence>
+                    <xsd:element name="Address" type="Address.V1.2.CT"/>
+                    <xsd:element name="InterpretLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                    <xsd:element name="SpecialArrangement" type="SpecialArrangement.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="ItemToBeBrought" type="ItemToBeBrought.V1.0.CT" minOccurs="0"/>
+                    <xsd:element name="WitnessSequenceNumber" type="WitnessSequenceNumber.V1.0.CT"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+        <xsd:complexType name="ItemToBeBrought.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>item to be brought to court</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+<!--
+ *SURETY DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Surety.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>surety version 1.0 object derives from Party.V1.2.CT
+                               object found in common_jud.xsd, additional
+                               elements include : 
+                               a) Address Object (v1.2)
+                               b) Surety Sequence Number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>       
+            <xsd:extension base="Party.V1.2.CT">
+                <xsd:sequence>
+                    <xsd:element name="Address" type="Address.V1.2.CT" minOccurs="0"/>
+                    <xsd:element name="SuretySequenceNumber" type="SuretySequenceNumber.V1.0.CT"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+<!--
+ *CSOD KEY
+-->
+    <xsd:complexType name="SODKey.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD key consists of 
+                               a) Chapter 
+                               b) Sub Legislative
+                               c) Section
+                               d) Sub Section
+                               e) Paragraph
+                               f) Sub Paragraph
+                               g) Supplement Code
+                               h) Version Number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Chapter" type="Chapter.V1.0.CT"/>
+            <xsd:element name="SubLegislative" type="SubLegislative.V1.0.CT"/>
+            <xsd:element name="Section" type="Section.V1.0.CT"/>
+            <xsd:element name="SubSection" type="SubSection.V1.0.CT"/>
+            <xsd:element name="Paragraph" type="Paragraph.V1.0.CT"/>
+            <xsd:element name="SubParagraph" type="SubParagraph.V1.0.CT"/>
+            <xsd:element name="SupplementCode" type="SupplementCode.V1.0.CT"/>
+            <xsd:element name="VersionNumber" type="VersionNumber.V1.0.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SODKey.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD key consists of 
+                               a) Chapter (v1.1)
+                               b) Sub Legislative (v1.1)
+                               c) Section (v1.1)
+                               d) Sub Section (v1.1)
+                               e) Paragraph (v1.1)
+                               f) Sub Paragraph (v1.1)
+                               g) Supplement Code (v1.1)
+                               h) Version Number (v1.1)
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Chapter" type="Chapter.V1.1.CT"/>
+            <xsd:element name="SubLegislative" type="SubLegislative.V1.1.CT"/>
+            <xsd:element name="Section" type="Section.V1.1.CT"/>
+            <xsd:element name="SubSection" type="SubSection.V1.1.CT"/>
+            <xsd:element name="Paragraph" type="Paragraph.V1.1.CT"/>
+            <xsd:element name="SubParagraph" type="SubParagraph.V1.1.CT"/>
+            <xsd:element name="SupplementCode" type="SupplementCode.V1.1.CT"/>
+            <xsd:element name="VersionNumber" type="VersionNumber.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Chapter.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - chapter</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="4"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Chapter.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - chapter</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="5"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="SubLegislative.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub legislative</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SubLegislative.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub legislative</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Section.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - section</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="4"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Section.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - section</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="10"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SubSection.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub section</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="4"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType> 
+
+    <xsd:complexType name="SubSection.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub section</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="10"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType> 
+
+    <xsd:complexType name="Paragraph.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - paragraph</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="4"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Paragraph.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - paragraph</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SubParagraph.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub paragraph</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SubParagraph.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - sub paragraph</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SupplementCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - supplement code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SupplementCode.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - supplement code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="VersionNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - version number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="2"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="VersionNumber.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - version number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *CSOD DETAILS
+-->
+    <xsd:complexType name="CSOD.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD details consists of
+                               a) SOD Key Object
+                               b) Prosecution Department Code (v1.1)
+                               c) Status
+                               d) Effective Date
+                               e) Short Description in English
+                               f) Short Description in Chinese
+                               g) Long Description in English
+                               h) Long Description in Chinese
+                               i) Law in English
+                               j) Law in Chinese
+                               k) Attachment Indicator
+                               l) Hearing Weight
+                               m) Penalty Weight
+                               n) Fixed Penalty Fine Code
+                               o) Fixed Penalty Costs Code
+                               p) Time Bar Offence Period in Months
+                               q) Time Bar Discover Period in Months
+                               r) Apply to Fixed Penalty Summons Indicator
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+            <xsd:element name="Status" type="Status.V1.0.CT"/>
+            <xsd:element name="EffectiveDate" type="cct:Date.CT"/>
+            <xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT"/>
+            <xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.0.CT"/>
+            <xsd:element name="LongDescription" type="OffenceDescription.V1.0.CT"/>
+            <xsd:element name="LongDescriptionChinese" type="OffenceDescriptionChinese.V1.0.CT"/>
+            <xsd:element name="Law" type="Law.V1.0.CT"/>
+            <xsd:element name="LawChinese" type="LawChinese.V1.0.CT"/>
+            <xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FixedPenaltyFineCode" type="FixedPenaltyFineCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FixedPenaltyCostsCode" type="FixedPenaltyCostsCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarOffence" type="TimeBarOffence.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarDiscover" type="TimeBarDiscover.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ApplyToFixedPenaltySummons" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *CSOD DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="CSOD.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD details version 1.1 consists of 
+                               a) SOD Key Object
+                               b) Prosecution Department Code (1.1)
+                               c) Status
+                               d) Effective Date
+                               e) Short Description in English
+                               f) Short Description in Chinese (V1.1)
+                               g) Long Description in English
+                               h) Long Description in Chinese (V1.1)
+                               i) Law in English
+                               j) Law in Chinese (V1.1)
+                               k) Attachment Indicator
+                               l) Hearing Weight
+                               m) Penalty Weight
+                               n) Fixed Penalty Fine Code
+                               o) Fixed Penalty Costs Code
+                               p) Time Bar Offence Period in Months
+                               q) Time Bar Discover Period in Months                                   
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+            <xsd:element name="Status" type="Status.V1.0.CT"/>
+            <xsd:element name="EffectiveDate" type="cct:Date.CT"/>
+            <xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT"/>
+            <xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.1.CT"/>
+            <xsd:element name="LongDescription" type="OffenceDescription.V1.0.CT"/>
+            <xsd:element name="LongDescriptionChinese" type="OffenceDescriptionChinese.V1.1.CT"/>
+            <xsd:element name="Law" type="Law.V1.0.CT"/>
+            <xsd:element name="LawChinese" type="LawChinese.V1.1.CT"/>
+            <xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT" />
+            <xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT" />
+            <xsd:element name="FixedPenaltyFineCode" type="FixedPenaltyFineCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FixedPenaltyCostsCode" type="FixedPenaltyCostsCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarOffence" type="TimeBarOffence.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarDiscover" type="TimeBarDiscover.V1.0.CT" minOccurs="0"/>            
+        </xsd:sequence>
+    </xsd:complexType>    
+
+<!--
+ *CSOD DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="CSOD.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD details version 1.1 consists of 
+                               a) SOD Key Object
+                               b) Prosecution Department Code (1.1)
+                               c) Status
+                               d) Effective Date
+                               e) Short Description in English
+                               f) Short Description in Chinese (V1.1)
+                               g) Long Description in English
+                               h) Long Description in Chinese (V1.1)
+                               i) Law in English
+                               j) Law in Chinese (V1.1)
+                               k) Attachment Indicator
+                               l) Hearing Weight
+                               m) Penalty Weight
+                               n) Fixed Penalty Fine Code
+                               o) Fixed Penalty Costs Code
+                               p) Time Bar Offence Period in Months
+                               q) Time Bar Discover Period in Months                                   
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+            <xsd:element name="Status" type="Status.V1.0.CT"/>
+            <xsd:element name="EffectiveDate" type="cct:Date.CT"/>
+            <xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT"/>
+            <xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.1.CT"/>
+            <xsd:element name="LongDescription" type="OffenceDescription.V1.1.CT"/>
+            <xsd:element name="LongDescriptionChinese" type="OffenceDescriptionChinese.V1.2.CT"/>
+            <xsd:element name="Law" type="Law.V1.0.CT"/>
+            <xsd:element name="LawChinese" type="LawChinese.V1.1.CT"/>
+            <xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT" />
+            <xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT" />
+            <xsd:element name="FixedPenaltyFineCode" type="FixedPenaltyFineCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FixedPenaltyCostsCode" type="FixedPenaltyCostsCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarOffence" type="TimeBarOffence.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarDiscover" type="TimeBarDiscover.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *CSOD DETAILS VERSION 1.3
+-->
+    <xsd:complexType name="CSOD.V1.3.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD details version 1.3 consists of 
+                               a) SOD Key Object (v1.1)
+                               b) Prosecution Department Code (v1.1)
+                               c) Status
+                               d) Effective Date
+                               e) Offence Description in English (v1.2)
+                               f) Offence Description in Chinese (V1.3)
+                               g) Charge Particulars in English
+                               h) Charge Particulars in Chinese
+                               i) Contrary to Law in English
+                               j) Contrary to Law in Chinese
+                               k) Attachment Indicator
+                               l) Hearing Weight
+                               m) Penalty Weight
+                               n) Fixed Penalty Fine Code
+                               o) Fixed Penalty Costs Code
+                               p) Time Bar Offence Period in Months
+                               q) Time Bar Discover Period in Months                                   
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.1.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+            <xsd:element name="Status" type="Status.V1.0.CT"/>
+            <xsd:element name="EffectiveDate" type="cct:Date.CT"/>
+            <xsd:element name="OffenceDescription" type="OffenceDescription.V1.2.CT"/>
+            <xsd:element name="OffenceDescriptionChinese" type="OffenceDescriptionChinese.V1.3.CT"/>
+            <xsd:element name="ChargeParticular" type="ChargeParticular.V1.0.CT"/>
+            <xsd:element name="ChargeParticularChinese" type="ChargeParticularChinese.V1.0.CT"/>
+            <xsd:element name="ContraryToLaw" type="ContraryToLaw.V1.0.CT"/>
+            <xsd:element name="ContraryToLawChinese" type="ContraryToLawChinese.V1.0.CT"/>
+            <xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT" />
+            <xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT" />
+            <xsd:element name="FixedPenaltyFineCode" type="FixedPenaltyFineCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FixedPenaltyCostsCode" type="FixedPenaltyCostsCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarOffence" type="TimeBarOffence.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="TimeBarDiscover" type="TimeBarDiscover.V1.0.CT" minOccurs="0"/>            
+        </xsd:sequence>
+    </xsd:complexType>    
+
+    <xsd:complexType name="Status.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD status, cmcode.code_type=CTS
+                               A - Active
+                               I - Inactive
+                               P - Provisional
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:enumeration value="A"/>
+               <xsd:enumeration value="I"/>
+               <xsd:enumeration value="P"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="ShortDescription.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD short description in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ShortDescriptionChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD short description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="400"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ShortDescriptionChinese.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD short description in Chinese version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="200"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltyFineCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>fixed penalty fine code applied to the standard offence description</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="5"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="FixedPenaltyCostsCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>fixed penalty costs code applied to the standard offence description</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="5"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="TimeBarOffence.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>time bar offence period in months</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+               <xsd:fractionDigits value="0"/>
+               <xsd:minInclusive value="1"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="TimeBarDiscover.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>time bar discover period in months</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="3"/>
+				<xsd:fractionDigits value="0"/>
+				<xsd:minInclusive value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="FieldIndicator.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>indicator with value Y or N</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Indicator.CT">
+				<xsd:enumeration value="Y"/>
+				<xsd:enumeration value="N"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="OffenceDescription.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>long description in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2000"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="OffenceDescription.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>long description in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="1600"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="OffenceDescriptionChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>long description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2000"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OffenceDescriptionChinese.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>long description in Chinese version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="1000"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="OffenceDescriptionChinese.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>long description in Chinese version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="700"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="Law.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>law in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="LawChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>law in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="600"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="LawChinese.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>law in Chinese version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="HearingWeight.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing weight</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="1"/>
+               <xsd:fractionDigits value="0"/>
+               <xsd:minInclusive value="1"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="PenaltyWeight.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>penalty weight</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="1"/>
+               <xsd:fractionDigits value="0"/>
+               <xsd:minInclusive value="1"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *CSOD VARIABLES LIST
+-->
+    <xsd:complexType name="CSODVarList.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD variable consists of 
+                               a) SOD Key Object
+                               b) SOD Variable Details Object
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="SODVarDetail" type="CSODVarDetail.V1.0.CT" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CSODVarList.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD variable consists of 
+                               a) SOD Key Object
+                               b) SOD Variable Details Object
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="SODVarDetail" type="CSODVarDetail.V1.1.CT" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+<!--
+ *CSOD VARIABLES DETAILS
+-->
+    <xsd:complexType name="CSODVarDetail.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD variable consists of 
+                               a) Variable Number
+                               b) Variable Type
+                               c) Variable Description in English
+                               d) Variable Description in Chinese
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="VariableNumber" type="VariableNumber.V1.0.CT"/>
+            <xsd:element name="VariableType" type="VariableType.V1.0.CT"/>
+            <xsd:element name="VariableDescription" type="VariableDescription.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="VariableDescriptionChinese" type="VariableDescriptionChinese.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *CSOD VARIABLES DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="CSODVarDetail.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD variable consists of 
+                               a) Variable Number
+                               b) Variable Type
+                               c) Variable Description in English
+                               d) Variable Description in Chinese (V1.1)
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="VariableNumber" type="VariableNumber.V1.0.CT"/>
+            <xsd:element name="VariableType" type="VariableType.V1.0.CT"/>
+            <xsd:element name="VariableDescription" type="VariableDescription.V1.0.CT"/>
+            <xsd:element name="VariableDescriptionChinese" type="VariableDescriptionChinese.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="VariableNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - variable number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="VariableType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - variable type</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="2"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="VariableDescription.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - variable description in english</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="VariableDescriptionChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - variable description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="600"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="VariableDescriptionChinese.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD - variable description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *CASE SOD DETAILS
+-->
+    <xsd:complexType name="CaseSOD.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Case SOD details consists of 
+                               a) SOD Key Object
+                               b) Short Description in English
+                               c) Short Description in Chinese
+                               d) Offence Description in English
+                               e) Offence Description in Chinese
+                               f) Law in English
+                               g) Law in Chinese
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OffenceDescription" type="OffenceDescription.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OffenceDescriptionChinese" type="OffenceDescriptionChinese.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Law" type="Law.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="LawChinese" type="LawChinese.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *CASE SOD DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="CaseSOD.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Case SOD details consists of 
+                               a) SOD Key Object
+                               b) Short Description in English
+                               c) Short Description in Chinese
+                               d) Offence Description in English
+                               e) Offence Description in Chinese
+                               f) Law in English
+                               g) Law in Chinese
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.0.CT"/>
+            <xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="OffenceDescription" type="OffenceDescription.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="OffenceDescriptionChinese" type="OffenceDescriptionChinese.V1.2.CT" minOccurs="0"/>
+            <xsd:element name="Law" type="Law.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="LawChinese" type="LawChinese.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+<!--
+ *CASE SOD DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="CaseSOD.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Case SOD details v1.2 (the fields are renamed)
+                              consists of 
+                               a) SOD Key Object (v1.1)
+                               b) Offence Description in English (v1.2)
+                               c) Offence Description in Chinese (v1.3)
+                               d) Contrary to Law in English
+                               e) Contrary to Law in Chinese
+                               f) Charge Particular in English
+                               g) Charge Particular in Chinese
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODKey" type="SODKey.V1.1.CT"/>
+            <xsd:element name="OffenceDescription" type="OffenceDescription.V1.2.CT" minOccurs="0"/>
+            <xsd:element name="OffenceDescriptionChinese" type="OffenceDescriptionChinese.V1.3.CT" minOccurs="0"/>
+            <xsd:element name="ContraryToLaw" type="ContraryToLaw.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ContraryToLawChinese" type="ContraryToLawChinese.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ChargeParticular" type="ChargeParticular.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="ChargeParticularChinese" type="ChargeParticularChinese.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OffenceDescription.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Offence description in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="500"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OffenceDescriptionChinese.V1.3.CT">
+        <xsd:annotation>
+            <xsd:documentation>Offence description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="400"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ContraryToLaw.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Contrary to law in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ContraryToLawChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Contrary to law in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="240"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ChargeParticular.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Charge particular in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="2000"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ChargeParticularChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Charge particular in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="1600"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *CASE OFFENCE DETAILS
+-->
+    <xsd:complexType name="CaseOffence.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>case offence details consists of 
+                               a) Offence Date
+                               b) Offence Time
+                               c) Offence Location 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+       		<xsd:element name="OffenceDate" type="cct:Date.CT"/> 
+            <xsd:element name="OffenceTime" type="cct:Time.CT"/>
+            <xsd:element name="OffenceLocation" type="Address.V1.0.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CaseOffence.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>case offence details consists of 
+                               a) From Offence Date
+                               b) From Offence Time
+                               c) To Offence Date
+                               d) To Offence Time
+							   e) Offence Location
+							   f) Multiple Offence Location Indicator
+							   g) Duration: Minute, Second
+							   h) Vehicle Registration Mark
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+       		<xsd:element name="FromOffenceDate" type="cct:Date.CT"/> 
+            <xsd:element name="FromOffenceTime" type="cct:Time.CT"/>
+       		<xsd:element name="ToOffenceDate" type="cct:Date.CT"/> 
+            <xsd:element name="ToOffenceTime" type="cct:Time.CT"/>
+            <xsd:element name="OffenceLocation" type="Address.V1.0.CT"/>			
+			<xsd:element name="MultiLocationIndicator" type="FieldIndicator.V1.0.CT" minOccurs ="0"/>
+            <xsd:element name="Duration" type="Duration.V1.0.CT"/>
+			<xsd:element name="VehicleRegistrationMark" type="VehicleRegistrationMark.V1.0.CT" minOccurs ="0"/>
+		</xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *DEFENDANT HEARING DETAILS
+-->
+    <xsd:complexType name="DefendantHearing.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant hearing details consists of 
+                               a) CaseNo Object
+                               b) Hearing Internal Number
+                               c) Hearing Result
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+            <xsd:element name="HearingOutcome" type="HearingOutcome.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="HearingOutcome.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing outcome, coutcome.outcome</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *ORDER DETAILS
+-->
+    <xsd:complexType name="Order.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details consists of 
+                               a) Hearing Internal Number
+                               b) Order Internal Number
+                               c) Order Code
+                               d) Start Date
+                               e) Year
+                               f) Month
+                               g) Week
+                               h) Day
+                               i) Hour
+                               j) Currency Code
+                               k) Order Amount
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+            <xsd:element name="OrderInternalNumber" type="OrderInternalNumber.V1.0.CT"/>
+            <xsd:element name="OrderCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="StartDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CurrencyCode" type="CurrencyCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *ORDER DETAILS VERSION 1.1
+-->
+    <xsd:complexType name="Order.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details version 1.1 consists of             					
+								a) Link Serial Number (v1.1)								
+								b) Order Code
+								c) Start Date
+								d) Deadline Date
+								e) Year
+								f) Month
+								g) Week
+								h) Day
+								i) Hour
+								j) Other Year
+								k) Other Month
+								l) Other Week
+								m) Other Day
+								n) Other Hour
+								o) Currency Code
+								p) Order Amount
+								r) DIC Type
+								s) TCO DIC
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+        	<xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.1.CT"/>                         
+            <xsd:element name="OrderCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="StartDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="DeadlineDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherYear" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherMonth" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherWeek" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherDay" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherHour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CurrencyCode" type="CurrencyCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="DICType" type="DICType.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="TCODIC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *ORDER DETAILS VERSION 1.2
+-->
+    <xsd:complexType name="Order.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details version 1.2 consists of             					
+								a) Link Serial Number (v1.1)								
+								b) Order Code
+								c) Start Date
+								d) Deadline Date
+								e) Year
+								f) Month
+								g) Week
+								h) Day
+								i) Hour
+								j) Other Year
+								k) Other Month
+								l) Other Week
+								m) Other Day
+								n) Other Hour
+								o) Currency Code
+								p) Order Amount
+								r) DIC Type
+								s) TCO DIC
+								t) Dqr After Imprisonment Indicator
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+        	<xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.1.CT"/>                         
+            <xsd:element name="OrderCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="StartDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="DeadlineDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherYear" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherMonth" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherWeek" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherDay" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherHour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CurrencyCode" type="CurrencyCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT" minOccurs="0"/>
+    	    <xsd:element name="DICType" type="DICType.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="TCODIC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrAfterImp" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *ORDER DETAILS VERSION 1.3
+-->
+    <xsd:complexType name="Order.V1.3.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details version 1.3 consists of
+								a) Link Serial Number (v1.1)								
+								b) Order Code
+								c) Start Date
+								d) Deadline Date
+								e) Year
+								f) Month
+								g) Week
+								h) Day
+								i) Hour
+								j) Other Year
+								k) Other Month
+								l) Other Week
+								m) Other Day
+								n) Other Hour
+								o) Currency Code
+								p) Order Amount
+								r) DIC Type
+								s) TCO DIC
+								t) Dqr After Imprisonment Indicator
+								u) Life Dqr 
+								v) Dqr entitlement indicator
+								w) Dqr entitlement list
+
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.1.CT"/>                         
+            <xsd:element name="OrderCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="StartDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="DeadlineDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherYear" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherMonth" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherWeek" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherDay" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherHour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CurrencyCode" type="CurrencyCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT" minOccurs="0"/>
+    	    <xsd:element name="DICType" type="DICType.V1.1.CT" minOccurs="0"/>
+	    <xsd:element name="TCODIC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrAfterImp" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="LifeDqr" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrEntitlementInd" type="DqrEntitlementInd.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrEntitlementList" type="DqrEntitlementList.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+<!--
+ *ORDER DETAILS VERSION 1.3
+-->
+    <xsd:complexType name="Order.V1.4.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details version 1.4 consists of
+								a) Link Serial Number (v1.1)								
+								b) Order Code
+								c) Start Date
+								d) Deadline Date
+								e) Year
+								f) Month
+								g) Week
+								h) Day
+								i) Hour
+								j) Other Year
+								k) Other Month
+								l) Other Week
+								m) Other Day
+								n) Other Hour
+								o) Currency Code
+								p) Order Amount
+								r) DIC Type
+								s) Dqr Till DIC completion Indicator
+								t) Dqr After Imprisonment Indicator
+                                                                u) Dqr AFter Dqr Indicator
+                                                                v) Dqr Until Retest Indicator
+								w) Life Dqr 
+								x) Dqr entitlement indicator
+								y) Dqr entitlement list
+
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.1.CT"/>                         
+            <xsd:element name="OrderCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="StartDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="DeadlineDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherYear" type="Year.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherMonth" type="Month.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherWeek" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherDay" type="Day.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherHour" type="Hour.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CurrencyCode" type="CurrencyCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT" minOccurs="0"/>
+    	    <xsd:element name="DICType" type="DICType.V1.1.CT" minOccurs="0"/>
+	    <xsd:element name="DqrTillDIC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrAfterImp" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="DqrAfterDqr" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="DqrUntilRetest" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="LifeDqr" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrEntitlementInd" type="DqrEntitlementInd.V1.0.CT" minOccurs="0"/>
+	    <xsd:element name="DqrEntitlementList" type="DqrEntitlementList.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+ 
+    <xsd:complexType name="DICType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Hearing Outcome Type
+            					1 -
+            					2 - 
+            					3 - 
+								4 -
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>				
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DICType.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>DIC Type
+		1 - DIC to be completed within 3 months
+        	2 - DIC to be completed within last 3 months of the disqualification order
+            	3 - DIC to be completed within the period specified by court
+		4 - DIC to be completed but without specified period
+		5 - DIC to be completed within 3 months after imprisonment/detention
+		6 - DIC to be completed with detention period not yet ascertainable
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>				
+				<xsd:enumeration value="5"/>				
+				<xsd:enumeration value="6"/>				
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DqrEntitlementInd.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>DQR Entitlement Indicator
+		A - All entitlements
+        	E - All entitlements with Exception
+            	I - Entitlements Include
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="E"/>
+				<xsd:enumeration value="I"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DqrEntitlementList.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>DQR Entitlement List</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                   <xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+   
+    <xsd:complexType name="LinkSerialNumber.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>order link serial number version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+            	<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="OrderInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>order internal number for a specific hearing</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="OrderCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>order code, coutcome.outcome</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="Year.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>number of years in imprisonment/disqualification order</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="4"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+   <xsd:complexType name="Month.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>number of months in imprisonment/disqualification order</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="5"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+   <xsd:complexType name="Week.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>number of weeks in imprisonment/disqualification order</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="5"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+   <xsd:complexType name="Day.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>number of days in imprisonment/disqualification order</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="5"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+   <xsd:complexType name="Hour.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>number of hours in imprisonment/disqualification order</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="5"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="CurrencyCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>currency code, cmcode.code_type=CCY</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="Amount.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>penalty amount</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="10"/>
+               <xsd:fractionDigits value="2"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *APPEAL DETAILS
+-->
+    <xsd:complexType name="Appeal.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>appeal details consists of 
+                               a) Case Number Object
+                               b) Appeal Internal Number
+                               c) Appeal Register Serial Number
+                               d) Filing Date
+                               e) Applied Party 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="AppealInternalNumber" type="AppealInternalNumber.V1.0.CT"/>
+            <xsd:element name="AppealRegisterNumber" type="AppealRegisterNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="FilingDate" type="cct:Date.CT"/>
+            <xsd:element name="AppliedParty" type="AppealAppliedParty.V1.0.CT"/>  
+        </xsd:sequence>
+    </xsd:complexType>
+
+  
+    <xsd:complexType name="AppealInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>appeal internal number for a specific case</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="AppealRegisterNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>appeal register serial number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="13"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="AppealAppliedParty.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>appeal applied party, DEF-Defendant, PRO-Prosecution
+                               T - 3rd Party
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:enumeration value="DEF"/>
+               <xsd:enumeration value="PRO"/>
+					<xsd:enumeration value="T"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *REVIEW DETAILS
+-->
+    <xsd:complexType name="Review.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>review details consists of 
+                               a) Case Number Object
+                               b) Review Internal Number
+                               c) Filing Date
+                               d) Applied Party
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="ReviewwInternalNumber" type="ReviewInternalNumber.V1.0.CT"/>
+            <xsd:element name="FilingDate" type="cct:Date.CT"/>
+            <xsd:element name="AppliedParty" type="ReviewAppliedParty.V1.0.CT"/>  
+        </xsd:sequence>
+    </xsd:complexType>
+
+  
+    <xsd:complexType name="ReviewInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>review internal number for a specific case</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+               <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+   <xsd:complexType name="ReviewAppliedParty.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>review applied party, DEF-Defendant, PRO-Prosecution
+                               T - 3rd Party, M - Magistrate
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:enumeration value="DEF"/>
+               <xsd:enumeration value="PRO"/>
+					<xsd:enumeration value="T"/>
+					<xsd:enumeration value="M"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *ERROR MESSAGE
+-->
+    <xsd:complexType name="ErrorMessage.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>error message</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+            <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+            <xsd:element name="ErrorDetails" type="ErrorDetails.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+
+    <xsd:complexType name="ErrorDetails.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>error details</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ErrorCode" type="cct:Code.CT" minOccurs="0"/>
+            <xsd:element name="ErrorMessage" type="cct:Text.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *DURATION
+-->
+    <xsd:complexType name="Duration.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Duration consists of
+                               a) Minute
+                               b) Second
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Minute" type="Minute.V1.1.CT"/>
+            <xsd:element name="Second" type="Second.V1.0.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>   
+	
+    <xsd:complexType name="Minute.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>minute for duration</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="2"/>
+				<xsd:fractionDigits value="0"/>
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="59"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Minute.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>minute for duration</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="2"/>
+				<xsd:fractionDigits value="0"/>
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+	
+    <xsd:complexType name="Second.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>second for duration</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="2"/>
+				<xsd:fractionDigits value="0"/>
+				<xsd:minInclusive value="0"/>				
+				<xsd:maxInclusive value="59"/>			   
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *Vehicle Registration Mark
+-->	
+    <xsd:complexType name="VehicleRegistrationMark.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Vehicle Registration Mark</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+			<xsd:maxLength value="8"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="VehicleRegistrationMarkDigit.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Vehicle Registration Mark Digit</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+			<xsd:maxLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+<!--
+ *PAYMENT ORDER DETAILS VERSION 1.0
+-->
+    <xsd:complexType name="PaymentOrder.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>payment order details version 1.0 consists of
+								a) Payment Type
+								b) Payment Amount
+								c) Payment Currency
+								d) Payment Parameter
+
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>                       
+            <xsd:element name="Type" type="PaymentType.V1.0.CT"/>
+            <xsd:element name="Amount" type="Amount.V1.0.CT"/>
+            <xsd:element name="Currency" type="CurrencyCode.V1.0.CT"/>
+            <xsd:element name="Parameter" type="PaymentParameter.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PaymentType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Payment Type (To be updated)
+	            	'FIN': Fine
+	            	'AMD': Compensation
+	            	'COS': Court Cost
+                        '': Daily Fine
+                        'MR1': Business Registration Fee
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="3"/>
+				<xsd:enumeration value="FIN"/>
+				<xsd:enumeration value="AMD"/>
+				<xsd:enumeration value="COS"/>
+				<xsd:enumeration value="MR1"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+    
+    <xsd:complexType name="PaymentParameter.V1.0.CT">
+            <xsd:annotation>
+                    <xsd:documentation>Payment parameter</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleContent>
+                    <xsd:restriction base="cct:Text.CT">
+                            <xsd:maxLength value="30"/>
+                    </xsd:restriction>
+            </xsd:simpleContent>
+    </xsd:complexType>
+	
+ </xsd:schema>

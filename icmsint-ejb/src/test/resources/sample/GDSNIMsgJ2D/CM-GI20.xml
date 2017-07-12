@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI12</Prefix>
+		<BatchSerialNumber>10</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<SODDetailsUpdate>
+		<SODKey>
+			<Chapter>375</Chapter>
+			<SubLegislative>0</SubLegislative>
+			<Section>8AA</Section>
+			<SubSection>7</SubSection>
+			<Paragraph>0</Paragraph>
+			<SubParagraph>0</SubParagraph>
+			<SupplementCode>0</SupplementCode>
+			<VersionNumber>1</VersionNumber>
+		</SODKey>
+		<ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+		<Status>P</Status>
+		<EffectiveDate>2016-12-01</EffectiveDate>
+		<OffenceDescription>Failing to coply with a magistrate's order made under section 8AA(6) of Road Traffic (Driving-Offence Points) Ordinance, Cap.375</OffenceDescription>
+		<OffenceDescriptionChinese>沒有遵從裁判官根據《道路交通(違例駕駛記分)條例》 (第375章)第8AA(6)條作出的命令</OffenceDescriptionChinese>
+		<ChargeParticular>Information has been laid that you (A), without reasonable excuse, failed to comply with an order made under section 8AA(6) of Road Traffic (Driving-Offence Points) Ordinance, Cap.375 by a magistrate on (B) to attend and complete a driving improvement course at your own cost by (A).</ChargeParticular>
+		<ChargeParticularChinese>有人提出告發，指稱你(A)，無合理辯解的情況下，沒有遵從裁判官根據《道路交通(違例駕駛記分)條例》 (第375章)第8AA(6)條作出的命令，即須(A)前自費修習和完成駕駛改進課程。</ChargeParticularChinese>
+		<ContraryToLaw>Section 8AA(7) of Road Traffic (Driving-Offence Points) Ordinance, Cap.375</ContraryToLaw>
+		<ContraryToLawChinese>《道路交通(違例駕駛記分)條例》 (第375章)第7條</ContraryToLawChinese>
+		<AttachmentIndicator>N</AttachmentIndicator>
+		<HearingWeight>1</HearingWeight>
+		<PenaltyWeight>1</PenaltyWeight>
+		<TimeBarOffence>6</TimeBarOffence>
+		<TimeBarDiscover>6</TimeBarDiscover>
+		<RecordPrefix>CM-GI12</RecordPrefix>
+		<ApplicationAction>A</ApplicationAction>
+		<PGBLAllow>N</PGBLAllow>
+		<ApplyToSummons>Y</ApplyToSummons>
+		<ApplyToNotice>N</ApplyToNotice>
+		<ApplyToDOP>N</ApplyToDOP>
+		<ApplyToCC>N</ApplyToCC>
+		<ApplyToFP>N</ApplyToFP>
+		<TotalNumberOfVariable>2</TotalNumberOfVariable>
+		<SODVariable>
+			<VariableDetail>
+				<CSODVarDetail>
+					<VariableNumber>A</VariableNumber>
+					<VariableType>0</VariableType>
+					<VariableDescription>offence date</VariableDescription>
+					<VariableDescriptionChinese>違例日期</VariableDescriptionChinese>
+				</CSODVarDetail>
+			</VariableDetail>
+			<VariableDetail>
+				<CSODVarDetail>
+					<VariableNumber>B</VariableNumber>
+					<VariableType>1</VariableType>
+					<VariableDescription>order date</VariableDescription>
+					<VariableDescriptionChinese>頒令日期</VariableDescriptionChinese>
+				</CSODVarDetail>
+			</VariableDetail>
+		</SODVariable>
+		<OwnerProsecutionDepartmentCode>TD</OwnerProsecutionDepartmentCode>
+	</SODDetailsUpdate>
+</GDSNIMsgJ2D>

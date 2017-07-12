@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+            attributeFormDefault="unqualified" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT"
+            xmlns:pcn="PCN"
+            xmlns:pen="PEN"
+            xmlns:pgc="PGC"
+            xmlns:hkid="HKID">
+
+	<xsd:import namespace="PCN" 	schemaLocation="../ref/if/person_chinese_name_v1_0.xsd"/>
+	<xsd:import namespace="PEN" 	schemaLocation="../ref/if/person_english_name_v1_0.xsd"/>
+	<xsd:import namespace="PGC" 	schemaLocation="../ref/if/person_gender_code_v1_0.xsd"/>
+	<xsd:import namespace="HKID" 	schemaLocation="../ref/if/hkid_number_v1_0.xsd"/>
+	<xsd:import namespace="CCT" 	schemaLocation="../ref/gov/cct/cct.xsd"/>
+   
+<!--
+ *PARTY DETAILS
+-->
+    <xsd:complexType name="Party.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party details consists of 
+                               a) Name in English
+                               b) Name in Chinese
+                               c) CCC Code
+                               d) ID Type
+                               e) ID Number
+                               f) Gender
+                               g) Date of Birth
+                               h) Age
+                               i) Phone number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PartyEnglishName" type="PartyEnglishName.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PartyChineseName" type="PartyChineseName.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CCCCode" type="pcn:ChineseCommercialCodeDetails.V1.0.CT" minOccurs="0" maxOccurs="6"/>
+            <xsd:element name="IdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="IdentificationNumber" type="IdentificationNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Gender" type="pgc:PersonGenderCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="BirthDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Age" type="Age.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PhoneNumber" type="PhoneNumber.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+<!--
+ *PARTY DETAILS VERSION 1.1
+-->    
+    <xsd:complexType name="Party.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>party version 1.1 details consists of 
+                               a) Name in English
+                               b) Name in Chinese (v1.1)
+                               c) CCC Code
+                               d) ID Type
+                               e) ID Number
+                               f) Gender
+                               g) Date of Birth
+                               h) Age (v1.1)
+                               i) Phone number
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PartyEnglishName" type="PartyEnglishName.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PartyChineseName" type="PartyChineseName.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="CCCCode" type="pcn:ChineseCommercialCodeDetails.V1.0.CT" minOccurs="0" maxOccurs="6"/>
+            <xsd:element name="IdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="IdentificationNumber" type="IdentificationNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="Gender" type="pgc:PersonGenderCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="BirthDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Age" type="Age.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="PhoneNumber" type="PhoneNumber.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *PARTY DETAILS VERSION 1.2
+-->    
+    <xsd:complexType name="Party.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>party version 1.2 details consists of 
+                               a) Surname, Given name in English
+                               b) Surname, Given name in Chinese
+                               c) CCC Code
+                               d) ID Type
+                               e) ID Number
+                               f) Gender
+                               g) Date of Birth
+                               h) Age (v1.1)
+                               i) Phone number
+                               j) Other Phone number
+                               k) Fax number
+                               l) Email
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PartyEnglishSurname" type="PartyEnglishSurname.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PartyEnglishGivenName" type="PartyEnglishGivenName.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PartyChineseSurname" type="PartyChineseSurname.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="PartyChineseGivenName" type="PartyChineseGivenName.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CCCCode" type="pcn:ChineseCommercialCodeDetails.V1.0.CT" minOccurs="0" maxOccurs="6"/>
+            <xsd:element name="IdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="IdentificationNumber" type="IdentificationNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="Gender" type="pgc:PersonGenderCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="BirthDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="Age" type="Age.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="PhoneNumber" type="PhoneNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="OtherPhoneNumber" type="PhoneNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="FaxNumber" type="PhoneNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="Email" type="Email.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyEnglishName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party name in english</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="150"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="PartyChineseName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party name in chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyChineseName.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>party name in chinese version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="50"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyEnglishSurname.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party surname in english</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyEnglishGivenName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party given name in english</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyChineseSurname.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party surname in chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PartyChineseGivenName.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>party given name in chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Name.CT">
+                <xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="IdentificationType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>list of id type code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+                <xsd:length value="1"/>
+                <xsd:pattern value="[A-Z]{1}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+   
+    <xsd:complexType name="IdentificationNumber.V1.0.CT">
+        <xsd:sequence>
+            <xsd:element name="IDNumberType" type="IDNumberType.V1.0.CT"/>
+            <xsd:element name="HKIDNumber" type="hkid:HKIDNumberDetails.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherIDNumber" type="OtherIDNumber.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+     <xsd:complexType name="IdentificationNumber.V1.1.CT">
+        <xsd:sequence>            
+            <xsd:element name="HKIDNumber" type="hkid:HKIDNumberDetails.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="OtherIDNumber" type="OtherIDNumber.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="IDNumberType.V1.0.CT">
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+                <xsd:length value="1"/>
+            	 <xsd:enumeration value="I"/>
+                <xsd:enumeration value="O"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="OtherIDNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>other identification number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Age.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>age</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">            	
+                <xsd:fractionDigits value="0"/>
+                <xsd:minInclusive value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Age.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>age version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+            	<xsd:totalDigits value="3"/>
+                <xsd:fractionDigits value="0"/>
+                <xsd:minInclusive value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="PhoneNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>telephone number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="30"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PhoneNumber.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>telephone number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+					<xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Email.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>email address</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:ElectronicAddress.CT">
+		<xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="StaffNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>officer staff number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+		<xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *CASE NUMBER OBJECT
+-->	
+    <xsd:complexType name="CaseNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>case no consists of 
+                               a) Magistrates' Courts Code
+                               b) Case Type
+                               c) Case Serial No
+                               d) Case Year
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+   			<xsd:element name="CourtSys" type="CourtSys.V1.0.CT"/>
+            <xsd:element name="CaseType" type="CaseType.V1.0.CT"/>
+            <xsd:element name="CaseSerialNumber" type="CaseSerialNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="CaseYear" type="CaseYear.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+	
+
+    <xsd:complexType name="CourtSys.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>list of judiciary court sys code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+               <xsd:length value="2" fixed="true"/>
+               <xsd:pattern value="[A-Z]{2}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    
+    <xsd:complexType name="CaseType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>list of judiciary court case type</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+               <xsd:minLength value="1"/>
+					<xsd:maxLength value="2"/>
+               <xsd:pattern value="[A-Z]{1,2}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="CaseSerialNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>judiciary case serial no</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="999999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="CaseYear.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>year portion of case no.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:gYear"></xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+<!--
+ *HEARING DETAILS
+-->
+    <xsd:complexType name="HearingDetail.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing details consists of 
+                               a) Hearing Internal Number
+                               b) Hearing Date and Time
+                               c) Hearing Type
+                               d) Hearing Court Sys Code
+                               e) Hearing Court Number
+                               f) Hearing Magistrate Code
+                               g) Interpret Language
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingDate" type="cct:Date.CT"/>
+            <xsd:element name="HearingTime" type="cct:Time.CT"/>
+            <xsd:element name="HearingType" type="HearingType.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingCourtSys" type="CourtSys.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="HearingMagistrateCode" type="HearingMagistrateCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Language" type="Language.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="HearingInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing internal number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+                <xsd:minInclusive value="-999"/>
+                <xsd:maxInclusive value="999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="HearingCourtNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing court number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HearingCourtNumber.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing court number version 1.1</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="HearingType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing type code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+               <xsd:pattern value="[A-Z]{3}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="HearingMagistrateCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing magistrate code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+	<xsd:maxLength value="5"/>
+                <xsd:pattern value="[A-Z]{1,5}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="HearingMagistrateCode.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>hearing magistrate code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="5"/>            
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Language.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>interpret language</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="3"/>
+               <xsd:pattern value="[A-Z]{1,3}"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Language.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>interpret language</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="3"/>               
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BasicSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>basic sequence number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="OffenceSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>offence sequence number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="BasicSequenceNumber.V1.0.CT">
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DefendantSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>defendant sequence number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="BasicSequenceNumber.V1.0.CT">
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="WitnessSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>witness sequence number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="BasicSequenceNumber.V1.0.CT">
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SuretySequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>witness sequence number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="BasicSequenceNumber.V1.0.CT">
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BailRemandIdentifier.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Bail Remand Identifier
+                               composed of 'D' + defendant sequence number + bail/remand start date
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="20"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+	
+</xsd:schema>

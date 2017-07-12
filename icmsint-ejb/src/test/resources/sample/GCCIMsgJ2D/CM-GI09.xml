@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI09</Prefix>
+		<BatchSerialNumber>1</BatchSerialNumber>
+		<InterfaceDate>2016-08-02</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<NextHearing>
+		<RecordPrefix>CM-GI09</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>KC</CourtSys>
+			<CaseType>HW</CaseType>
+			<CaseSerialNumber>101</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+		<RecordSequenceNumber>1</RecordSequenceNumber>
+		<HearingInternalNumber>2</HearingInternalNumber>
+		<RecordStatus> </RecordStatus>
+		<NextHearingDate>2016-08-08</NextHearingDate>
+		<NextHearingTime>09:30:00</NextHearingTime>
+		<HearingType>MEN</HearingType>
+		<HearingCourtSys>KC</HearingCourtSys>
+		<HearingCourtNumber>1</HearingCourtNumber>
+	</NextHearing>
+</GCCIMsgJ2D>

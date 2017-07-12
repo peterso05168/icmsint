@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI15</Prefix>
+		<BatchSerialNumber>34</BatchSerialNumber>
+		<InterfaceDate>2016-06-02</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<NoticeOfOrderAllocation>
+		<CourtSys>FL</CourtSys>
+		<CaseType>N</CaseType>
+		<CaseSerialNumber>44</CaseSerialNumber>
+		<CaseYear>2016</CaseYear>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU1049/2016/208</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI15</RecordPrefix>
+		<ApplicationStatus>A</ApplicationStatus>
+	</NoticeOfOrderAllocation>
+</GDSNIMsgJ2D>

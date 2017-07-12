@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--****************************************************************
+	*	Standard Offence Description (SOD) Application
+	**************************************************************** -->
+    <xsd:complexType name="SODApplication.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	SOD Application
+	  							Derived from CSOD.V1.1.CT
+								Extension consists of				 
+				a) Record Prefix
+				b) Interface ID	
+				c) ApplicationAction (Add, Update, Inactive)
+				d) Driving Offence Point (DOP)
+				e) PGBL Allow
+				f) Apply to Summons Indicator
+				g) Apply to Notice of Order Indicator
+				h) Apply to DOP Indicator
+				i) Apply to CC Indicator
+				j) Apply to Fixed Penalty				
+				k) Total number of variables
+				l) SOD Variable Detail Object							
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="CSOD.V1.1.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="ApplicationAction" type="ApplicationAction.V1.0.CT"/>   
+					<xsd:element name="DrivingOffencePoint" type="DrivingOffencePoint.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="ApplyToSummons" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToNotice" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToDOP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToCC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>					
+					<xsd:element name="ApplyToFP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>									
+					<xsd:element name="TotalNumberOfVariable" type="TotalNumberOfVariable.V1.0.CT"/>
+					<xsd:element name="SODVariable" type="SODVariable.V1.0.CT" minOccurs="0" />
+		       </xsd:sequence>		       
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+	
+	<xsd:complexType name="SODApplication.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>	SOD Application
+	  							Derived from CSOD.V1.2.CT
+								Extension consists of				 
+				a) Record Prefix
+				b) Interface ID	
+				c) ApplicationAction (Add, Update, Inactive)
+				d) Driving Offence Point (DOP)
+				e) PGBL Allow
+				f) Apply to Summons Indicator
+				g) Apply to Notice of Order Indicator
+				h) Apply to DOP Indicator
+				i) Apply to CC Indicator
+				j) Apply to Fixed Penalty				
+				k) Total number of variables
+				l) SOD Variable Detail Object							
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="CSOD.V1.2.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="ApplicationAction" type="ApplicationAction.V1.0.CT"/>   
+					<xsd:element name="DrivingOffencePoint" type="DrivingOffencePoint.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="ApplyToSummons" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToNotice" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToDOP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToCC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>					
+					<xsd:element name="ApplyToFP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>									
+					<xsd:element name="TotalNumberOfVariable" type="TotalNumberOfVariable.V1.0.CT"/>
+					<xsd:element name="SODVariable" type="SODVariable.V1.0.CT" minOccurs="0" />
+		       </xsd:sequence>		       
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SODApplication.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	SOD Application
+	  							Derived from CSOD.V1.2.CT
+								Extension consists of				 
+				a) Record Prefix
+				b) Application Action (Add, Update, Inactive)
+				c) Driving Offence Point (DOP)
+				d) PGBL Allow
+				e) Apply to Summons Indicator
+				f) Apply to Notice of Order Indicator
+				g) Apply to DOP Indicator
+				h) Apply to CC Indicator
+				i) Apply to Fixed Penalty
+				j) Total number of variables
+				k) SOD Variable Detail Object
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="CSOD.V1.3.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="ApplicationAction" type="ApplicationAction.V1.0.CT"/>
+					<xsd:element name="DrivingOffencePoint" type="DrivingOffencePoint.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="ApplyToSummons" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToNotice" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToDOP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToCC" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ApplyToFP" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="TotalNumberOfVariable" type="TotalNumberOfVariable.V1.0.CT"/>
+					<xsd:element name="SODVariable" type="SODVariable.V1.0.CT" minOccurs="0" />
+		       </xsd:sequence>		       
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ApplicationAction.V1.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>Application Action
+	            	'A': Add
+	            	'U': Update	            	         	
+	            	'I': Inactive
+	        </xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:simpleContent>
+	        <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="1"/>
+					<xsd:enumeration value="A"/>
+					<xsd:enumeration value="U"/>
+					<xsd:enumeration value="I"/>
+	        </xsd:restriction>
+	    </xsd:simpleContent>
+	</xsd:complexType>
+	
+
+   <xsd:complexType name="DrivingOffencePoint.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Driving Offence Point (DOP)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="0"/>
+               <xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BriefDescription.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Brief Description in English</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="100"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BriefDescriptionChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Brief Description in Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="200"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TotalNumberOfVariable.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Total Number Of Variable of SOD</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="0"/>
+               <xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+   	<xsd:complexType name="SODVariable.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>multiple SOD variable detail</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="VariableDetail" type="VariableDetail.V1.0.CT" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+	<xsd:complexType name="VariableDetail.V1.0.CT">		
+        <xsd:annotation>
+            <xsd:documentation>variable detail</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CSODVarDetail" type="CSODVarDetail.V1.1.CT"/>
+            <xsd:element name="SODVariableSelection" type="SODVariableSelection.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+	<xsd:complexType name="SODVariableSelection.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Multiple SOD Variable Selection Item</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODVariableSelectionItem" type="SODVariableSelectionItem.V1.0.CT" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SODVariableSelectionItem.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD variable selection of 
+                               a) Selection Sequence Number
+                               b) Selection Value
+                               c) Selection Value Chinese                               
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="SODVarSelectionSequenceNumber" type="SODVarSelectionSequenceNumber.V1.0.CT"/>
+            <xsd:element name="SODVarSelectionValue" type="SODVarSelectionValue.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="SODVarSelectionValueChinese" type="SODVarSelectionValueChinese.V1.0.CT" minOccurs="0"/>            
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SODVarSelectionSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD Variable Selection Sequence Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="1"/>
+               <xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SODVarSelectionValue.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD Variable Selection Value</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SODVarSelectionValueChinese.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>SOD Variable Selection Value Chinese</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="300"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!--****************************************************************
+	*	Standard Offence Description (SOD) Application Result
+	**************************************************************** -->
+    <xsd:complexType name="SODApplicationResult.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	SOD Application Result
+	  							Derived from SODKey.V1.0.CT
+								Extension consists of				 
+				a) Record Prefix
+				b) Interface ID
+				c) Prosecution Department Code (v1.1)
+				d) ApplicationAction (Add, Update)				
+				e) Application Result Code
+				f) Rejection Detail Object
+				
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="SODKey.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>					
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>					
+					<xsd:element name="ApplicationAction" type="ApplicationAction.V1.0.CT"/>   
+					<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="SODApplicationRemark" type="SODApplicationRemark.V1.0.CT" minOccurs="0"/>
+		       </xsd:sequence>		       
+			</xsd:extension>      
+		</xsd:complexContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="SODApplicationResult.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	SOD Application Result
+	  							Derived from SODKey.V1.0.CT
+								Extension consists of				 
+				a) Record Prefix
+				b) Prosecution Department Code (v1.1)
+				c) ApplicationAction (Add, Update)				
+				d) Application Result Code
+				e) Rejection Detail Object
+				
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="SODKey.V1.1.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+					<xsd:element name="ApplicationAction" type="ApplicationAction.V1.0.CT"/>
+					<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="SODApplicationRemark" type="SODApplicationRemark.V1.0.CT" minOccurs="0"/>
+		       </xsd:sequence>		       
+			</xsd:extension>      
+		</xsd:complexContent>
+	</xsd:complexType>
+    
+	<xsd:complexType name="SODApplicationRemark.V1.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>multiple remark line</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:sequence>
+	        <xsd:element name="RemarkLine" type="RemarkLine.V1.0.CT" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+	</xsd:complexType>
+        
+    <!--****************************************************************
+	*	Standard Offence Description Details Update
+	**************************************************************** -->
+        <xsd:complexType name="SODDetailsUpdate.V2.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>Send SOD details to other PDs sharing the same SOD</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:complexContent>
+        	<xsd:extension base="SODApplication.V2.0.CT">
+		       <xsd:sequence>
+				<xsd:element name="OwnerProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+                       </xsd:sequence>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+	
+</xsd:schema>

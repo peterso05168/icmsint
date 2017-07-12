@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgD2J>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI08</Prefix>
+		<BatchSerialNumber>10</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<DefendantAddressApplication>
+		<CourtSys>ES</CourtSys>
+		<CaseType>S</CaseType>
+		<CaseSerialNumber>30</CaseSerialNumber>
+		<CaseYear>2016</CaseYear>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU0666/2016/1</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI08</RecordPrefix>
+		<AddressUpdateDate>2016-09-09</AddressUpdateDate>
+		<DefendantAddress>
+			<AddressTerritory>2</AddressTerritory>
+			<EnglishAddress>
+				<EnglishAddressLine>FLAT YY, ZZ HOUSE,</EnglishAddressLine>
+				<EnglishAddressLine>UPPER WONG TAI SIN ESTATE,</EnglishAddressLine>
+				<EnglishAddressLine>WONG TAI SIN</EnglishAddressLine>
+			</EnglishAddress>
+			<ChineseAddress>
+				<ChineseAddressLine>黃大仙</ChineseAddressLine>
+				<ChineseAddressLine>黃大仙上村</ChineseAddressLine>
+				<ChineseAddressLine>ZZ樓YY室</ChineseAddressLine>
+			</ChineseAddress>
+			<OverseasIndicator>N</OverseasIndicator>
+		</DefendantAddress>
+	</DefendantAddressApplication>
+</GDSNIMsgD2J>

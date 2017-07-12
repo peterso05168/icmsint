@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<GDSNIMsgJ2D>
+   <InterfaceFileHeader>
+      <Prefix>CM-GI13</Prefix>
+      <BatchSerialNumber>85</BatchSerialNumber>
+      <InterfaceDate>2016-10-01</InterfaceDate>
+      <RecordCount>1</RecordCount>
+   </InterfaceFileHeader>
+
+   <SODApplicationResult>
+      <Chapter>375</Chapter>
+      <SubLegislative>0</SubLegislative>
+      <Section>8AA</Section>
+      <SubSection>7</SubSection>
+      <Paragraph>0</Paragraph>
+      <SubParagraph>0</SubParagraph>
+      <SupplementCode>0</SupplementCode>
+      <VersionNumber>1</VersionNumber>
+      <RecordPrefix>CM-GI13</RecordPrefix>
+      <ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+      <ApplicationAction>A</ApplicationAction>
+      <ApplicationStatus>A</ApplicationStatus>
+   </SODApplicationResult>
+</GDSNIMsgJ2D>

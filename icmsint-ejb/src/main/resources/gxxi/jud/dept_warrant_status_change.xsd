@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>		
+
+<!--*******************************************
+	*	WARRANT STATUS CHANGE
+	*******************************************-->
+    <xsd:complexType name="WarrantStatusChange.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>	Non-Payment/Non-Appearance/Committal warrant status change details 
+            					Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Record Sequence Number in the given batch                          
+				c) Warrant Status                                                   
+				d) Warrant Issue Date                                               
+				e) Warrant Writ Number (Non-Payment/Non-Appearance warrant only)    
+				f) Committal Writ Number (Committal warrant only)                   				                                  
+				g) Record Status                                                    
+				h) Rollback from state                                              
+				i) Rollack to state                                             	
+				j) Interface ID				
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		        <xsd:sequence>
+						<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>						
+						<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+						<xsd:element name="WarrantStatus" type="WarrantStatus.V1.0.CT"/>
+						<xsd:element name="WarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+						<xsd:element name="WarrantWritNumber" type="WarrantWritNumber.V1.0.CT" minOccurs="0"/>
+						<xsd:element name="CommittalWritNumber" type="CommittalWritNumber.V1.0.CT" minOccurs="0"/>						
+						<xsd:element name="RecordStatus" type="RecordStatus.V1.0.CT"/>
+						<xsd:element name="RollbackFromState" type="RollbackFromState.V1.0.CT" minOccurs="0"/>
+						<xsd:element name="RollbackToState" type="RollbackToState.V1.0.CT" minOccurs="0"/>
+						<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+		        </xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="WarrantStatus.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>warrant status code for non-payment warrant:
+                	'0': Pending Magistrate's Order
+                	'1': Warrant Issued -Pending Execution
+                	'2': Warrant Executed
+                	'3': Warrant Withdrawn
+                	'4': Warrant Application Withdrawn
+                	'5': Warrant Returned - Wrong Address
+                	'6': Warrant Returned - Isuff Goods
+                	'7': Warrant Returned - Misc. Reasons
+                	'X': Warrant Cancel Before Issue
+                	'Y': Warrant Cancel After Issue
+					'Z':
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="1"/>
+					<xsd:enumeration value="0"/>
+					<xsd:enumeration value="1"/>
+					<xsd:enumeration value="2"/>
+					<xsd:enumeration value="3"/>
+					<xsd:enumeration value="4"/>										
+					<xsd:enumeration value="5"/>
+					<xsd:enumeration value="6"/>
+					<xsd:enumeration value="7"/>
+					<xsd:enumeration value="X"/>
+					<xsd:enumeration value="Y"/>
+					<xsd:enumeration value="Z"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="WarrantWritNumber.V1.0.CT">
+       <xsd:annotation>
+           <xsd:documentation>warrant writ number</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+               <xsd:maxLength value="14"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+	</xsd:complexType>
+	
+   <xsd:complexType name="CommittalWritNumber.V1.0.CT">
+       <xsd:annotation>
+           <xsd:documentation>committal warrant number</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+               <xsd:maxLength value="20"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RollbackFromState.V1.0.CT">
+       <xsd:annotation>
+           <xsd:documentation>rollback from state</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="1"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RollbackToState.V1.0.CT">
+       <xsd:annotation>
+           <xsd:documentation>rollback to state</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+               <xsd:maxLength value="1"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+	</xsd:complexType>
+
+<!--
+ *WARRANT STATUS CHANGE
+-->
+    <xsd:complexType name="WarrantStatusChange.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Non-Payment/Non-Appearance/Committal warrant status change details consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Demand Note Number
+				d) Case Number Object
+				e) Case Sequence Number in a batch
+				f) Warrant Status
+				g) Warrant Issue Date
+				h) Warrant Writ Number (Non-Payment/Non-Appearance warrant only)
+				i) Committal Writ Number (Committal warrant only)
+				j) Record Status
+				k) Rollback from state
+				l) Rollack to state 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="WarrantStatus" type="WarrantStatus.V1.1.CT"/>
+			<xsd:element name="WarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="WarrantWritNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="CommittalWritNumber" type="CommittalWritNumber.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+			<xsd:element name="RollbackFromState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RollbackToState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="WarrantStatus.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>warrant status code for non-payment warrant:
+                	'G': Generated (by system)
+                	'I': Issued
+                	'C': Cancelled (before issue or after issue)
+                	'W': Withdrawn
+                	'E': Executed
+                	' ': Space when record status = 'R' (rollback)
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="1"/>
+					<xsd:enumeration value="G"/>
+					<xsd:enumeration value="I"/>
+					<xsd:enumeration value="C"/>
+					<xsd:enumeration value="W"/>
+					<xsd:enumeration value="E"/>
+					<xsd:enumeration value=" "/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+   <xsd:complexType name="CommittalWritNumber.V1.1.CT">
+       <xsd:annotation>
+           <xsd:documentation>committal warrant number</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+               <xsd:maxLength value="30"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+   </xsd:complexType>
+
+    <xsd:complexType name="WarrantStatusChange.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Non-Payment/Non-Appearance/Committal warrant status change details consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Demand Note Number
+				d) Case Number Object
+				e) Case Sequence Number in a batch
+				f) Warrant Status (v1.1)
+				g) Warrant Issue Date
+				h) Warrant Writ Number (Non-Payment/Non-Appearance warrant only)
+				i) Committal Writ Number (Committal warrant only)
+				j) Record Status
+				k) Rollback from state
+				l) Rollack to state 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="WarrantStatus" type="WarrantStatus.V1.1.CT"/>
+			<xsd:element name="WarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="WarrantWritNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="CommittalWritNumber" type="CommittalWritNumber.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+			<xsd:element name="RollbackFromState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RollbackToState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+	<xsd:complexType name="WarrantStatusChange.V2.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>	Non-Payment/Non-Appearance/Committal warrant status change details 
+				a) Record Prefix
+				b) Case Number
+				c) Prosecution Department Code
+				d) Department Reference Number /
+                                    Demand Note Number
+				e) Record Sequence Number in the given batch
+				f) Warrant Status
+				g) Warrant Issue Date
+				h) Warrant Writ Number (Non-Payment/Non-Appearance warrant only)
+				i) Committal Writ Number (Committal warrant only)
+				j) Bail Amount
+				k) Record Status
+				l) Rollback from state
+				m) Rollack to state
+            </xsd:documentation>
+        </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:choice>
+				<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			</xsd:choice>
+			<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+			<xsd:element name="WarrantStatus" type="WarrantStatus.V1.1.CT"/>
+			<xsd:element name="WarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="WarrantWritNumber" type="WarrantWritNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="CommittalWritNumber" type="CommittalWritNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="BailAmount" type="Amount.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+			<xsd:element name="RollbackFromState" type="RollbackFromState.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="RollbackToState" type="RollbackToState.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+    </xsd:complexType>
+	
+<!--
+ *DISTRESS WARRANT STATUS CHANGE
+-->
+    <xsd:complexType name="FixedPenaltyDistressWarrantStatusChange.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Distress warrant status change details consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Department Reference Number
+				d) Distress Warrant Case Number Object
+				e) Case Sequence Number in a batch
+				f) Distress Warrant Status
+				g) Distress Warrant Issue Date
+				h) Record Status
+				i) Distress Warrant Costs
+				j) Rollback from state
+				k) Rollack to state 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantStatus" type="WarrantStatus.V1.1.CT"/>
+			<xsd:element name="DistressWarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="DistressWarrantCosts" type="Amount.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+			<xsd:element name="RollbackFromState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RollbackToState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FixedPenaltyDistressWarrantStatusChange.V2.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Distress warrant status change details consists of
+				a) Record Prefix
+				b) Department Reference Number
+				c) Distress Warrant Case Number Object
+				d) Case Sequence Number in a batch
+				e) Distress Warrant Status
+				f) Distress Warrant Issue Date
+				g) Record Status
+				h) Distress Warrant Costs
+				i) Rollback from state
+				j) Rollack to state 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantStatus" type="WarrantStatus.V1.1.CT"/>
+			<xsd:element name="DistressWarrantIssueDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="DistressWarrantCosts" type="Amount.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+			<xsd:element name="RollbackFromState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="RollbackToState" type="WarrantStatus.V1.1.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+</xsd:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+    xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+
+    <persistence-unit name="icmsintEJBPU" transaction-type="JTA">
+        
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/appds</jta-data-source>
+
+<!--  		<mapping-file>hk/judiciary/icmsint/model/sample/dao/namedquery/Project.orm.xml</mapping-file> -->
+ 		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/Pd.orm.xml</mapping-file>
+ 		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/CaseType.orm.xml</mapping-file>
+ 		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/SysInfCtrl.orm.xml</mapping-file>
+ 		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/SysInfCtrlType.orm.xml</mapping-file>
+ 		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/SysInfMsg.orm.xml</mapping-file>
+  		<mapping-file>hk/judiciary/icmsint/model/sysinf/dao/namedquery/SysInfMsgType.orm.xml</mapping-file>
+
+ 		
+
+        <properties>
+   			<property name="eclipselink.composite-unit-member" value="true" />
+   			<property name="eclipselink.jdbc.sequence-connection-pool" value="true" />
+			<property name="eclipselink.jdbc.sequence-connection-pool.non-jta-data-source" value="java:jboss/datasources/fmkseqds" />
+        </properties>
+    </persistence-unit>    
+
+</persistence>

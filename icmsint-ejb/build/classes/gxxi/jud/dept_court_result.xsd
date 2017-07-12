@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--****************************************************************
+	*	COURT HEARING RESULT
+	**************************************************************** -->
+    <xsd:complexType name="HearingResult.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Court Hearing Result
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Record Sequence Number of the given batch
+				d) Party Type
+				e) Party No
+				d) Hearing Internal Number
+				e) Hearing Date
+				f) Hearing Time
+				g) Court Number (v1.1)
+				i) Record Type (Normal, Rollback, Chang of Order Detail)
+				j) Hearing Type
+				k) Hearing Outcome
+				l) Master/Judge  (v1.1)
+				m) Plea Indicator
+				n) Interface Offence Code
+				o) Interface Type
+				p) Offence Change Indicator
+				q) Hearing Order Object
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+					<xsd:element name="PartyType" type="PartyType.V1.0.CT"/>
+                                        <xsd:element name="PartyNo" type="PartyNo.V1.0.CT"/>
+					<xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+					<xsd:element name="HearingDate" type="cct:Date.CT"/>
+					<xsd:element name="HearingTime" type="cct:Time.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+					<xsd:element name="RecordType" type="RecordType.V1.0.CT"/>
+					<xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+					<xsd:element name="HearingOutcome" type="HearingOutcome.V1.0.CT"/>
+					<xsd:element name="MasterJudgeCode" type="HearingMagistrateCode.V1.1.CT"/>
+					<xsd:element name="PleaType" type="PleaType.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="InterfaceOffenceCode" type="InterfaceOffenceCode.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="OffenceChangeIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="HearingOrder" type="HearingOrder.V1.0.CT" minOccurs="0"/>
+		       </xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HearingResult.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Court Hearing Result
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Record Sequence Number of the given batch
+				c) Party Type
+				d) Party No
+				e) Hearing Internal Number
+				f) Hearing Date
+				g) Hearing Time
+				h) Court Number (v1.1)
+				i) Record Type (Normal, Rollback, Chang of Order Detail)
+				j) Hearing Type
+				k) Hearing Outcome
+				l) Master/Judge  (v1.1)
+				m) Plea Indicator
+				n) Interface Offence Code
+				o) Offence Change Indicator
+				p) Hearing Order Object
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+					<xsd:element name="PartyType" type="PartyType.V1.0.CT"/>
+                                        <xsd:element name="PartyNo" type="PartyNo.V1.0.CT"/>
+					<xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+					<xsd:element name="HearingDate" type="cct:Date.CT"/>
+					<xsd:element name="HearingTime" type="cct:Time.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+					<xsd:element name="RecordType" type="RecordType.V1.0.CT"/>
+					<xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+					<xsd:element name="HearingOutcome" type="HearingOutcome.V1.0.CT"/>
+					<xsd:element name="MasterJudgeCode" type="HearingMagistrateCode.V1.1.CT"/>
+					<xsd:element name="PleaType" type="PleaType.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="InterfaceOffenceCode" type="InterfaceOffenceCode.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="OffenceChangeIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="HearingOrder" type="HearingOrder.V1.1.CT" minOccurs="0"/>
+		       </xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="NoticeHearingResult.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Notices Court Hearing Result
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Record Sequence Number of the given batch
+				d) Hearing Date
+				e) Hearing Time
+				f) Hearing Court Numner
+				g) Record Type
+				h) Hearing Outcome
+				i) Master Judge Code
+				j) PleaType
+				k) Hearing Order
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+                    <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+					<xsd:element name="AdjudicationDate" type="cct:Date.CT"/>
+					<xsd:element name="AdjudicationTime" type="cct:Time.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+					<xsd:element name="RecordType" type="RecordType.V1.0.CT"/>
+					<xsd:element name="HearingOutcome" type="HearingOutcome.V1.0.CT"/>
+					<xsd:element name="MasterJudgeCode" type="HearingMagistrateCode.V1.1.CT"/>
+					<xsd:element name="PleaType" type="PleaType.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="HearingOrder" type="HearingOrder.V1.0.CT" minOccurs="0"/>
+		       </xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="NoticeHearingResult.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Notices Court Hearing Result
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Record Sequence Number of the given batch
+				e) Hearing Internal Number
+				f) Hearing Date
+				g) Hearing Time
+				h) Court Number (v1.1)
+				i) Record Type (Normal, Rollback, Chang of Order Detail)
+				k) Hearing Outcome
+				l) Master/Judge  (v1.1)
+				m) Plea Indicator
+				p) Hearing Order Object
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+                                <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                                <xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+                                <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+                                <xsd:element name="HearingDate" type="cct:Date.CT"/>
+                                <xsd:element name="HearingTime" type="cct:Time.CT"/>
+                                <xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+                                <xsd:element name="RecordType" type="RecordType.V1.0.CT"/>
+                                <xsd:element name="HearingOutcome" type="HearingOutcome.V1.0.CT"/>
+                                <xsd:element name="MasterJudgeCode" type="HearingMagistrateCode.V1.1.CT"/>
+                                <xsd:element name="PleaType" type="PleaType.V1.0.CT" minOccurs="0"/>
+                                <xsd:element name="HearingOrder" type="HearingOrder.V1.1.CT" minOccurs="0"/>
+		       </xsd:sequence>
+                </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HearingOrder.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Multiple Hearing Orders</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Order" type="Order.V1.3.CT" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HearingOrder.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Multiple Hearing Orders</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Order" type="Order.V1.4.CT" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *FIXED PENALY NOTICE OF ORDER HEARING RESULT
+-->
+    <xsd:complexType name="FixedPenaltyNoticeOfOrderCourtResult.V1.0.CT">
+       <xsd:annotation>
+            <xsd:documentation>court order results for the
+                               Fixed Penalty Notice of Order sent from CASEMAN to TCO.  Message
+                               consists of
+								a) Record Prefix
+								b) Interface Date
+								c) Demand Note Number
+								d) Case Number Object
+								c) Case Sequence Number in a Given Batch
+								d) Court Result Type
+								e) Court Result Code
+								f) Hearing Date
+								g) Hearing Time
+								h) Hearing Court Number
+								i) Court Fine Amount
+								j) Additional Penalty Amount
+								k) Court Costs Amount
+            </xsd:documentation>
+       </xsd:annotation>
+       <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultType" type="NoticeOfOrderCourtResultType.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultCode" type="NoticeOfOrderCourtResultCode.V1.0.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+   	 </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltyNoticeOfOrderCourtResult.V1.1.CT">
+       <xsd:annotation>
+            <xsd:documentation>court order results for the
+                               Fixed Penalty Notice of Order sent from CASEMAN to TCO.  Message
+                               consists of
+								a) Record Prefix
+								b) Interface Date
+								c) Demand Note Number
+								d) Case Number Object
+								c) Case Sequence Number in a Given Batch
+								d) Court Result Type
+								e) Court Result Code
+								f) Hearing Date
+								g) Hearing Time
+								h) Hearing Court Number
+								i) Court Fine Amount
+								j) Additional Penalty Amount
+								k) Court Costs Amount
+            </xsd:documentation>
+       </xsd:annotation>
+       <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultType" type="NoticeOfOrderCourtResultType.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultCode" type="NoticeOfOrderCourtResultCode.V1.0.1.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+   	 </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FixedPenaltyNoticeOfOrderCourtResult.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>court order results for the Fixed Penalty Notice of Order.
+                                 Message consists of
+								a) Record Prefix
+								b) Case Number Object
+								c) Demand Note Number
+								d) Record Sequence Number in a Given Batch
+								e) Court Result Type
+								f) Court Result Code
+								g) Hearing Date
+								h) Hearing Time
+								i) Hearing Court Number
+								j) Court Fine Amount
+								k) Additional Penalty Amount
+								l) Court Costs Amount
+								m) Year
+								n) Month
+								o) Week
+								p) Day
+								q) Hour
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultType" type="NoticeOfOrderCourtResultType.V1.0.CT"/>
+			<xsd:element name="NoticeOfOrderCourtResultCode" type="NoticeOfOrderCourtResultCode.V1.0.1.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+			<xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="NoticeOfOrderCourtResultType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result type:
+                	'W': Warrant Result
+                	'N': Normal Court Result
+                	'A': Appeal/ Review Result
+                	'R': Rollback to previous level
+                	'I': RE-instatement
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="W"/>
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="R"/>
+				<xsd:enumeration value="I"/>
+            </xsd:restriction>
+       </xsd:simpleContent>
+   </xsd:complexType>
+
+
+   <xsd:complexType name="NoticeOfOrderCourtResultCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result code:
+                	' ' : for court result type = 'W' or 'I'
+                	'F' : Fixed Penalty for court result type 'N' or 'R' only
+                	'W' : Withdrawn for court result type 'N' or 'R' only
+                	'U' : Conviction upheld for court result type 'A' or 'R'
+                	'N' : No conviction or dismissed
+                	'RP': Rescinded - choose to pay for court result type 'A' or 'R'
+                	'RW': Rescinded - choose to withdraw for court result type 'A' or 'R'
+                	'RD': Rescinded - choose to dispute for court result type 'A' or 'R'
+                	'I' : Re-instatement for court result type 'R' only
+                	'WE': Warrant execution result for court result type 'R' only
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="2"/>
+				<xsd:enumeration value=" "/>
+				<xsd:enumeration value="F"/>
+				<xsd:enumeration value="W"/>
+				<xsd:enumeration value="U"/>
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="RP"/>
+				<xsd:enumeration value="RW"/>
+				<xsd:enumeration value="RD"/>
+				<xsd:enumeration value="I"/>
+				<xsd:enumeration value="WE"/>
+            </xsd:restriction>
+         </xsd:simpleContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="NoticeOfOrderCourtResultCode.V1.0.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result code:
+                	' ' : for court result type = 'W' or 'I'
+                	'F' : Fixed Penalty for court result type 'N' or 'R' only
+                	'W' : Withdrawn for court result type 'N' or 'R' only
+                	'U' : Conviction upheld for court result type 'A' or 'R'
+                	'N' : No conviction or dismissed
+                	'RP': Rescinded - choose to pay for court result type 'A' or 'R'
+                	'RW': Rescinded - choose to withdraw for court result type 'A' or 'R'
+                	'RD': Rescinded - choose to dispute for court result type 'A' or 'R'
+                	'I' : Re-instatement for court result type 'R' only
+                	'WE': Warrant execution result for court result type 'R' only
+                	'O' : Miscellaneous result code, for all result type
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="2"/>
+				<xsd:enumeration value=" "/>
+				<xsd:enumeration value="F"/>
+				<xsd:enumeration value="W"/>
+				<xsd:enumeration value="U"/>
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="RP"/>
+				<xsd:enumeration value="RW"/>
+				<xsd:enumeration value="RD"/>
+				<xsd:enumeration value="I"/>
+				<xsd:enumeration value="WE"/>
+				<xsd:enumeration value="O"/>
+            </xsd:restriction>
+         </xsd:simpleContent>
+   </xsd:complexType>
+
+<!--
+ *FIXED PENALY SUMMONS HEARING RESULT
+-->
+   <xsd:complexType name="FixedPenaltySummonsCourtResult.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court order result details for Fixed Penalty Summons sent from 
+                               CASEMAN to TCO.  Message consists of
+								a) Record Prefix
+								b) Interface Date
+								c) Demand Note Number
+								d) Case Number Object
+								e) Case Sequence Number in a Batch
+								f) Court Result Type
+								g) Court Result Code
+								h) Hearing Date
+								i) Hearing Time
+								j) Hearing Court Number
+								k) Court Fine Amount
+								l) Additional Penalty Amount
+								m) Court Costs Amount
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultType" type="FixedPenaltySummonsCourtResultType.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultCode" type="FixedPenaltySummonsCourtResultCode.V1.0.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+        </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="FixedPenaltySummonsCourtResult.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>court order result details for Fixed Penalty Summons sent from
+                               CASEMAN to TCO.  Message consists of
+								a) Record Prefix
+								b) Interface Date
+								c) Demand Note Number
+								d) Case Number Object
+								e) Case Sequence Number in a Batch
+								f) Court Result Type
+								g) Court Result Code
+								h) Hearing Date
+								i) Hearing Time
+								j) Hearing Court Number
+								k) Court Fine Amount (for normal FP Summons)
+								l) Additional Penalty Amount (for normal FP Summons)
+								m) Court Costs Amount (for normal FP Summons)
+								n) Hearing Order (for extended FP Summons)
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="CaseRowSequenceNumber" type="CaseRowSequenceNumber.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultType" type="FixedPenaltySummonsCourtResultType.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultCode" type="FixedPenaltySummonsCourtResultCode.V1.0.1.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:choice minOccurs="0" maxOccurs="1">
+			    <xsd:sequence>
+			        <xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			        <xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			        <xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+                </xsd:sequence>
+			    <xsd:sequence>
+			        <xsd:element name="HearingOrder" type="HearingOrder.V1.0.CT" minOccurs="0"/>
+                </xsd:sequence>
+			</xsd:choice>
+        </xsd:sequence>
+   </xsd:complexType>
+   
+	<xsd:complexType name="FixedPenaltySummonsCourtResult.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>court order result details for Fixed Penalty Summons
+							Message consists of
+							a) Record Prefix
+							b) Case Number Object
+							c) Demand Note Number
+							d) Record Sequence Number in a Batch
+							e) Court Result Type
+							f) Court Result Code
+							g) Hearing Date
+							h) Hearing Time
+							i) Hearing Court Number
+							(for normal FP Summons)
+								j) Court Fine Amount
+								k) Additional Penalty Amount
+								l) Court Costs Amount
+								m) Year
+								n) Month
+								o) Week
+								p) Day
+								q) Hour
+							or (for extended FP Summons)
+								j) Hearing Order 
+			</xsd:documentation>
+		</xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultType" type="FixedPenaltySummonsCourtResultType.V1.0.CT"/>
+			<xsd:element name="FixedPenaltySummonsCourtResultCode" type="FixedPenaltySummonsCourtResultCode.V1.0.1.CT"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+			<xsd:choice minOccurs="0" maxOccurs="1">
+				<xsd:sequence>
+					<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+					<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+					<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+					<xsd:element name="Year" type="Year.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="Month" type="Month.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="Day" type="Day.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="Hour" type="Hour.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element name="HearingOrder" type="HearingOrder.V1.1.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+
+   <xsd:complexType name="FixedPenaltySummonsCourtResultType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result type:
+                	'W': Warrant Result
+                	'N': Normal Court Result
+                	'A': Appeal/ Review Result
+                	'R': Rollback to previous level
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:maxLength value="1"/>
+               <xsd:enumeration value="W"/>
+               <xsd:enumeration value="N"/>
+               <xsd:enumeration value="A"/>
+               <xsd:enumeration value="R"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+   </xsd:complexType>
+
+
+   <xsd:complexType name="FixedPenaltySummonsCourtResultCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result code:
+                	' ': for court result type = 'W'
+                	'C': Convicted, for court result type 'N' or 'R' only
+                	'A': Convicted and discharged (absolute), for court result type 'N' or 'R' only
+                	'D': Convicted and discharged (conditional), for court result type 'A' or 'R'
+                	'N': Not convicted, for court result type 'N', 'R' or 'A'
+                	'W': Withdrawn, for court result type 'N' or 'R'
+                	'U': Upheld, for court result type 'A' or 'R'
+					'WE': Warrant execution result for court result type 'R' only
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					 <xsd:maxLength value="2"/>
+                <xsd:enumeration value=" "/>
+                <xsd:enumeration value="C"/>
+                <xsd:enumeration value="A"/>
+                <xsd:enumeration value="D"/>
+                <xsd:enumeration value="N"/>
+                <xsd:enumeration value="W"/>
+                <xsd:enumeration value="U"/>
+                <xsd:enumeration value="WE"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="FixedPenaltySummonsCourtResultCode.V1.0.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>court result code:
+                	' ': for court result type = 'W'
+                	'C': Convicted, for court result type 'N' or 'R' only
+                	'A': Convicted and discharged (absolute), for court result type 'N' or 'R' only
+                	'D': Convicted and discharged (conditional), for court result type 'A' or 'R'
+                	'N': Not convicted, for court result type 'N', 'R' or 'A'
+                	'W': Withdrawn, for court result type 'N' or 'R'
+                	'U': Upheld, for court result type 'A' or 'R'
+					'WE': Warrant execution result for court result type 'R' only
+					'O' : Miscellaneous result codes, for all result types
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					 <xsd:maxLength value="2"/>
+                <xsd:enumeration value=" "/>
+                <xsd:enumeration value="C"/>
+                <xsd:enumeration value="A"/>
+                <xsd:enumeration value="D"/>
+                <xsd:enumeration value="N"/>
+                <xsd:enumeration value="W"/>
+                <xsd:enumeration value="U"/>
+                <xsd:enumeration value="WE"/>
+                <xsd:enumeration value="O"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+   </xsd:complexType>
+
+<!--
+ *CHARGE CASE HEARING RESULT
+-->
+   <xsd:complexType name="ChargeCaseHearingResult.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court order result details for Charge Case
+                               Derived from Case.V1.0.CT
+                               Extension consists of
+								a) Record Prefix
+								b) Court Result Type
+                                                                c) Hearing Date
+								d) Hearing Time
+                                                                e) Hearing Court Number
+                                                                f) Hearing Type
+                                                                g) Hearing Elapsed Time
+								h) Hearing Sequence Number
+								i) Order by Charge Details Object
+                                                                j) Consolidated Order by Defendant Details Object
+                                                                k) Bail/Remand Details Object
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+		<xsd:extension base="Case.V1.0.CT">
+                        <xsd:sequence>
+                            <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                            <xsd:element name="CourtResultType" type="RecordType.V1.0.CT"/>
+                            <xsd:element name="HearingDate" type="cct:Date.CT"/>
+                            <xsd:element name="HearingTime" type="cct:Time.CT"/>
+                            <xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT"/>
+                            <xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+                            <xsd:element name="HearingElapsedTime" type="HearingElapsedTime.V1.0.CT"/>
+                            <xsd:element name="HearingSequenceNumber" type="HearingInternalNumber.V1.0.CT"/>
+                            <xsd:element name="OrderByCharge" type="OrderByCharge.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+                            <xsd:element name="OrderByDefendant" type="OrderByDefendant.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+                            <xsd:element name="BailRemand" type="BailRemand.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                </xsd:extension>
+        </xsd:complexContent>
+   </xsd:complexType>
+   
+   <xsd:complexType name="HearingElapsedTime.V1.0.CT">
+            <xsd:annotation>
+                    <xsd:documentation>hearing elapsed time</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleContent>
+                    <xsd:restriction base="cct:Numeric.CT">
+                            <xsd:totalDigits value="4"/>
+                            <xsd:fractionDigits value="0"/>
+                    </xsd:restriction>
+            </xsd:simpleContent>
+    </xsd:complexType>
+</xsd:schema>

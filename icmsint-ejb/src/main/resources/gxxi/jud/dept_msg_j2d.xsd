@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:include schemaLocation="dept_summons.xsd"/>
+	<xsd:include schemaLocation="dept_notice.xsd"/>	
+	<xsd:include schemaLocation="dept_witness_summons.xsd"/>
+	<xsd:include schemaLocation="dept_court_result.xsd"/>
+	<xsd:include schemaLocation="dept_appeal_review_grant.xsd"/>
+	<xsd:include schemaLocation="dept_warrant_status_change.xsd"/>
+	<xsd:include schemaLocation="dept_next_hrng.xsd"/>
+	<xsd:include schemaLocation="dept_court_payment.xsd"/>
+	<xsd:include schemaLocation="dept_sod.xsd"/>	
+	<xsd:include schemaLocation="dept_reservice_result.xsd"/>	
+	
+	
+	<xsd:element name="DeptMsgJ2D">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InterfaceFileHeader"
+                             type="InterfaceFileHeader.V1.2.CT"/>
+                <xsd:choice>
+                    <xsd:element name="SummonsAllocation"
+                                 type="SummonsAllocation.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="HearingResult"
+                                 type="HearingResult.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="NoticeAllocation"
+                                 type="NoticeAllocation.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="NoticeHearingResult"
+                                 type="NoticeHearingResult.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>								 
+                    <xsd:element name="WitnessSummonsAllocation"
+                                 type="WitnessSummonsAllocation.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="AppealReviewGrant"
+                                 type="AppealReviewGrant.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="WarrantStatusChange"
+                                 type="WarrantStatusChange.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="NextHearing"
+                                 type="NextHearing.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>                    
+                    <xsd:element name="CourtPayment"
+                                 type="CourtPaymentExtended.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="SODApplicationResult"
+                                 type="SODApplicationResult.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ReServiceResult"
+                                 type="ReServiceResult.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>                                 
+                </xsd:choice>
+           </xsd:sequence>
+       </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

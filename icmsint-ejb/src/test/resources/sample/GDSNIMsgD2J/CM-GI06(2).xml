@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgD2J>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI06</Prefix>
+		<BatchSerialNumber>10</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<WitnessSummonsApplication>
+		<RecordPrefix>CM-GI06</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>ES</CourtSys>
+			<CaseType>S</CaseType>
+			<CaseSerialNumber>30</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU0666/2016/1</DepartmentReferenceNumber>
+		<HearingDate>2016-10-10</HearingDate>
+		<HearingTime>09:30:00</HearingTime>
+		<ApplyParty>P</ApplyParty>
+		<WitnessDetails>
+			<PartyEnglishSurname>Chan</PartyEnglishSurname>
+			<PartyEnglishGivenName>Dai</PartyEnglishGivenName>
+			<PartyChineseSurname>陳</PartyChineseSurname>
+			<PartyChineseGivenName>大</PartyChineseGivenName>
+			<IdentificationType>I</IdentificationType>
+			<IdentificationNumber>
+				<HKIDNumber>
+					<Identifier xmlns="HKID">V223344</Identifier>
+					<CheckDigit xmlns="HKID">1</CheckDigit>
+				</HKIDNumber>
+			</IdentificationNumber>
+			<Gender>M</Gender>
+			<BirthDate>1974-02-03</BirthDate>
+			<Age>42</Age>
+			<PhoneNumber>33221199</PhoneNumber>
+			<Address>
+				<AddressTerritory>1</AddressTerritory>
+				<EnglishAddress>
+					<EnglishAddressLine>FLAT XX, XX HOUSE,</EnglishAddressLine>
+					<EnglishAddressLine>UPPER WONG TAI SIN ESTATE,</EnglishAddressLine>
+					<EnglishAddressLine>WONG TAI SIN</EnglishAddressLine>
+				</EnglishAddress>
+				<ChineseAddress>
+					<ChineseAddressLine>黃大仙</ChineseAddressLine>
+					<ChineseAddressLine>黃大仙上村</ChineseAddressLine>
+					<ChineseAddressLine>XX樓XX室</ChineseAddressLine>
+				</ChineseAddress>
+				<OverseasIndicator>N</OverseasIndicator>
+			</Address>
+			<InterpretLanguage>GER</InterpretLanguage>
+			<SpecialArrangement>Blind</SpecialArrangement>
+			<WitnessSequenceNumber>1</WitnessSequenceNumber>
+		</WitnessDetails>
+		<InformantDetails>
+			<PartyEnglishSurname>CHAN</PartyEnglishSurname>
+			<PartyEnglishGivenName>MING</PartyEnglishGivenName>
+			<PhoneNumber>22223333</PhoneNumber>
+			<StaffNumber>AF123456</StaffNumber>
+		</InformantDetails>
+	</WitnessSummonsApplication>
+</GDSNIMsgD2J>

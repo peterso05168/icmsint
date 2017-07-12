@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:include schemaLocation="dept_supplement_document.xsd"/>
+    
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--**********************************************************
+	*	SUMMONS APPLICATION
+	********************************************************** -->
+    <xsd:complexType name="DeptSummons.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Summons Application Message
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Attachment Indicator
+				c) Hearing Group ID
+				d) Manual Schedule Indicator
+				e) Informant Details Object (v1.1)
+				f) SOD Details
+				g) Offence Details Object
+				i) Application Source ID
+				j) Hearing Weight
+				k) Penalty Weight
+				l) Defendant Details Object (v1.1)				              
+				m) Motorcycle Indicator           
+				n) Vehicle Registration Mark      
+				o) Vehicle Registration Mark Digit
+				p) Offence Description Object
+				q) Interface ID			
+				r) DIC Completion Date
+				s) Supplement Document Object (DOP History)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+            <xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="HrngGroupID" type="HrngGroupID.V1.0.CT" minOccurs="0" />
+					<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+					<xsd:element name="SODDetails" type="SODKey.V1.0.CT"/>
+					<xsd:element name="OffenceDetails" type="OffenceDetails.V1.0.CT"/>					
+					<xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT"/>
+					<xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT"/>
+					<xsd:element name="DefendantDetails" type="Defendant.V1.1.CT"/>										
+					<xsd:element name="Motorcycle" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMark" type="VehicleRegistrationMark.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMarkDigit" type="VehicleRegistrationMarkDigit.V1.0.CT" minOccurs="0"/>					
+					<xsd:element name="OffenceDesc" type="OffenceDesc.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>					
+					<xsd:element name="DICCompletionDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="SupplementDocument" type="SupplementDocument.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>	
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DeptSummons.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Summons Application Message
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Attachment Indicator
+				c) Hearing Group ID
+				d) Manual Schedule Indicator
+				e) Informant Details Object (v1.1)
+				f) SOD Details
+				g) Offence Details Object
+				i) Application Source ID
+				j) Hearing Weight
+				k) Penalty Weight
+				l) Defendant Details Object (v1.1)				              
+				m) Motorcycle Indicator           
+				n) Vehicle Registration Mark      
+				o) Vehicle Registration Mark Digit
+				p) Offence Description Object
+				q) Interface ID			
+				r) DIC Completion Date
+				s) Supplement Document Object (DOP History)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+            <xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="HrngGroupID" type="HrngGroupID.V1.0.CT" minOccurs="0" />
+					<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+					<xsd:element name="SODDetails" type="SODKey.V1.0.CT"/>
+					<xsd:element name="OffenceDetails" type="OffenceDetails.V1.0.CT"/>					
+					<xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT"/>
+					<xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT"/>
+					<xsd:element name="DefendantDetails" type="Defendant.V1.1.CT"/>										
+					<xsd:element name="Motorcycle" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMark" type="VehicleRegistrationMark.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMarkDigit" type="VehicleRegistrationMarkDigit.V1.0.CT" minOccurs="0"/>					
+					<xsd:element name="OffenceDesc" type="OffenceDesc.V1.1.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>					
+					<xsd:element name="DICCompletionDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="SupplementDocument" type="SupplementDocument.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>	
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DeptSummons.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Summons Application Message
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Attachment Indicator
+				c) Hearing Group ID
+				d) Manual Schedule Indicator
+				e) Informant Details Object (v1.2)
+				f) SOD Details (v1.1)
+				g) Offence Details Object (v1.1)
+				h) Hearing Weight
+				i) Penalty Weight
+				j) Defendant Details Object (v1.3)				              
+				k) Motorcycle Indicator           
+				l) Vehicle Registration Mark      
+				m) Vehicle Registration Mark Digit
+				n) Offence Description Object		
+				o) DIC Completion Date
+				p) Supplement Document Object (DOP History)
+                                q) Offence Variable Object
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+            <xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="AttachmentIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="HrngGroupID" type="HrngGroupID.V1.0.CT" minOccurs="0" />
+					<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.2.CT"/>
+					<xsd:element name="SODDetails" type="SODKey.V1.1.CT"/>
+					<xsd:element name="OffenceDetails" type="OffenceDetails.V1.1.CT"/>
+					<xsd:element name="HearingWeight" type="HearingWeight.V1.0.CT"/>
+					<xsd:element name="PenaltyWeight" type="PenaltyWeight.V1.0.CT"/>
+					<xsd:element name="DefendantDetails" type="Defendant.V1.3.CT"/>
+					<xsd:element name="Motorcycle" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMark" type="VehicleRegistrationMark.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="VehicleRegistrationMarkDigit" type="VehicleRegistrationMarkDigit.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="OffenceDesc" type="OffenceDesc.V1.2.CT"/>
+					<xsd:element name="DICCompletionDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="SupplementDocument" type="SupplementDocument.V1.0.CT" minOccurs="0"/>
+                                        <xsd:element name="OffenceVariable" type="OffenceVariable.V1.0.CT" minOccurs="0" maxOccurs="52"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+    <!--****************************************************************
+	*	SUMMONS ALLOCATION
+	**************************************************************** -->
+	<xsd:complexType name="SummonsAllocation.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Summons Allocation
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID	
+				c) First Hearing Date
+				d) First Hearing Time
+				e) Hearing Court Number	(v1.1)
+				f) Application Status (A-Accept, J-Reject)
+				g) Summons Allocation Remark			
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>										
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="FirstHearingDate" type="cct:Date.CT" minOccurs="0"/>			
+					<xsd:element name="FirstHearingTime" type="cct:Time.CT" minOccurs="0"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT" minOccurs="0"/>
+                                        <xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="SummonsAllocationRemark" type="SummonsAllocationRemark.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>      
+	</xsd:complexType>
+        
+        <xsd:complexType name="SummonsAllocation.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Summons Allocation
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) First Hearing Date
+				c) First Hearing Time
+				d) Hearing Court Number	(v1.1)
+				e) Application Status (A-Accept, J-Reject)
+				f) Summons Allocation Remark
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="FirstHearingDate" type="cct:Date.CT" minOccurs="0"/>			
+					<xsd:element name="FirstHearingTime" type="cct:Time.CT" minOccurs="0"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT" minOccurs="0"/>
+                                        <xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="SummonsAllocationRemark" type="SummonsAllocationRemark.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>      
+	</xsd:complexType>
+
+    <xsd:complexType name="HrngGroupID.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Hearing Group ID</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="6"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+	<xsd:complexType name="SummonsAllocationRemark.V1.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>multiple remark line</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:sequence>
+	        <xsd:element name="RemarkLine" type="RemarkLine.V1.0.CT" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+	</xsd:complexType>
+	    
+<!--
+ *FIXED PENALTY SUMMONS APPLICATION
+-->
+    <xsd:complexType name="FixedPenaltySummons.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Fixed Penalty Summons message consists of 
+								a) Record Prefix
+								b) Case Number Object
+								c) Prosecution Department Code
+								d) Demand Note Number
+								e) Demand Note Issue Date
+								f) Interface Date
+								g) Manual Schedule Indicator
+								h) Informant Details
+								i) Defendant Details
+								j) SOD Details
+								k) Case Offence
+								l) Dispute from Notice of Order 
+								m) Rescind to Dispute Order Date
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+				<xsd:element name="DemandNoteIssueDate" type="cct:Date.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/> 
+				<xsd:element name="InformantDetails" type="Informant.V1.0.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.0.CT"/>
+				<xsd:element name="CaseSODDetails" type="CaseSOD.V1.0.CT"/>
+				<xsd:element name="CaseOffence" type="CaseOffence.V1.0.CT"/>
+				<xsd:element name="DisputeFromNoticeOfOrder" type="FieldIndicator.V1.0.CT"/>
+				<xsd:element name="RecindToDisputeOrderDate" type="cct:Date.CT" minOccurs="0"/>
+				<xsd:element name="RecindToDisputeOrderTime" type="cct:Time.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltySummons.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Fixed Penalty Summons message consists of 
+								a) Record Prefix
+								b) Case Number Object
+								c) Prosecution Department Code
+								d) Demand Note Number
+								e) Demand Note Issue Date
+								f) Interface Date
+								g) FPN Dispute Date								
+								h) Manual Schedule Indicator
+								i) Informant Details
+								j) Defendant Details
+								k) SOD Details
+								l) Case Offence
+								m) Dispute from Notice of Order 
+								n) Rescind to Dispute Order Date
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+				<xsd:element name="DemandNoteIssueDate" type="cct:Date.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="FPNDisputeDate" type="cct:Date.CT" minOccurs="0"/>				
+				<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/> 
+				<xsd:element name="InformantDetails" type="Informant.V1.0.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.0.CT"/>
+				<xsd:element name="CaseSODDetails" type="CaseSOD.V1.0.CT"/>
+				<xsd:element name="CaseOffence" type="CaseOffence.V1.1.CT"/>
+				<xsd:element name="DisputeFromNoticeOfOrder" type="FieldIndicator.V1.0.CT"/>
+				<xsd:element name="RescindToDisputeOrderDate" type="cct:Date.CT" minOccurs="0"/>
+				<xsd:element name="RescindToDisputeOrderTime" type="cct:Time.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+	
+    <xsd:complexType name="FixedPenaltySummons.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Fixed Penalty Summons message consists of 
+								a) Record Prefix
+								b) Case Number Object
+								c) Prosecution Department Code
+								d) Demand Note Number
+								e) Demand Note Issue Date
+								f) Interface Date
+								g) FPN Dispute Date								
+								h) Manual Schedule Indicator
+								i) Informant Details
+								j) Defendant Details
+								k) SOD Details
+								l) Case Offence
+								m) Dispute from Notice of Order 
+								n) Rescind to Dispute Order Date
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+				<xsd:element name="DemandNoteIssueDate" type="cct:Date.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="FPNDisputeDate" type="cct:Date.CT" minOccurs="0"/>				
+				<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/> 
+				<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.2.CT"/>
+				<xsd:element name="CaseSODDetails" type="CaseSOD.V1.1.CT"/>
+  			    <xsd:choice minOccurs="1" maxOccurs="1">
+			        <xsd:sequence>
+			            <xsd:element name="CaseOffence" type="CaseOffence.V1.0.CT"/>
+                    </xsd:sequence>
+			        <xsd:sequence>
+			            <xsd:element name="CaseOffenceExtended" type="CaseOffence.V1.1.CT"/>
+                    </xsd:sequence>
+			    </xsd:choice>
+				<xsd:element name="DisputeFromNoticeOfOrder" type="FieldIndicator.V1.0.CT"/>
+				<xsd:element name="RescindToDisputeOrderDate" type="cct:Date.CT" minOccurs="0"/>
+				<xsd:element name="RescindToDisputeOrderTime" type="cct:Time.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+	
+   <xsd:complexType name="FixedPenaltySummons.V1.3.CT">
+        <xsd:annotation>
+            <xsd:documentation>Fixed Penalty Summons message consists of 
+								a) Record Prefix
+								b) Case Number Object
+								c) Prosecution Department Code
+								d) Demand Note Number
+								e) Demand Note Issue Date
+								f) Interface Date
+								g) FPN Dispute Date								
+								h) Manual Schedule Indicator
+								i) Informant Details
+								j) Defendant Details
+								k) SOD Details
+								l) Case Offence
+								m) Dispute from Notice of Order 
+								n) Rescind to Dispute Order Date
+                                                o) Additional Section
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+				<xsd:element name="DemandNoteIssueDate" type="cct:Date.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="FPNDisputeDate" type="cct:Date.CT" minOccurs="0"/>				
+				<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/> 
+				<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.2.CT"/>
+				<xsd:element name="CaseSODDetails" type="CaseSOD.V1.1.CT"/>
+  			    <xsd:choice minOccurs="1" maxOccurs="1">
+			        <xsd:sequence>
+			            <xsd:element name="CaseOffence" type="CaseOffence.V1.0.CT"/>
+                    </xsd:sequence>
+			        <xsd:sequence>
+			            <xsd:element name="CaseOffenceExtended" type="CaseOffence.V1.1.CT"/>
+                    </xsd:sequence>
+			    </xsd:choice>
+				<xsd:element name="DisputeFromNoticeOfOrder" type="FieldIndicator.V1.0.CT"/>
+				<xsd:element name="RescindToDisputeOrderDate" type="cct:Date.CT" minOccurs="0"/>
+				<xsd:element name="RescindToDisputeOrderTime" type="cct:Time.CT" minOccurs="0"/>
+                        <xsd:element name="AdditionalSection" type="AdditionalSection.V1.0.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+	<xsd:complexType name="FixedPenaltySummons.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Fixed Penalty Summons message consists of 
+					a) Record Prefix
+					b) Case Number Object
+					c) Prosecution Department Code
+					d) Demand Note Number
+					e) Demand Note Issue Date
+					f) FPN Dispute Date								
+					g) Manual Schedule Indicator
+					h) Informant Details
+					i) Defendant Details
+					j) SOD Details
+					k) Case Offence
+					l) Dispute from Notice of Order 
+					m) Rescind to Dispute Order Date
+					n) Additional Section
+					o) Preferred Warrant Type
+                                        p) Offence Variable Object(s)
+                                        q) Fixed Penalty Application Nature
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="DemandNoteIssueDate" type="cct:Date.CT"/>
+			<xsd:element name="FPNDisputeDate" type="cct:Date.CT" minOccurs="0"/>				
+			<xsd:element name="ManualScheduleIndicator" type="FieldIndicator.V1.0.CT"/> 
+			<xsd:element name="InformantDetails" type="Informant.V1.2.CT"/>
+			<xsd:element name="DefendantDetails" type="Defendant.V1.3.CT"/>
+			<xsd:element name="CaseSODDetails" type="CaseSOD.V1.2.CT"/>
+			<xsd:choice>
+				<xsd:element name="CaseOffence" type="CaseOffence.V1.0.CT"/>
+				<xsd:element name="CaseOffenceExtended" type="CaseOffence.V1.1.CT"/>
+			</xsd:choice>
+			<xsd:element name="DisputeFromNoticeOfOrder" type="FieldIndicator.V1.0.CT"/>
+			<xsd:element name="RescindToDisputeOrderDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="RescindToDisputeOrderTime" type="cct:Time.CT" minOccurs="0"/>
+			<xsd:element name="AdditionalSection" type="AdditionalSection.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="PreferredWarrantType" type="PreferredWarrantType.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="OffenceVariable" type="OffenceVariable.V1.0.CT" minOccurs="0" maxOccurs="52"/>
+                        <xsd:element name="FixedPenaltyApplicationNature" type="FixedPenaltyApplicationNature.V1.0.CT" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

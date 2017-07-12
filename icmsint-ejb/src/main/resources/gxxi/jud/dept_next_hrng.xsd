@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>		
+
+<!--****************************************************************
+	*	NEXT HEARING DATE
+	**************************************************************** -->
+    <xsd:complexType name="NextHearing.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Next Hearing Date
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Record Sequence Number
+				d) Hearing Internal Number
+				e) Record Status
+				f) Next Hearing Date
+				g) Next Hearing Time
+				h) Hearing Type
+				i) Court Number (v1.1)
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+					<xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+					<xsd:element name="RecordStatus" type="RecordStatus.V1.0.CT"/>
+					<xsd:element name="NextHearingDate" type="cct:Date.CT"/>
+					<xsd:element name="NextHearingTime" type="cct:Time.CT"/>
+					<xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+		       </xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="NextHearing.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Next Hearing Date
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Record Sequence Number
+				d) Hearing Internal Number
+				e) Record Status
+				f) Next Hearing Date
+				g) Next Hearing Time
+				h) Hearing Type
+				i) Hearing Court Sys
+				i) Court Number (v1.1)
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+					<xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+					<xsd:element name="RecordStatus" type="RecordStatus.V1.0.CT"/>
+					<xsd:element name="NextHearingDate" type="cct:Date.CT"/>
+					<xsd:element name="NextHearingTime" type="cct:Time.CT"/>
+					<xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+   			        <xsd:element name="HearingCourtSys" type="CourtSys.V1.0.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+		       </xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="NextHearing.V1.2.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Next Hearing Date
+				a) Record Prefix
+				b) Interface ID
+				c) Case Number
+				d) Prosecution Department Code
+				e) Department Reference Number
+				f) Record Sequence Number
+				g) Hearing Internal Number
+				h) Record Status
+				i) Next Hearing Date
+				j) Next Hearing Time
+				k) Hearing Type
+				l) Hearing Court Sys
+				m) Court Number (v1.1)
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:sequence>
+            <xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+            <xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"  minOccurs="0"/>
+            <xsd:element name="InterfaceDate" type="cct:Date.CT" minOccurs="0"/>
+            <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+            <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+            <xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+            <xsd:element name="NextHearingDate" type="cct:Date.CT"/>
+            <xsd:element name="NextHearingTime" type="cct:Time.CT"/>
+            <xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+            <xsd:element name="HearingCourtSys" type="CourtSys.V1.0.CT"/>
+            <xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+       </xsd:sequence>
+    </xsd:complexType>
+
+	<xsd:complexType name="NextHearing.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Next Hearing Date
+				a) Record Prefix
+				b) Case Number
+				c) Prosecution Department Code
+				d) Department Reference Number
+				e) Demand Note Number
+				f) Record Sequence Number
+				g) Hearing Internal Number
+				h) Record Status
+				i) Next Hearing Date
+				j) Next Hearing Time
+				k) Hearing Type
+				l) Hearing Court Sys
+				m) Court Number (v1.1)
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:sequence>
+            <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+            <xsd:element name="HearingInternalNumber" type="HearingInternalNumber.V1.0.CT"/>
+            <xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+            <xsd:element name="NextHearingDate" type="cct:Date.CT"/>
+            <xsd:element name="NextHearingTime" type="cct:Time.CT"/>
+            <xsd:element name="HearingType" type="HearingType.V1.0.CT"/>
+            <xsd:element name="HearingCourtSys" type="CourtSys.V1.0.CT"/>
+            <xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+       </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GDSNIMsgD2J>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI01</Prefix>
+		<BatchSerialNumber>1401</BatchSerialNumber>
+		<InterfaceDate>2015-07-31</InterfaceDate>
+		<RecordCount>2</RecordCount>
+	</InterfaceFileHeader>
+	<SummonsApplication>
+		<CourtSys>KC</CourtSys>
+		<CaseType>S</CaseType>
+		<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>MS006003/2015</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI01</RecordPrefix>
+		<AttachmentIndicator>N</AttachmentIndicator>
+		<ManualScheduleIndicator>N</ManualScheduleIndicator>
+		<InformantDetails>
+			<PartyEnglishSurname>THE COMMISSIONER FOR TRANSPORT</PartyEnglishSurname>
+		</InformantDetails>
+		<SODDetails>
+			<Chapter>375</Chapter>
+			<SubLegislative>0</SubLegislative>
+			<Section>8AA</Section>
+			<SubSection>5</SubSection>
+			<Paragraph>0</Paragraph>
+			<SubParagraph>0</SubParagraph>
+			<SupplementCode>0</SupplementCode>
+			<VersionNumber>1</VersionNumber>
+		</SODDetails>
+		<OffenceDetails>
+			<OffenceDateFormat>1</OffenceDateFormat>
+			<OffenceDateTime>
+				<OffenceDate>2015-03-15</OffenceDate>
+				<OffenceTime>00:00:00</OffenceTime>
+			</OffenceDateTime>
+			<TimeBarMethod>1</TimeBarMethod>
+			<InterfaceOffenceCode>A97</InterfaceOffenceCode>
+			<OffenceDescFormat>X</OffenceDescFormat>
+		</OffenceDetails>
+		<HearingWeight>1</HearingWeight>
+		<PenaltyWeight>1</PenaltyWeight>
+		<DefendantDetails>
+			<PartyEnglishSurname>LAU</PartyEnglishSurname>
+			<PartyEnglishGivenName>SIU MING</PartyEnglishGivenName>
+			<PartyChineseSurname>劉</PartyChineseSurname>
+			<PartyChineseGivenName>小明</PartyChineseGivenName>
+			<IdentificationType>I</IdentificationType>
+			<IdentificationNumber>
+				<HKIDNumber>
+					<hkid:Identifier xmlns:hkid="HKID">V012321</hkid:Identifier>
+					<hkid:CheckDigit xmlns:hkid="HKID">7</hkid:CheckDigit>
+				</HKIDNumber>
+			</IdentificationNumber>
+			<Gender>M</Gender>
+			<Age>35</Age>
+			<PhoneNumber>95234795</PhoneNumber>
+			<DefendantType>A</DefendantType>
+			<Address>
+				<AddressTerritory>3</AddressTerritory>
+				<EnglishAddress>
+					<EnglishAddressLine>FLAT/ROOM XX 1/F</EnglishAddressLine>
+					<EnglishAddressLine>SHING WUI HSE TIN SHING COURT</EnglishAddressLine>
+					<EnglishAddressLine>TIN SHUI WAI NT</EnglishAddressLine>
+				</EnglishAddress>
+			</Address>
+		</DefendantDetails>
+		<OffenceDesc>
+			<PGBLAllow>N</PGBLAllow>
+			<ContraryToLaw>Sections 8AA(1), (2) &amp; (5) of Road Traffic (Driving-offence Points) Ordinance, Cap. 375</ContraryToLaw>
+			<ContraryToLawChinese>香港法例第375章《道路交通(違例駕駛記分)條例》第8AA(1)、(2)及(5)條</ContraryToLawChinese>
+			<OffenceDescription>Failing to comply with the notice of the Commissioner for Transport to attend and complete a driving improvement course</OffenceDescription>
+			<OffenceDescriptionChinese>沒有遵守運輸署署長的指示去修習和完成一項駕駛改進課程</OffenceDescriptionChinese>
+			<ChargeParticular>Information has been laid whereas you incurred in Hong Kong under the Road Traffic (Driving-Offence Points) Ordinance, Cap. 375, a total of 13 driving-offence points in respect of offences that were committed on 25 October 2013,30 March 2014 and 08 August 2014 respectively   within a period of 2 years, YOU on 15 March 2015, did, without reasonable excuse, fail to attend and complete a driving improvement course within 3 months after 15 December 2014, the date of a notice served on you under section 8AA(2) of the Road Traffic (Driving-Offence Points) Ordinance, Cap. 375.</ChargeParticular>
+			<ChargeParticularChinese>有人提出告發，指稱你根據《道路交通(違例駕駛記分)條例》（第375章）於香港就其分別於2013年10月25日,2014年03月30日及2014年08月08日，即在2年內，所犯的罪行被記違例駕駛分數達13分，而你在2015年03月15日，無合理辯解下，沒有根據《道路交通(違例駕駛記分)條例》（第375章）第8AA(2)條送達予你的通知書的日期當日，即2014年12月15日，之後的3個月內，修習和完成駕駛改進課程。</ChargeParticularChinese>
+		</OffenceDesc>
+		<SupplementDocument>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006003/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>1</LinkSerialNumber>
+				<LEAReferenceNumber>TS675006</LEAReferenceNumber>
+				<OffenceCodeType>D</OffenceCodeType>
+				<OffenceCode>005</OffenceCode>
+				<OffenceDate>2014-03-30</OffenceDate>
+				<ConvictionDate>2014-05-05</ConvictionDate>
+				<OffencePoint>3</OffencePoint>
+			</Document>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006003/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>2</LinkSerialNumber>
+				<LEAReferenceNumber>RM435451</LEAReferenceNumber>
+				<OffenceCodeType>D</OffenceCodeType>
+				<OffenceCode>05A</OffenceCode>
+				<OffenceDate>2013-10-25</OffenceDate>
+				<ConvictionDate>2013-10-25</ConvictionDate>
+				<OffencePoint>5</OffencePoint>
+			</Document>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006003/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>3</LinkSerialNumber>
+				<LEAReferenceNumber>TW301101</LEAReferenceNumber>
+				<OffenceCodeType>M</OffenceCodeType>
+				<OffenceCode>012</OffenceCode>
+				<OffenceDate>2014-08-08</OffenceDate>
+				<ConvictionDate>2014-11-21</ConvictionDate>
+				<OffencePoint>5</OffencePoint>
+			</Document>
+		</SupplementDocument>
+	</SummonsApplication>
+	<SummonsApplication>
+		<CourtSys>KC</CourtSys>
+		<CaseType>S</CaseType>
+		<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>MS006011/2015</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI01</RecordPrefix>
+		<AttachmentIndicator>N</AttachmentIndicator>
+		<ManualScheduleIndicator>N</ManualScheduleIndicator>
+		<InformantDetails>
+			<PartyEnglishSurname>THE COMMISSIONER FOR TRANSPORT</PartyEnglishSurname>
+		</InformantDetails>
+		<SODDetails>
+			<Chapter>375</Chapter>
+			<SubLegislative>0</SubLegislative>
+			<Section>8AA</Section>
+			<SubSection>5</SubSection>
+			<Paragraph>0</Paragraph>
+			<SubParagraph>0</SubParagraph>
+			<SupplementCode>0</SupplementCode>
+			<VersionNumber>1</VersionNumber>
+		</SODDetails>
+		<OffenceDetails>
+			<OffenceDateFormat>1</OffenceDateFormat>
+			<OffenceDateTime>
+				<OffenceDate>2015-03-16</OffenceDate>
+				<OffenceTime>00:00:00</OffenceTime>
+			</OffenceDateTime>
+			<TimeBarMethod>1</TimeBarMethod>
+			<InterfaceOffenceCode>A97</InterfaceOffenceCode>
+			<OffenceDescFormat>X</OffenceDescFormat>
+		</OffenceDetails>
+		<HearingWeight>1</HearingWeight>
+		<PenaltyWeight>1</PenaltyWeight>
+		<DefendantDetails>
+			<PartyEnglishSurname>CHAN</PartyEnglishSurname>
+			<PartyEnglishGivenName>SIU MING</PartyEnglishGivenName>
+			<PartyChineseSurname>陳</PartyChineseSurname>
+			<PartyChineseGivenName>小明</PartyChineseGivenName>
+			<IdentificationType>I</IdentificationType>
+			<IdentificationNumber>
+				<HKIDNumber>
+					<hkid:Identifier xmlns:hkid="HKID">Y012321</hkid:Identifier>
+					<hkid:CheckDigit xmlns:hkid="HKID">9</hkid:CheckDigit>
+				</HKIDNumber>
+			</IdentificationNumber>
+			<Gender>M</Gender>
+			<Age>26</Age>
+			<PhoneNumber>66852718</PhoneNumber>
+			<DefendantType>A</DefendantType>
+			<Address>
+				<AddressTerritory>2</AddressTerritory>
+				<EnglishAddress>
+					<EnglishAddressLine>FLAT/ROOM XX, 1/F, BLK X</EnglishAddressLine>
+					<EnglishAddressLine>TELFORD GDN, WAI YIP ST</EnglishAddressLine>
+					<EnglishAddressLine>KLN BAY, KLN</EnglishAddressLine>
+				</EnglishAddress>
+			</Address>
+			<DefendantDistrictCode>KLB</DefendantDistrictCode>
+		</DefendantDetails>
+		<OffenceDesc>
+			<PGBLAllow>N</PGBLAllow>
+			<ContraryToLaw>Sections 8AA(1), (2) &amp; (5) of Road Traffic (Driving-offence Points) Ordinance, Cap. 375</ContraryToLaw>
+			<ContraryToLawChinese>香港法例第375章《道路交通(違例駕駛記分)條例》第8AA(1)、(2)及(5)條</ContraryToLawChinese>
+			<OffenceDescription>Failing to comply with the notice of the Commissioner for Transport to attend and complete a driving improvement course</OffenceDescription>
+			<OffenceDescriptionChinese>沒有遵守運輸署署長的指示去修習和完成一項駕駛改進課程</OffenceDescriptionChinese>
+			<ChargeParticular>Information has been laid whereas you incurred in Hong Kong under the Road Traffic (Driving-Offence Points) Ordinance, Cap. 375, a total of 11 driving-offence points in respect of offences that were committed on 14 January 2014,27 June 2014 and 05 October 2014 respectively   within a period of 2 years, YOU on 16 March 2015, did, without reasonable excuse, fail to attend and complete a driving improvement course within 3 months after 16 December 2014, the date of a notice served on you under section 8AA(2) of the Road Traffic (Driving-Offence Points) Ordinance, Cap. 375.</ChargeParticular>
+			<ChargeParticularChinese>有人提出告發，指稱你根據《道路交通(違例駕駛記分)條例》（第375章）於香港就其分別於2014年01月14日,2014年06月27日及2014年10月05日，即在2年內，所犯的罪行被記違例駕駛分數達11分，而你在2015年03月16日，無合理辯解下，沒有根據《道路交通(違例駕駛記分)條例》（第375章）第8AA(2)條送達予你的通知書的日期當日，即2014年12月16日，之後的3個月內，修習和完成駕駛改進課程。</ChargeParticularChinese>
+		</OffenceDesc>
+		<SupplementDocument>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006011/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>1</LinkSerialNumber>
+				<LEAReferenceNumber>RE637582</LEAReferenceNumber>
+				<OffenceCodeType>D</OffenceCodeType>
+				<OffenceCode>05A</OffenceCode>
+				<OffenceDate>2014-06-27</OffenceDate>
+				<ConvictionDate>2014-07-12</ConvictionDate>
+				<OffencePoint>5</OffencePoint>
+			</Document>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006011/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>2</LinkSerialNumber>
+				<LEAReferenceNumber>TH383220</LEAReferenceNumber>
+				<OffenceCodeType>M</OffenceCodeType>
+				<OffenceCode>005</OffenceCode>
+				<OffenceDate>2014-01-14</OffenceDate>
+				<ConvictionDate>2014-06-27</ConvictionDate>
+				<OffencePoint>3</OffencePoint>
+			</Document>
+			<Document>
+				<ProsecutionDepartmentCode>TD</ProsecutionDepartmentCode>
+				<DepartmentReferenceNumber>MS006011/2015</DepartmentReferenceNumber>
+				<LinkSerialNumber>3</LinkSerialNumber>
+				<LEAReferenceNumber>TE144582</LEAReferenceNumber>
+				<OffenceCodeType>D</OffenceCodeType>
+				<OffenceCode>005</OffenceCode>
+				<OffenceDate>2014-10-05</OffenceDate>
+				<ConvictionDate>2014-11-24</ConvictionDate>
+				<OffencePoint>3</OffencePoint>
+			</Document>
+		</SupplementDocument>
+	</SummonsApplication>
+</GDSNIMsgD2J>

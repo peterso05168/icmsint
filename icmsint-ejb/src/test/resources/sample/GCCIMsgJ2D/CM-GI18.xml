@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgJ2D>
+  <InterfaceFileHeader>
+    <Prefix>CM-GI18</Prefix>
+    <BatchSerialNumber>1</BatchSerialNumber>
+    <InterfaceDate>2016-07-21</InterfaceDate>
+    <RecordCount>1</RecordCount>
+  </InterfaceFileHeader>
+  <CaseDocumentAcknowledgement>
+    <CourtSys>ES</CourtSys>
+    <CaseType>HW</CaseType>
+    <CaseSerialNumber>99</CaseSerialNumber>
+    <CaseYear>2016</CaseYear>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <DepartmentReferenceNumber>16010102</DepartmentReferenceNumber>
+    <RecordPrefix>CM-GI18</RecordPrefix>
+    <DocumentReferenceNumber>DN88990023</DocumentReferenceNumber>
+    <DocumentStatus>A</DocumentStatus>
+    <DocumentFiledDate>2016-07-21</DocumentFiledDate>
+    <DocumentFiledTime>09:00:00</DocumentFiledTime>
+  </CaseDocumentAcknowledgement>
+</GCCIMsgJ2D>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgD2J>
+	<InterfaceFileHeader>
+		<Prefix>CM-G03</Prefix>
+		<BatchSerialNumber>1</BatchSerialNumber>
+		<InterfaceDate>2016-07-21</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<WitnessSummonsApplication>
+		<RecordPrefix>CM-GI06</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>KC</CourtSys>
+			<CaseType>HW</CaseType>
+			<CaseSerialNumber>101</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+
+		<HearingDate>2016-08-01</HearingDate>
+		<HearingTime>09:30:00</HearingTime>
+		<ApplyParty>P</ApplyParty>
+		<WitnessDetails>
+			<PartyEnglishSurname>Wong</PartyEnglishSurname>
+			<PartyEnglishGivenName>Tin</PartyEnglishGivenName>
+			<PartyChineseSurname>王</PartyChineseSurname>
+			<PartyChineseGivenName>天</PartyChineseGivenName>
+			<IdentificationType>I</IdentificationType>
+			<IdentificationNumber>
+				<HKIDNumber>
+					<Identifier xmlns="HKID">W112233</Identifier>
+					<CheckDigit xmlns="HKID">4</CheckDigit>
+				</HKIDNumber>
+			</IdentificationNumber>
+			<Gender>M</Gender>
+			<BirthDate>1987-06-05</BirthDate>
+			<Age>29</Age>
+			<PhoneNumber>98765432</PhoneNumber>
+			<Address>
+				<AddressTerritory>1</AddressTerritory>
+				<ChineseAddress>
+					<ChineseAddressLine>居無定所</ChineseAddressLine>
+				</ChineseAddress>
+				<OverseasIndicator>N</OverseasIndicator>
+			</Address>
+			<InterpretLanguage>PUT</InterpretLanguage>
+			<WitnessSequenceNumber>1</WitnessSequenceNumber>
+		</WitnessDetails>
+		<InformantDetails>
+			<PartyEnglishSurname>LEE</PartyEnglishSurname>
+			<PartyEnglishGivenName>PING ON</PartyEnglishGivenName>
+			<PartyChineseSurname>李</PartyChineseSurname>
+			<PartyChineseGivenName>平安</PartyChineseGivenName>
+			<PhoneNumber>22334455</PhoneNumber>
+			<StaffNumber>P101112</StaffNumber>
+		</InformantDetails>
+	</WitnessSummonsApplication>
+</GCCIMsgD2J>

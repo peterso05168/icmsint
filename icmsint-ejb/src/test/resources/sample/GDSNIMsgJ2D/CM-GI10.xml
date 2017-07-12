@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI10</Prefix>
+		<BatchSerialNumber>9</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<ReServiceResult>
+		<CourtSys>ES</CourtSys>
+		<CaseType>S</CaseType>
+		<CaseSerialNumber>11</CaseSerialNumber>
+		<CaseYear>2016</CaseYear>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>AB0742621</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI10</RecordPrefix>
+		<RecordSequenceNumber>1</RecordSequenceNumber>
+		<RegisterIDNo>HKS000001</RegisterIDNo>
+		<RecordStatus>N</RecordStatus>
+		<HearingDate>2016-10-10</HearingDate>
+		<HearingTime>09:30:00</HearingTime>
+		<ReServicesDate>2016-09-02</ReServicesDate>
+		<ReServicesTime>14:00:00</ReServicesTime>
+		<ReServiceResultCode>S</ReServiceResultCode>
+	</ReServiceResult>
+</GDSNIMsgJ2D>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xs:schema 
+	xmlns="PGC" 
+	targetNamespace="PGC" 
+	
+	xmlns:cct="CCT"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0">
+
+	<xs:import namespace="CCT" schemaLocation="../gov/cct/cct.xsd"/>
+
+	<xs:complexType name="PersonGenderCode.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000008, Dictionary Entry Name = Person. Gender. Code,
+			A code to indicate the gender of a person (M=male, F=female, U=unknown).</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Code.CT">
+				<xs:length value="1"/>
+				<xs:enumeration value="M"/>
+				<xs:enumeration value="F"/>
+				<xs:enumeration value="U"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

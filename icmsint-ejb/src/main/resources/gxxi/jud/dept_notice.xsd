@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--**********************************************************
+	*	NOTICES APPLICATION
+	********************************************************** -->
+    <xsd:complexType name="NoticeApplication.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Notics Application Message
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) RecordPrefix
+				b) IssueDate
+				c) HeearingCourtNumber
+				d) FirstHearingDate
+				e) InformantDetails
+				f) DefendantDetails
+				g) OffenceDetails
+				h) CaseSODDetails
+				i) InterfaceID
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+            <xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+                    <xsd:element name="IssueDate" type="cct:Date.CT"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT"/>
+                    <xsd:element name="FirstHearingDate" type="cct:Date.CT"  minOccurs="0"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+					<xsd:element name="DefendantDetails" type="Defendant.V1.1.CT"/>
+					<xsd:element name="SODDetails" type="SODKey.V1.0.CT"/>
+					<xsd:element name="OffenceDetails" type="OffenceDetails.V1.1.CT"/>
+					<xsd:element name="OffenceDesc" type="OffenceDesc.V1.1.CT"/>
+				</xsd:sequence>
+			</xsd:extension>	
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <!--****************************************************************
+	*	NOTICES ALLOCATION
+	**************************************************************** -->
+	<xsd:complexType name="NoticeAllocation.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Departmental Notics Allocation
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID	
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+</xsd:schema>

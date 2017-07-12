@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:include schemaLocation="dept_notice_of_order.xsd"/>
+	<xsd:include schemaLocation="dept_summons.xsd"/>
+	<xsd:include schemaLocation="dept_witness_summons.xsd"/>
+	<xsd:include schemaLocation="dept_distress_warrant.xsd"/>
+	
+	<xsd:element name="TCOMsg_From">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FPISInterfaceFileHeader"
+                             type="InterfaceFileHeader.V1.2.CT"/>
+                <xsd:choice>
+                    <xsd:element name="FixedPenaltyNoticeOfOrder"
+                                 type="FixedPenaltyNoticeOfOrder.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="FixedPenaltySummons"
+                                 type="FixedPenaltySummons.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="FixedPenaltyWitnessSummonsApplication"
+                                 type="FixedPenaltyWitnessSummonsApplication.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:choice>
+           </xsd:sequence>
+       </xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

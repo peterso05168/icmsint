@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>		
+
+
+<!--****************************************************
+	*	APPEAL/ REVIEW GRANTING INTERFACE
+	****************************************************-->
+	<xsd:complexType name="AppealReviewGrant.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Appeal/ Review granting Details
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix				
+				b) Record Sequence Number in the given batch
+				c) Appeal Internal Number
+				d) Review Internal Number
+				c) Appeal/ Review Filing Date
+				d) Record Status
+				e) Interface ID
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+					<xsd:element name="AppealInternalNumber" type="AppealInternalNumber.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="ReviewInternalNumber" type="ReviewInternalNumber.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="AppealReviewFilingDate" type="cct:Date.CT"/>
+					<xsd:element name="RecordStatus" type="RecordStatus.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>
+	</xsd:complexType>
+
+<!--
+ *APPEAL/ REVIEW GRANTING INTERFACE
+-->
+    <xsd:complexType name="AppealReviewGrant.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Appeal/ Review granting details consists of
+	            a) Record Prefix
+                b) Interface Date
+                c) Demand Note Number
+                d) Case Number Object
+                e) Appeal/ Review Filing Date
+	            f) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+					<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+					<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+					<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+					<xsd:element name="AppealReviewFilingDate" type="cct:Date.CT"/>
+					<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AppealReviewGrant.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>Appeal/ Review granting details consists of
+	            a) Record Prefix
+                b) Interface Date
+                c) Demand Note Number
+                d) Case Number Object
+                e) Appeal/ Review Filing Date
+	            f) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+					<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+					<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+					<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+					<xsd:element name="AppealReviewFilingDate" type="cct:Date.CT"/>
+					<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+	<xsd:complexType name="AppealReviewGrant.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Appeal/ Review granting Details
+				a) Record Prefix
+				b) Case Number
+				c) Prosecution Department Code
+				d) Department Reference Number /
+                                    Demand Note Number
+				e) Record Sequence Number in the given batch
+				f) Appeal Internal Number
+				g) Review Internal Number
+				h) Appeal/ Review Filing Date
+				i) Record Status
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:choice>
+				<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			</xsd:choice>
+			<xsd:element name="RecordSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+			<xsd:element name="AppealInternalNumber" type="AppealInternalNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="ReviewInternalNumber" type="ReviewInternalNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="AppealReviewFilingDate" type="cct:Date.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

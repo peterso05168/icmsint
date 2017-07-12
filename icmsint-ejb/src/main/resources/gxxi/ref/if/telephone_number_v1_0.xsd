@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<xs:schema 
+	xmlns="TN" 
+	targetNamespace="TN" 
+	
+	xmlns:cct="CCT" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0">
+	
+	<xs:import namespace="CCT" schemaLocation="../gov/cct/cct.xsd"/>
+	
+	<xs:complexType name="TelephoneNumberDetails.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000030, Dictionary Entry Name = Telephone Number. Details,
+			A number, including any exchange or location code, at which a person or an organization can be contacted by telephonic means.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CountryCode" type="TelephoneNumberCountryCodeText.V1.0.CT" minOccurs="0"/>
+			<xs:element name="NationalDestinationCode" type="TelephoneNumberNationalDestinationCodeText.V1.0.CT" minOccurs="0"/>
+			<xs:element name="SubscriberNumber" type="TelephoneNumberSubscriberNumberText.V1.0.CT"/>
+			<xs:element name="ExtensionNumber" type="TelephoneNumberExtensionNumberText.V1.0.CT" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberCountryCodeText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000031, Dictionary Entry Name = Telephone Number. Country Code. Text,
+			Country code of telephone number (e.g. 852 for Hong Kong)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:pattern value="[0-9]{0,3}"/>
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberNationalDestinationCodeText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000032, Dictionary Entry Name = Telephone Number. National Destination Code. Text,
+			National destination code of telephone number</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:pattern value="[0-9]{0,15}"/>
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberSubscriberNumberText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000033, Dictionary Entry Name = Telephone Number. Subscriber Number. Text,
+			Subscriber number of telephone number</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TelephoneNumberExtensionNumberText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000034, Dictionary Entry Name = Telephone Number. Extension Number. Text,
+			Extension number of telephone number</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:maxLength value="7"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

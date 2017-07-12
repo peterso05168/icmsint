@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
+	
+	
+	<named-query name="SysInfCtrlType.findSysInfCtrlType">
+		<query>
+			<![CDATA[
+	            FROM SysInfCtrlType SICT
+	            WHERE SICT.sysInfCtrlTypeCd= :sysInfCtrlTypeCd
+	            AND SICT.activeFlag=1
+	            AND CURRENT_DATE between SICT.effvStartDate and SICT.effvEndDate
+        	]]>
+		</query>
+	</named-query>
+	
+</entity-mappings>

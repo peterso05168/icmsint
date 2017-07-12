@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cct="CCT">
+	<xsd:include schemaLocation="common_jud.xsd"/>
+	<xsd:include schemaLocation="common_caseman.xsd"/>
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:import namespace="CCT" schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+	<!--**********************************************************
+	*	CASE DOCUMENT SUBMISSION
+	**********************************************************-->
+	<xsd:complexType name="CaseDocument.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Case Document Submission Message                             
+								a) Record Prefix
+                                                                b) Prosecution Department Code
+                                                                c) Prosecution Reference Number
+                                                                d) Case Number
+								e) Document Reference Number
+								f) Document Title
+								g) Document Type (refer to code table)
+								h) Document Format
+								i) Document Language
+								j) Document Create Date/Time
+                                k) Urgency Indicator
+                                l) Submit Party
+                                m) Submitter Name
+                                n) Submitter Phone Number
+								o) Document Binary Content
+			</xsd:documentation>
+		</xsd:annotation>
+                <xsd:sequence>
+                        <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                        <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+                        <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+                        <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="DocumentReferenceNumber" type="DocumentReferenceNumber.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="DocumentTitle" type="DocumentTitle.V1.0.CT"/>
+                        <xsd:element name="DocumentType" type="DocumentType.V1.0.CT"/>
+                        <xsd:element name="DocumentFormat" type="DocumentFormat.V1.0.CT"/>
+                        <xsd:element name="DocumentLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                        <xsd:element name="DocumentCreateDate" type="cct:Date.CT"/>
+                        <xsd:element name="DocumentCreateTime" type="cct:Time.CT"/>
+                        <xsd:element name="UrgencyIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="SubmitParty" type="SubmitParty.V1.0.CT"/>
+                        <xsd:element name="SubmitterName" type="SubmitterName.V1.0.CT"/>
+                        <xsd:element name="SubmitterPhoneNumber" type="PhoneNumber.V1.0.CT"/>
+                        <xsd:element name="DocumentBinaryContent" type="cct:BinaryObject.CT"/>
+                </xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CaseDocumentAcknowledgement.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Case Document Acknowledgement Message
+                              Derived from Case.V1.0.CT
+                              Extension consists of
+								a) Record Prefix
+								b) Document Reference Number
+								c) Document Status
+								d) Document Filed Date
+								e) Document Filed Time
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="DocumentReferenceNumber" type="DocumentReferenceNumber.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="DocumentStatus" type="DocumentStatus.V1.0.CT"/>
+					<xsd:element name="DocumentFiledDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="DocumentFiledTime" type="cct:Time.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="CourtDocument.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Court Document Message
+								a) Record Prefix
+                                                                b) Case Number
+								c) Document Reference Number
+								d) Document Title
+								e) Document Type
+								f) Document Format
+                                                                g) Document Language
+                                                                h) Document Create Date/Time
+                                                                i) Document Binary Content
+			</xsd:documentation>
+		</xsd:annotation>
+                <xsd:sequence>
+                        <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                        <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+                        <xsd:element name="DocumentReferenceNumber" type="DocumentReferenceNumber.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="DocumentTitle" type="DocumentTitle.V1.0.CT"/>
+                        <xsd:element name="DocumentType" type="DocumentType.V1.0.CT"/>
+                        <xsd:element name="DocumentFormat" type="DocumentFormat.V1.0.CT"/>
+                        <xsd:element name="DocumentLanguage" type="Language.V1.1.CT" minOccurs="0"/>
+                        <xsd:element name="DocumentCreateDate" type="cct:Date.CT"/>
+                        <xsd:element name="DocumentCreateTime" type="cct:Time.CT"/>
+                        <xsd:element name="DocumentBinaryContent" type="cct:BinaryObject.CT"/>
+                </xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentReferenceNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>document reference number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="20"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentTitle.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>document title</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="100"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>document type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentFormat.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>document format</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="SubmitParty.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>submit party of the document:
+                  P - Prosecution
+                  D - Defendant
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="P"/>
+				<xsd:enumeration value="D"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="SubmitterName.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Submitter name in english</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Name.CT">
+				<xsd:maxLength value="100"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentStatus.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>document status for the submission:
+                A - Accepted
+                J - Rejected
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="J"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+</xsd:schema>

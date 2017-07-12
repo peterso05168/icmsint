@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>		
+
+<!--
+ *FIXED PENALTY DISTRESS WARRANT APPLICATION
+-->
+    <xsd:complexType name="FixedPenaltyDistressWarrantApplication.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Generic Fixed Penalty Distress Warrant Application message consists of
+				a) Record Prefix
+				b) Case Object
+				c) Application Source ID
+				d) Interface Date
+				e) Defendant Details
+				f) Hearing Date for Start Case
+				g) Hearing Date for End Case
+				h) Filter
+				i) Warrant Details Object
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+				<xsd:element name="Case" type="Case.V1.0.CT"/>
+				<xsd:element name="ApplicationSourceID" type="ApplicationSourceID.V1.0.CT"/>				
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.0.CT"/>
+				<xsd:element name="FirstConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="LastConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="FPDistressWarrantDetails" type="FPDistressWarrantDetails.V1.0.CT" maxOccurs="unbounded"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+	
+    <xsd:complexType name="FixedPenaltyDistressWarrantApplication.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Generic Fixed Penalty Distress Warrant Application message consists of
+				a) Record Prefix
+				b) Case Object
+				c) Application Source ID
+				d) Interface Date
+				e) Defendant Details
+				f) Hearing Date for Start Case
+				g) Hearing Date for End Case
+				h) Filter
+				i) Warrant Details Object
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+				<xsd:element name="Case" type="Case.V1.0.CT"/>
+				<xsd:element name="ApplicationSourceID" type="ApplicationSourceID.V1.0.CT"/>				
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.2.CT"/>
+				<xsd:element name="FirstConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="LastConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="FPDistressWarrantDetails" type="FPDistressWarrantDetails.V1.0.CT" maxOccurs="unbounded"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FixedPenaltyDistressWarrantApplication.V2.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Generic Fixed Penalty Distress Warrant Application message consists of
+				a) Record Prefix
+				b) Case Object
+				c) Defendant Details
+				d) Hearing Date for Start Case
+				e) Hearing Date for End Case
+				f) Filter
+				g) Warrant Details Object
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+				<xsd:element name="Case" type="Case.V1.0.CT"/>
+				<xsd:element name="DefendantDetails" type="Defendant.V1.3.CT"/>
+				<xsd:element name="FirstConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="LastConvictionDate" type="cct:Date.CT"/>
+				<xsd:element name="FPDistressWarrantDetails" type="FPDistressWarrantDetails.V1.0.CT" maxOccurs="unbounded"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+	
+	<xsd:complexType name="FPDistressWarrantDetails.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Warrant Details</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>		
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+        	<xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.0.CT"/>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+            <xsd:element name="OutstandingPenalty" type="Amount.V1.1.CT"/>
+			<xsd:element name="OutstandingCourtCosts" type="Amount.V1.1.CT"/>			
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="ApplicationSourceID.V1.0.CT">
+       <xsd:annotation>
+           <xsd:documentation>Application Source ID</xsd:documentation>
+       </xsd:annotation>
+       <xsd:simpleContent>
+           <xsd:restriction base="cct:Text.CT">
+               <xsd:maxLength value="4"/>
+           </xsd:restriction>
+       </xsd:simpleContent>
+   </xsd:complexType>	
+
+    <xsd:complexType name="LinkSerialNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>order link serial number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+            	<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="99"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *DISTRESS WARRANT HEARING ALLOCATION RESULT
+-->
+    <xsd:complexType name="FixedPenaltyDistressWarrantAllocation.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Distress Warrant Allocation Result consists of
+								a) Record Prefix
+								b) Interface Date
+								c) Department Reference Number
+								d) Distress Warrant Case Number
+								e) First Hearing Date Allocated
+								f) Court Number
+								g) Application Status
+								h) Rejection Remark
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="FirstHearingDate" type="cct:Date.CT" minOccurs="0"/> 
+			<xsd:element name="FirstHearingTime" type="cct:Time.CT" minOccurs="0"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+			<xsd:element name="RejectionDetails" type="ErrorDetails.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/> 
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FixedPenaltyDistressWarrantAllocation.V2.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Distress Warrant Allocation Result consists of
+								a) Record Prefix
+								b) Department Reference Number
+								c) Distress Warrant Case Number
+								d) First Hearing Date Allocated
+								e) Court Number
+								f) Application Status
+								g) Rejection Remark
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="FirstHearingDate" type="cct:Date.CT" minOccurs="0"/> 
+			<xsd:element name="FirstHearingTime" type="cct:Time.CT" minOccurs="0"/>
+			<xsd:element name="CourtNumber" type="HearingCourtNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+			<xsd:element name="RejectionDetails" type="ErrorDetails.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/> 
+        </xsd:sequence>
+    </xsd:complexType>
+	
+</xsd:schema>

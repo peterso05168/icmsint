@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgD2J>
+  <InterfaceFileHeader>
+    <Prefix>CM-CC01</Prefix>
+    <BatchSerialNumber>1</BatchSerialNumber>
+    <InterfaceDate>2016-07-20</InterfaceDate>
+    <RecordCount>2</RecordCount>
+  </InterfaceFileHeader>
+  <ChargeCase>
+    <CourtSys>KC</CourtSys>
+    <CaseType>HW</CaseType>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+    <RecordPrefix>CM-CC01</RecordPrefix>
+    <InformantDetails>
+      <PartyEnglishSurname>LEE</PartyEnglishSurname>
+      <PartyEnglishGivenName>PING ON</PartyEnglishGivenName>
+      <PartyChineseSurname>李</PartyChineseSurname>
+      <PartyChineseGivenName>平安</PartyChineseGivenName>
+      <PhoneNumber>22334455</PhoneNumber>
+      <StaffNumber>P101112</StaffNumber>
+    </InformantDetails>
+    <ProsecutionDepartmentUnit>OSSU</ProsecutionDepartmentUnit>
+    <HearingDate>2016-08-01</HearingDate>
+    <OffenceDetails>
+      <OffenceSequenceNumber>1</OffenceSequenceNumber>
+      <ChargeType>P</ChargeType>
+      <OffenceDate>
+        <DateType>1</DateType>
+        <Date1>2016-07-02</Date1>
+      </OffenceDate>
+      <CaseSODDetails>
+        <SODKey>
+          <Chapter>228</Chapter>
+          <SubLegislative></SubLegislative>
+          <Section>4A</Section>
+          <SubSection></SubSection>
+          <Paragraph></Paragraph>
+          <SubParagraph></SubParagraph>
+          <SupplementCode></SupplementCode>
+          <VersionNumber>1</VersionNumber>
+        </SODKey>
+        <OffenceDescription>Obstruction of public place</OffenceDescription>
+        <OffenceDescriptionChinese>在公眾地方造成阻礙</OffenceDescriptionChinese>
+        <ContraryToLaw>Contrary to section 4A of the Summary Offences Ordinance, Cap. 228, Laws of Hong Kong</ContraryToLaw>
+        <ContraryToLawChinese>違反香港法例第228章簡易程序治罪條例第4A條</ContraryToLawChinese>
+        <ChargeParticular>CHAN Tai Man, you are charged that on the 2nd day of July, 2016, on the pavement outside 100 Argyle St, Mong Kok, Kowloon, in Hong Kong, you, without lawful authority or excuse, did set out 3 kgs of tea flavoured eggs, 1 metal stand, 1 electrical cooker, 1 price label, 1 small plastic pail and 1 pair of tongs, covering an area of about 0.5m by 1m, which obstructed persons in the aforesaid public place.</ChargeParticular>
+        <ChargeParticularChinese>有人提出告發，指稱你陳大文，於2016年7月2日，無合法權限或解釋而在九龍旺角亞皆老街100號的公眾地方陳列3公斤茶葉蛋，1鐵架，1電飯煲，1膠桶及1鉗子佔用0.5米乘1米的面積，對或可能對該處的人或車輛造成阻礙</ChargeParticularChinese>
+      </CaseSODDetails>
+    </OffenceDetails>
+    <OffenceDetails>
+      <OffenceSequenceNumber>2</OffenceSequenceNumber>
+      <ChargeType>P</ChargeType>
+      <OffenceDate>
+        <DateType>1</DateType>
+        <Date1>2016-07-02</Date1>
+      </OffenceDate>
+      <CaseSODDetails>
+        <SODKey>
+          <Chapter>132</Chapter>
+          <SubLegislative></SubLegislative>
+          <Section>83B</Section>
+          <SubSection>1</SubSection>
+          <Paragraph></Paragraph>
+          <SubParagraph></SubParagraph>
+          <SupplementCode></SupplementCode>
+          <VersionNumber>1</VersionNumber>
+        </SODKey>
+        <OffenceDescription>Hawking without a licence</OffenceDescription>
+        <OffenceDescriptionChinese>沒有牌照而販賣</OffenceDescriptionChinese>
+        <ContraryToLaw>Contrary to sections 83B(1), 83B(3) and 150 of the Public Health and Municipal Services Ordinance, Cap. 132, Laws of Hong Kong</ContraryToLaw>
+        <ContraryToLawChinese>違反香港法例第132章公眾衛生及市政條例第83B(1)、83B(3)及150條</ContraryToLawChinese>
+        <ChargeParticular>CHAN Tai Man, you are charged that on the 2nd day of July, 2016, on the pavement outside 100 Argyle St, Mong Kok, Kowloon, in Hong Kong, you hawked in the aforesaid place, otherwise than in accordance with a licence issued under regulations made under section 83A of the Public Health and Municipal Services Ordinance, Cap.132.</ChargeParticular>
+        <ChargeParticularChinese>有人提出告發，指稱你陳大文，於2016年7月2日，無合法權限或解釋而在九龍旺角亞皆老街100號無牌販賣茶葉蛋</ChargeParticularChinese>
+      </CaseSODDetails>
+    </OffenceDetails>
+    <DefendantDetails>
+      <PartyEnglishSurname>CHAN</PartyEnglishSurname>
+      <PartyEnglishGivenName>Tai Man</PartyEnglishGivenName>
+      <PartyChineseSurname>陳</PartyChineseSurname>
+      <PartyChineseGivenName>大文</PartyChineseGivenName>
+      <IdentificationType>I</IdentificationType>
+      <IdentificationNumber>
+        <HKIDNumber>
+          <Identifier xmlns="HKID">H123456</Identifier>
+          <CheckDigit xmlns="HKID">7</CheckDigit>
+        </HKIDNumber>
+      </IdentificationNumber>
+      <Gender>M</Gender>
+      <BirthDate>1986-03-04</BirthDate>
+      <Age>30</Age>
+      <PhoneNumber>22334455</PhoneNumber>
+      <DefendantType>A</DefendantType>
+      <Address>
+        <AddressTerritory>2</AddressTerritory>
+        <EnglishAddress>
+          <EnglishAddressLine>Flat 201, Blue House,</EnglishAddressLine>
+          <EnglishAddressLine>205 Blue Street, Mong Kok,</EnglishAddressLine>
+          <EnglishAddressLine>Kowloon</EnglishAddressLine>
+        </EnglishAddress>
+        <ChineseAddress>
+          <ChineseAddressLine>九龍旺角藍街205號</ChineseAddressLine>
+          <ChineseAddressLine>藍色大廈201室</ChineseAddressLine>
+        </ChineseAddress>
+      </Address>
+      <InterpretLanguage>PUT</InterpretLanguage>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <OffenceSequenceNumber>1</OffenceSequenceNumber>
+      <OffenceSequenceNumber>2</OffenceSequenceNumber>
+    </DefendantDetails>
+    <BailRemandDetails>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <PeriodType>B</PeriodType>
+      <BailFormReferenceNumber>15000133</BailFormReferenceNumber>
+      <SuretySequenceNumber>1</SuretySequenceNumber>
+      <RelationshipCode>FNS</RelationshipCode>
+      <FromDate>2016-07-02</FromDate>
+      <ToDate>2016-08-01</ToDate>
+      <BailType>P</BailType>
+      <CashAmount>500.00</CashAmount>
+      <OwnUndertakingAmount>0.00</OwnUndertakingAmount>
+    </BailRemandDetails>
+    <SuretyDetails>
+      <PartyEnglishSurname>CHAN</PartyEnglishSurname>
+      <PartyEnglishGivenName>Keung</PartyEnglishGivenName>
+      <PartyChineseSurname>陳</PartyChineseSurname>
+      <PartyChineseGivenName>強</PartyChineseGivenName>
+      <IdentificationType>I</IdentificationType>
+      <IdentificationNumber>
+        <HKIDNumber>
+          <Identifier xmlns="HKID">K123456</Identifier>
+          <CheckDigit xmlns="HKID">A</CheckDigit>
+        </HKIDNumber>
+      </IdentificationNumber>
+      <Gender>M</Gender>
+      <Age>50</Age>
+      <PhoneNumber>66668888</PhoneNumber>
+      <SuretySequenceNumber>1</SuretySequenceNumber>
+    </SuretyDetails>
+  </ChargeCase>
+  <ChargeCase>
+    <CourtSys>ES</CourtSys>
+    <CaseType>CC</CaseType>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <DepartmentReferenceNumber>16008767</DepartmentReferenceNumber>
+    <RecordPrefix>CM-CC01</RecordPrefix>
+    <InformantDetails>
+      <PartyEnglishSurname>LEE</PartyEnglishSurname>
+      <PartyEnglishGivenName>PING ON</PartyEnglishGivenName>
+      <PartyChineseSurname>李</PartyChineseSurname>
+      <PartyChineseGivenName>平安</PartyChineseGivenName>
+      <PhoneNumber>22334455</PhoneNumber>
+      <StaffNumber>P101112</StaffNumber>
+    </InformantDetails>
+    <ProsecutionDepartmentUnit>DIT7</ProsecutionDepartmentUnit>
+    <HearingDate>2016-08-01</HearingDate>
+    <OffenceDetails>
+      <OffenceSequenceNumber>1</OffenceSequenceNumber>
+      <ChargeType>P</ChargeType>
+      <OffenceDate>
+        <DateType>2</DateType>
+        <Date1>2016-07-15</Date1>
+      </OffenceDate>
+      <CaseSODDetails>
+        <SODKey>
+          <Chapter>210</Chapter>
+          <SubLegislative></SubLegislative>
+          <Section>9</Section>
+          <SubSection></SubSection>
+          <Paragraph></Paragraph>
+          <SubParagraph></SubParagraph>
+          <SupplementCode>XB</SupplementCode>
+          <VersionNumber>1</VersionNumber>
+        </SODKey>
+        <OffenceDescription>THEFT</OffenceDescription>
+        <OffenceDescriptionChinese>盜竊</OffenceDescriptionChinese>
+        <ContraryToLaw>Section 9 of the Theft Ordinance, Cap.210</ContraryToLaw>
+        <ContraryToLawChinese>第210章盜竊罪條例第9條</ContraryToLawChinese>
+        <ChargeParticular>CHAN Tai Ming, CHAN Siu Ming, you are charged that on the 15th day of July, 2016, on the 450 Hennessy Rd, Causeway Bay, in Hong Kong, you ...</ChargeParticular>
+        <ChargeParticularChinese>有人提出告發，指稱你陳大明，陳小明，於2016年7月15日，在銅鑼灣軒尼絲道450號...</ChargeParticularChinese>
+      </CaseSODDetails>
+    </OffenceDetails>
+    <OffenceDetails>
+      <OffenceSequenceNumber>2</OffenceSequenceNumber>
+      <ChargeType>P</ChargeType>
+      <OffenceDate>
+        <DateType>2</DateType>
+        <Date1>2016-07-15</Date1>
+      </OffenceDate>
+      <CaseSODDetails>
+        <SODKey>
+          <Chapter>212</Chapter>
+          <SubLegislative></SubLegislative>
+          <Section>36</Section>
+          <SubSection>C</SubSection>
+          <Paragraph></Paragraph>
+          <SubParagraph></SubParagraph>
+          <SupplementCode>XC</SupplementCode>
+          <VersionNumber>1</VersionNumber>
+        </SODKey>
+        <OffenceDescription>RESISTING ARREST</OffenceDescription>
+        <OffenceDescriptionChinese>拒捕</OffenceDescriptionChinese>
+        <ContraryToLaw>Section 36(c) of the Offences against the Person Ordinance, Cap.212</ContraryToLaw>
+        <ContraryToLawChinese>香港法例第212章侵害人身罪條例第36(c)條</ContraryToLawChinese>
+        <ChargeParticular>CHAN Tai Ming, you are charged that on the 15th day of July, 2016, on the 450 Hennessy Rd, Causeway Bay, in Hong Kong, you ...</ChargeParticular>
+        <ChargeParticularChinese>有人提出告發，指稱你陳大明，於2016年7月15日，在銅鑼灣軒尼絲道450號...</ChargeParticularChinese>
+      </CaseSODDetails>
+    </OffenceDetails>
+    <DefendantDetails>
+      <PartyEnglishSurname>CHAN</PartyEnglishSurname>
+      <PartyEnglishGivenName>Tai Ming</PartyEnglishGivenName>
+      <PartyChineseSurname>陳</PartyChineseSurname>
+      <PartyChineseGivenName>大明</PartyChineseGivenName>
+      <IdentificationType>I</IdentificationType>
+      <IdentificationNumber>
+        <HKIDNumber>
+          <Identifier xmlns="HKID">H123456</Identifier>
+          <CheckDigit xmlns="HKID">7</CheckDigit>
+        </HKIDNumber>
+      </IdentificationNumber>
+      <Gender>M</Gender>
+      <BirthDate>1976-03-04</BirthDate>
+      <Age>40</Age>
+      <PhoneNumber>22334455</PhoneNumber>
+      <DefendantType>A</DefendantType>
+      <Address>
+        <AddressTerritory>1</AddressTerritory>
+        <EnglishAddress>
+          <EnglishAddressLine>Flat 1204, Red House, Red Estate,</EnglishAddressLine>
+          <EnglishAddressLine>3 Red Street, Chai Wan, </EnglishAddressLine>
+          <EnglishAddressLine>Hong Kong Island</EnglishAddressLine>
+        </EnglishAddress>
+        <ChineseAddress>
+          <ChineseAddressLine>香港柴灣紅街3號</ChineseAddressLine>
+          <ChineseAddressLine>紅邨紅樓1204室</ChineseAddressLine>
+        </ChineseAddress>
+      </Address>
+      <InterpretLanguage>PUT</InterpretLanguage>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <OffenceSequenceNumber>1</OffenceSequenceNumber>
+      <OffenceSequenceNumber>2</OffenceSequenceNumber>
+    </DefendantDetails>
+    <DefendantDetails>
+      <PartyEnglishSurname>CHAN</PartyEnglishSurname>
+      <PartyEnglishGivenName>Siu Ming</PartyEnglishGivenName>
+      <PartyChineseSurname>陳</PartyChineseSurname>
+      <PartyChineseGivenName>小明</PartyChineseGivenName>
+      <IdentificationType>I</IdentificationType>
+      <IdentificationNumber>
+        <HKIDNumber>
+          <Identifier xmlns="HKID">H223456</Identifier>
+          <CheckDigit xmlns="HKID">8</CheckDigit>
+        </HKIDNumber>
+      </IdentificationNumber>
+      <Gender>M</Gender>
+      <BirthDate>1977-03-04</BirthDate>
+      <Age>39</Age>
+      <PhoneNumber>22334466</PhoneNumber>
+      <DefendantType>A</DefendantType>
+      <Address>
+        <AddressTerritory>1</AddressTerritory>
+        <EnglishAddress>
+          <EnglishAddressLine>Flat 1204, Red House, Red Estate,</EnglishAddressLine>
+          <EnglishAddressLine>3 Red Street, Chai Wan, </EnglishAddressLine>
+          <EnglishAddressLine>Hong Kong Island</EnglishAddressLine>
+        </EnglishAddress>
+        <ChineseAddress>
+          <ChineseAddressLine>香港柴灣紅街3號</ChineseAddressLine>
+          <ChineseAddressLine>紅邨紅樓1204室</ChineseAddressLine>
+        </ChineseAddress>
+      </Address>
+      <InterpretLanguage>PUT</InterpretLanguage>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <OffenceSequenceNumber>1</OffenceSequenceNumber>
+    </DefendantDetails>
+    <BailRemandDetails>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <PeriodType>R</PeriodType>
+      <FromDate>2016-07-02</FromDate>
+      <ToDate>2016-07-09</ToDate>
+    </BailRemandDetails>
+    <BailRemandDetails>
+      <DefendantSequenceNumber>1</DefendantSequenceNumber>
+      <PeriodType>B</PeriodType>
+      <BailFormReferenceNumber>16000234</BailFormReferenceNumber>
+      <FromDate>2016-07-10</FromDate>
+      <ToDate>2016-08-01</ToDate>
+      <BailType>P</BailType>
+      <CashAmount>800.00</CashAmount>
+      <OwnUndertakingAmount>0.00</OwnUndertakingAmount>
+    </BailRemandDetails>
+    <BailRemandDetails>
+      <DefendantSequenceNumber>2</DefendantSequenceNumber>
+      <PeriodType>B</PeriodType>
+      <BailFormReferenceNumber>16000233</BailFormReferenceNumber>
+      <FromDate>2016-07-02</FromDate>
+      <ToDate>2016-08-01</ToDate>
+      <BailType>P</BailType>
+      <CashAmount>500.00</CashAmount>
+      <OwnUndertakingAmount>0.00</OwnUndertakingAmount>
+    </BailRemandDetails>
+  </ChargeCase>
+</GCCIMsgD2J>

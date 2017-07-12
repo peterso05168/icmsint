@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI02</Prefix>
+		<BatchSerialNumber>10</BatchSerialNumber>
+		<InterfaceDate>2016-09-15</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<SummonsAllocation>
+		<CourtSys>FL</CourtSys>
+		<CaseType>S</CaseType>
+		<CaseSerialNumber>80</CaseSerialNumber>
+		<CaseYear>2016</CaseYear>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU0666/2016/8</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI02</RecordPrefix>
+		<FirstHearingDate>2016-10-15</FirstHearingDate>
+		<FirstHearingTime>09:30:00</FirstHearingTime>
+		<HearingCourtNumber>2</HearingCourtNumber>
+		<ApplicationStatus>A</ApplicationStatus>
+	</SummonsAllocation>
+</GDSNIMsgJ2D>

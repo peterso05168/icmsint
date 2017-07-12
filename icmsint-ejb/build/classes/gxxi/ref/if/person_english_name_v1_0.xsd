@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xs:schema 
+	xmlns="PEN" 
+	targetNamespace="PEN" 
+
+	xmlns:cct="CCT" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0">
+	
+	<xs:import namespace="CCT" schemaLocation="../gov/cct/cct.xsd"/>
+	
+	<xs:complexType name="PersonEnglishNameDetails.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000022, Dictionary Entry Name = Person English Name. Details,
+			The name of a person in English, comprising some or all of the person's name prefix, family name, given name, and person's name suffix.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UnstructuredName" type="PersonEnglishNameUnstructuredName.V1.0.CT" minOccurs="0"/>
+			<xs:element name="StructuredName" type="PersonEnglishStructuredNameDetails.V1.0.CT" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishNameUnstructuredName.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000023, Dictionary Entry Name = Person English Name. Unstructured. Name,
+			Name of a person in English stored in unstructured format.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Name.CT">
+				<xs:maxLength value="60"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishStructuredNameDetails.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000025, Dictionary Entry Name = Person English Structured Name. Details,
+			Name of the person in English storing in structured components.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Surname" type="PersonEnglishStructuredNameSurnameName.V1.0.CT"/>
+			<xs:element name="GivenName" type="PersonEnglishStructuredNameGivenName.V1.0.CT" minOccurs="0"/>
+			<xs:element name="PersonNamePrefix" type="PersonEnglishStructuredNamePersonNamePrefixText.V1.0.CT" minOccurs="0"/>
+			<xs:element name="PersonNameSuffix" type="PersonEnglishStructuredNamePersonNameSuffixText.V1.0.CT" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishStructuredNameSurnameName.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000026, Dictionary Entry Name = Person English Structured Name. Surname. Name,
+			Surname of the person</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Name.CT">
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishStructuredNameGivenName.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000027, Dictionary Entry Name = Person English Structured Name. Given. Name,
+			Given name of the person</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Name.CT">
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishStructuredNamePersonNamePrefixText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000028, Dictionary Entry Name = Person English Structured Name. Person Name Prefix. Text,
+			An expression that precedes a person's English name for addressing that person.  This is commonly known as a person's title.  Any valid title expression is permitted.  If any of the following are used, then the value should conform to the following format: Mr, Mrs, Ms, Miss, Dr, Prof</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PersonEnglishStructuredNamePersonNameSuffixText.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000029, Dictionary Entry Name = Person English Structured Name. Person Name Suffix. Text,
+			An expression that may be added to the end of a person's English name, for example, JP, PhD, etc.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Text.CT">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

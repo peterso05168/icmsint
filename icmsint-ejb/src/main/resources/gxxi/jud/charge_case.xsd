@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cct="CCT">
+	<xsd:include schemaLocation="common_jud.xsd"/>
+	<xsd:include schemaLocation="common_caseman.xsd"/>
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:import namespace="CCT" schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+	<!--**********************************************************
+	*	CHARGE CASE APPLICATION
+	**********************************************************-->
+	<xsd:complexType name="ChargeCase.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Charge Case Application Message
+                              Derived from Case.V1.0.CT
+                              Extension consists of
+								a) Record Prefix
+								b) Informant Details Object (v1.1)
+								c) PD Unit
+								d) Hearing Date
+								e) Offence Details Object
+								f) Defendant Details Object (v1.1)
+								g) Bail Remand Object
+								h) Surety Object
+								i) Witness Object (v1.1)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.2.CT"/>
+					<xsd:element name="ProsecutionDepartmentUnit" type="ProsecutionDepartmentUnit.V1.0.CT"/>
+					<xsd:element name="HearingDate" type="cct:Date.CT"/>
+					<xsd:element name="OffenceDetails" type="ChargeCaseOffence.V1.0.CT" maxOccurs="unbounded"/>
+					<xsd:element name="DefendantDetails" type="ChargeCaseDefendant.V1.0.CT" maxOccurs="unbounded"/>
+					<xsd:element name="BailRemandDetails" type="BailRemand.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="SuretyDetails" type="Surety.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="WitnessDetails" type="Witness.V1.2.CT" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChargeCaseOffence.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>offence details object for charge case 
+                               consists of
+                               a) Offence Sequence Number
+                               b) Charge Type
+                               c) Charge Case Offence Date Object
+                               d) CaseSOD (v1.2)
+                               e) Related Offence Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffenceSequenceNumber" type="OffenceSequenceNumber.V1.0.CT"/>
+			<xsd:element name="ChargeType" type="ChargeType.V1.0.CT"/>
+			<xsd:element name="OffenceDate" type="ChargeCaseOffenceDate.V1.0.CT"/>
+			<xsd:element name="CaseSODDetails" type="CaseSOD.V1.2.CT"/>
+			<xsd:element name="RelatedOffenceSequenceNumber" type="OffenceSequenceNumber.V1.0.CT"  minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChargeCaseOffenceDate.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>offence date details object for charge case 
+                               consists of
+                               a) Offence Date Type
+                               b) Offence Date 1
+                               c) Offence Date 2
+                               d) Offence Year
+                               e) Offence Month
+                               f) Offence Date free text
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DateType" type="OffenceDateType.V1.0.CT"/>
+			<xsd:element name="Date1" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="Date2" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="Year" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="Month" type="xsd:gMonth" minOccurs="0"/>
+			<xsd:element name="Others" type="OffenceDateFreetext.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChargeCaseDefendant.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>defendant details object for charge case 
+                               derives from Defendant (V1.3)
+                               extension consists of
+                               a) Defendant Sequence Number
+                               b) Offence Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Defendant.V1.3.CT">
+				<xsd:sequence>
+					<xsd:element name="DefendantSequenceNumber" type="DefendantSequenceNumber.V1.0.CT"/>
+					<xsd:element name="OffenceSequenceNumber" type="OffenceSequenceNumber.V1.0.CT" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<!--**********************************************************
+	*	CHARGE CASE ALLOCATION
+	**********************************************************-->
+	<xsd:complexType name="ChargeCaseAllocation.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Charge Case Allocation Message
+                              Derived from Case.V1.0.CT
+                              Extension consists of
+								a) Record Prefix
+								b) First Hearing Date
+								c) First Hearing Time
+								d) Magistrates' Courts Code
+								e) Hearing Court Number	(v1.1)
+								f) Application Status (A-Accept, J-Reject)
+								g) Charge Case Allocation Remark
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="FirstHearingDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="FirstHearingTime" type="cct:Time.CT" minOccurs="0"/>
+					<xsd:element name="HearingCourtSys" type="CourtSys.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="HearingCourtNumber" type="HearingCourtNumber.V1.1.CT" minOccurs="0"/>
+					<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="ChargeCaseAllocationRemark" type="ChargeCaseAllocationRemark.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChargeCaseAllocationRemark.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>multiple remark line</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RemarkLine" type="RemarkLine.V1.0.CT" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--**********************************************************
+	*	CHARGE CASE AMENDMENT APPLICATION
+	**********************************************************-->
+	<xsd:complexType name="ChargeCaseAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Charge Case Amendment Application Message
+                              Derived from Case.V1.0.CT
+                              Extension consists of
+								a) Record Prefix
+								b) Amendment Reference Number
+								c) Amendment Details Object
+								d) Offence Amendment Details Object
+								e) Defendant Amendment Details Object
+								f) Bail Remand Amendment Details Object
+								g) Surety Amendment Details Object
+                                h) Witness Amendment Details Object
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="AmendmentReferenceNumber" type="AmendmentReferenceNumber.V1.0.CT"/>
+					<xsd:element name="GeneralAmendment" type="CommonAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="OffenceAmendment" type="OffenceAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="DefendantAmendment" type="DefendantAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="BailRemandAmendment" type="BailRemandAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="SuretyAmendment" type="SuretyAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="WitnessAmendment" type="WitnessAmendment.V1.0.CT" 
+								 minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AmendmentReferenceNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>amendment reference number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<!--**********************************************************
+	*	CHARGE CASE AMENDMENT RESULT
+	**********************************************************-->
+	<xsd:complexType name="ChargeCaseAmendmentResult.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Charge Case Amendment Result Message
+                              Derived from Case.V1.0.CT
+                              Extension consists of
+								a) Record Prefix
+								b) Amendment Reference Number
+								c) Amendment Application Status
+								d) Amendment Application Remark
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+					<xsd:element name="AmendmentReferenceNumber" type="AmendmentReferenceNumber.V1.0.CT"/>
+					<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="AmendmentApplicationRemark" type="AmendmentApplicationRemark.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AmendmentApplicationRemark.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>multiple remark line</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RemarkLine" type="RemarkLine.V1.0.CT" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<xs:schema 
+	xmlns="HDC" 
+	targetNamespace="HDC" 
+	
+	xmlns:cct="CCT" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0">
+
+	<xs:import namespace="CCT" schemaLocation="../gov/cct/cct.xsd"/>
+
+	<xs:complexType name="HKSARGDepartmentCode.V1.0.CT">
+		<xs:annotation>
+			<xs:documentation>UID = COM000035, Dictionary Entry Name = HKSARG Department. Code,
+			A code representing a government bureau or department or a government related organization, with code values assigned in accordance with the standardized list of government department codes.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:Code.CT">
+				<xs:maxLength value="8"/>
+				<xs:attribute name="agencyId" default="http://www.xml.gov.hk">
+					<xs:simpleType>
+						<xs:restriction base="xs:normalizedString">
+							<xs:enumeration value="http://www.xml.gov.hk"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="agencyName" default="www.xml.gov.hk">
+					<xs:simpleType>
+						<xs:restriction base="xs:normalizedString">
+							<xs:enumeration value="www.xml.gov.hk"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="codeListName" default="HKSARG Department Code">
+					<xs:simpleType>
+						<xs:restriction base="xs:normalizedString">
+							<xs:enumeration value="HKSARG Department Code"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

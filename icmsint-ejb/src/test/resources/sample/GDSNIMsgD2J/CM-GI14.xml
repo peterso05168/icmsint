@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgD2J>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI14</Prefix>
+		<BatchSerialNumber>43</BatchSerialNumber>
+		<InterfaceDate>2016-06-01</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<NoticeOfOrderApplication>
+		<CourtSys>FL</CourtSys>
+		<CaseType>N</CaseType>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU1049/2016/208</DepartmentReferenceNumber>
+		<RecordPrefix>CM-GI14</RecordPrefix>
+		<DefendantDetails>
+			<PartyEnglishSurname>CHAN</PartyEnglishSurname>
+			<PartyEnglishGivenName>SIU MEI</PartyEnglishGivenName>
+			<PartyChineseSurname>陳</PartyChineseSurname>
+			<PartyChineseGivenName>小美</PartyChineseGivenName>
+			<IdentificationType>I</IdentificationType>
+			<IdentificationNumber>
+				<HKIDNumber>
+					<Identifier xmlns="HKID">Y238234</Identifier>
+					<CheckDigit xmlns="HKID">2</CheckDigit>
+				</HKIDNumber>
+			</IdentificationNumber>
+			<Gender>F</Gender>
+			<BirthDate>1990-01-10</BirthDate>
+			<Age>26</Age>
+			<PhoneNumber>23232323</PhoneNumber>
+			<OtherPhoneNumber>90919293</OtherPhoneNumber>
+			<DefendantType>A</DefendantType>
+			<Address>
+				<AddressTerritory>3</AddressTerritory>
+				<EnglishAddress>
+					<EnglishAddressLine>Shatin</EnglishAddressLine>
+				</EnglishAddress>
+				<ChineseAddress>
+					<ChineseAddressLine>沙田</ChineseAddressLine>
+				</ChineseAddress>
+				<OverseasIndicator>N</OverseasIndicator>
+			</Address>
+			<InterpretLanguage>PUT</InterpretLanguage>
+		</DefendantDetails>
+		<OffenceDateTime>
+			<OffenceDate>2016-05-01</OffenceDate>
+			<OffenceTime>14:00:00</OffenceTime>
+		</OffenceDateTime>
+		<OffenceDescFormat>X</OffenceDescFormat>
+		<OffenceLocation>
+			<AddressTerritory>3</AddressTerritory>
+			<EnglishAddress>
+				<EnglishAddressLine>Tai Tam Country Park</EnglishAddressLine>
+			</EnglishAddress>
+			<ChineseAddress>
+				<ChineseAddressLine>大潭效野公園</ChineseAddressLine>
+			</ChineseAddress>
+		</OffenceLocation>
+		<SODDetails>
+			<Chapter>208</Chapter>
+			<SubLegislative>A</SubLegislative>
+			<Section>4</Section>
+			<SubSection>1</SubSection>
+			<Paragraph>0</Paragraph>
+			<SubParagraph>0</SubParagraph>
+			<SupplementCode>N3</SupplementCode>
+			<VersionNumber>1</VersionNumber>
+		</SODDetails>
+		<OffenceDesc>
+			<PGBLAllow>N</PGBLAllow>
+			<ContraryToLaw>Regulations 4(1) and 20(1) of Country Park and Special Areas Regulations made under Country Parks Ordinance, Cap. 208</ContraryToLaw>
+			<ContraryToLawChinese>根據法例第208章郊野公園條例制訂的郊野公園及特別地區規例第4(1)及20(1)條</ContraryToLawChinese>
+			<OffenceDescription>Driving Bicycle within country park without consent of the Authority</OffenceDescription>
+			<OffenceDescriptionChinese>未得總監同意在郊野公園內駕駛單車</OffenceDescriptionChinese>
+			<ChargeParticular>Driving Bicycle on 2016-05-01 within Tai Tam country park without consent of the Authority</ChargeParticular>
+			<ChargeParticularChinese>未得總監同意堑2016-05-01在大潭郊野公園內駕駛單車</ChargeParticularChinese>
+		</OffenceDesc>
+		<InformantDetails>
+			<PartyEnglishSurname>CHAN</PartyEnglishSurname>
+			<PartyEnglishGivenName>KEUNG</PartyEnglishGivenName>
+			<PartyChineseSurname>陳</PartyChineseSurname>
+			<PartyChineseGivenName>強</PartyChineseGivenName>
+			<PhoneNumber>33445566</PhoneNumber>
+		</InformantDetails>
+		<IssueDate>2016-05-08</IssueDate>
+		<HearingCourtNumber>2</HearingCourtNumber>
+		<FirstHearingDate>2016-06-10</FirstHearingDate>
+		<FirstHearingTime>09:30:00</FirstHearingTime>
+	</NoticeOfOrderApplication>
+</GDSNIMsgD2J>

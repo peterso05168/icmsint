@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>			
+
+<!--****************************************************************
+	*	DEFENDANT ADDRESS UPDATE
+	**************************************************************** -->
+    <xsd:complexType name="DefendantAddressApplication.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Defendant Address Update
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix				
+				b) Interface ID	
+				c) Address Update Date
+				d) Defendant Address
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>					
+					<xsd:element name="AddressUpdateDate" type="cct:Date.CT"/>					
+					<xsd:element name="DefendantAddress" type="Address.V1.1.CT"/>										
+		       </xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DefendantAddressApplication.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Defendant Address Update
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Address Update Date
+				c) Defendant Address
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+		       <xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>				
+					<xsd:element name="AddressUpdateDate" type="cct:Date.CT"/>					
+					<xsd:element name="DefendantAddress" type="Address.V1.2.CT"/>										
+		       </xsd:sequence>
+                </xsd:extension>      
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+</xsd:schema>

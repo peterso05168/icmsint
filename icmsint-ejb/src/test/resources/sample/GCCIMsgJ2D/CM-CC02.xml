@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgJ2D>
+  <InterfaceFileHeader>
+    <Prefix>CM-CC02</Prefix>
+    <BatchSerialNumber>1</BatchSerialNumber>
+    <InterfaceDate>2016-07-21</InterfaceDate>
+    <RecordCount>1</RecordCount>
+  </InterfaceFileHeader>
+  <ChargeCaseAllocation>
+    <CourtSys>KC</CourtSys>
+    <CaseType>HW</CaseType>
+    <CaseSerialNumber>101</CaseSerialNumber>
+    <CaseYear>2016</CaseYear>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+    <RecordPrefix>CM-CC02</RecordPrefix>
+    <FirstHearingDate>2016-08-01</FirstHearingDate>
+    <FirstHearingTime>09:30:00</FirstHearingTime>
+    <HearingCourtNumber>1</HearingCourtNumber>
+    <ApplicationStatus>A</ApplicationStatus>
+  </ChargeCaseAllocation>
+</GCCIMsgJ2D>

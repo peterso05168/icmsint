@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT" >
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+	<xsd:include schemaLocation="common_caseman.xsd"/>
+	<xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>			
+
+	<!--**********************************************************
+	*	INTERFACE FILE HEADER
+	********************************************************** -->
+	<xsd:complexType name="InterfaceFileHeader.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>A file header indicate the details of the corresponding XML message body for easy processing	elements include :
+				a) Record Prefix
+				b) Serial Number
+				c) Interface Date
+				d) Record Count
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Prefix"				type="Prefix.V1.0.CT"/>
+			<xsd:element name="BatchSerialNumber"	type="BatchSerialNumber.V1.0.CT"/>
+			<xsd:element name="InterfaceDate"		type="cct:Date.CT"/> 
+			<xsd:element name="RecordCount"  		type="XMLRecordCount.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterfaceFileHeader.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>a file header indicate the details of the corresponding XML message body for easy processing
+                               elements include :
+                               a) Record Prefix
+                               b) Serial Number
+                               c) Interface Date
+                               d) Record Count
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Prefix" 				type="Prefix.V1.1.CT"/>
+			<xsd:element name="BatchSerialNumber"	type="BatchSerialNumber.V1.0.CT"/>
+			<xsd:element name="InterfaceDate" 		type="cct:Date.CT"/> 
+			<xsd:element name="RecordCount"   		type="XMLRecordCount.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterfaceFileHeader.V1.2.CT">
+		<xsd:annotation>
+			<xsd:documentation>a file header indicate the details of the corresponding XML message body for easy processing
+                               elements include :
+                               a) Record Prefix
+                               b) Serial Number
+                               c) Interface Date
+                               d) Record Count
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Prefix" 				type="Prefix.V1.2.CT"/>
+			<xsd:element name="BatchSerialNumber"	type="BatchSerialNumber.V1.0.CT"/>
+			<xsd:element name="InterfaceDate" 		type="cct:Date.CT"/>
+			<xsd:element name="RecordCount"   		type="XMLRecordCount.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterfaceFileHeader.V1.3.CT">
+		<xsd:annotation>
+			<xsd:documentation>a file header indicate the details of the corresponding XML message body for easy processing
+                               elements include :
+                               a) Record Prefix
+                               b) Serial Number
+                               c) Interface Date
+                               d) Record Count
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Prefix" 				type="Prefix.V1.3.CT"/>
+			<xsd:element name="BatchSerialNumber"	type="BatchSerialNumber.V1.0.CT"/>
+			<xsd:element name="InterfaceDate" 		type="cct:Date.CT"/>
+			<xsd:element name="RecordCount"   		type="XMLRecordCount.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--
+ *PREFIX
+-->
+	<xsd:complexType name="Prefix.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>a specific character string used to identify a type of XML message - Message ID
+				1) CM-GI01 : Summons Application
+				2) CM-GI02 : Summons Allocation
+				3) CM-GI03 : Court Result
+				4) CM-GI04 : Appeal Review Grant
+				5) CM-GI05 : Warrant Status Update
+				6) CM-GI06 : Witness Summons Application
+				7) CM-GI07 : Witness Summons Allocation
+				8) CM-GI08 : Latest Defendant Residential Address
+				9) CM-GI09 : Future Hearing Allocation
+				10)CM-GI10 : Reservice Result
+				11)CM-GI11 : Payment
+				12)CM-GI12 : SOD Application
+				13)CM-GI13 : SOD Application Result
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="30"/>
+				<xsd:enumeration value="CM-GI01"/>
+				<xsd:enumeration value="CM-GI02"/>
+				<xsd:enumeration value="CM-GI03"/>
+				<xsd:enumeration value="CM-GI04"/>
+				<xsd:enumeration value="CM-GI05"/>
+				<xsd:enumeration value="CM-GI06"/>
+				<xsd:enumeration value="CM-GI07"/>
+				<xsd:enumeration value="CM-GI08"/>
+				<xsd:enumeration value="CM-GI09"/>
+				<xsd:enumeration value="CM-GI10"/>
+				<xsd:enumeration value="CM-GI11"/>
+				<xsd:enumeration value="CM-GI12"/>
+				<xsd:enumeration value="CM-GI13"/>
+			</xsd:restriction>              
+		</xsd:simpleContent>                
+	</xsd:complexType>
+
+	<xsd:complexType name="Prefix.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>a specific character string used to identify a type of XML message - Message ID
+	    	      1) CM-FP01 : Fixed Penalty Notice of Order Application
+	              2) CM-FP02 : Fixed Penalty Summons Application
+	              3) CM-G03  : Witness Summons Application
+	              4) CM-FP04 : Notice of Order/ Summons Hearing Allocation Result
+	              5) CM-FP05 : Fixed Penalty Notice of Order Hearing Result
+	              6) CM-FP06 : Fixed Penalty Summons Hearing Result
+	              7) CM-G04  : Witness Summons Allocation Result
+	              8) CM-FP08 : Appeal/ Review Filing Interface
+	              9) CM-G05  : Warrant Status Change Notification
+				 10) CM-G06  : Court Payment Interface
+				 11) CM-FP10 : Fixed Penalty Distress Warrant Application
+				 12) CM-FP11 : Distress Warrant Application Result
+				 13) CM-FP12 : Distress Warrant Status Change
+				 14) CM-FP13 : Court Payment for Distress Warrant Costs
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="10"/>
+				<xsd:enumeration value="CM-FP01"/>
+				<xsd:enumeration value="CM-FP02"/>
+				<xsd:enumeration value="CM-G03"/>
+				<xsd:enumeration value="CM-FP04"/>
+				<xsd:enumeration value="CM-FP05"/>
+				<xsd:enumeration value="CM-FP06"/>
+				<xsd:enumeration value="CM-G04"/>
+				<xsd:enumeration value="CM-FP08"/>
+				<xsd:enumeration value="CM-G05"/>
+				<xsd:enumeration value="CM-G06"/>
+				<xsd:enumeration value="CM-FP10"/>
+				<xsd:enumeration value="CM-FP11"/>
+				<xsd:enumeration value="CM-FP12"/>
+				<xsd:enumeration value="CM-FP13"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Prefix.V1.2.CT">
+		<xsd:annotation>
+			<xsd:documentation>a specific character string used to identify a type of XML message - Message ID
+				1) CM-GI01 : Summons Application
+				2) CM-GI02 : Summons Allocation
+				3) CM-GI03 : Court Result
+				4) CM-GI04 : Appeal Review Grant
+				5) CM-GI05 : Warrant Status Update
+				6) CM-GI06 : Witness Summons Application
+				7) CM-GI07 : Witness Summons Allocation
+				8) CM-GI08 : Latest Defendant Residential Address
+				9) CM-GI09 : Future Hearing Allocation
+				10)CM-GI10 : Reservice Result
+				11)CM-GI11 : Payment
+				12)CM-GI12 : SOD Application
+				13)CM-GI13 : SOD Application Result
+				14)CM-GI14 : Departmental Notice Application
+				15)CM-GI15 : Departmental Notice Allocation Result
+				16)CM-GI16 : Departmental Notice Hearing Result
+	    	    17)CM-FP01 : Fixed Penalty Notice of Order Application
+	            18)CM-FP02 : Fixed Penalty Summons Application
+	            19)CM-G03  : Witness Summons Application
+	            21)CM-FP04 : Notice of Order/ Summons Hearing Allocation Result
+	            22)CM-FP05 : Fixed Penalty Notice of Order Hearing Result
+	            23)CM-FP06 : Fixed Penalty Summons Hearing Result
+	            24)CM-G04  : Witness Summons Allocation Result
+	            25)CM-FP08 : Appeal/ Review Filing Interface
+	            26)CM-G05  : Warrant Status Change Notification
+				27)CM-G06  : Court Payment Interface
+				28)CM-FP10 : Fixed Penalty Distress Warrant Application
+				29)CM-FP11 : Distress Warrant Application Result
+				30)CM-FP12 : Distress Warrant Status Change
+				31)CM-FP13 : Court Payment for Distress Warrant Costs
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="30"/>
+				<xsd:enumeration value="CM-GI01"/>
+				<xsd:enumeration value="CM-GI02"/>
+				<xsd:enumeration value="CM-GI03"/>
+				<xsd:enumeration value="CM-GI04"/>
+				<xsd:enumeration value="CM-GI05"/>
+				<xsd:enumeration value="CM-GI06"/>
+				<xsd:enumeration value="CM-GI07"/>
+				<xsd:enumeration value="CM-GI08"/>
+				<xsd:enumeration value="CM-GI09"/>
+				<xsd:enumeration value="CM-GI10"/>
+				<xsd:enumeration value="CM-GI11"/>
+				<xsd:enumeration value="CM-GI12"/>
+				<xsd:enumeration value="CM-GI13"/>
+				<xsd:enumeration value="CM-GI14"/>
+				<xsd:enumeration value="CM-GI15"/>
+				<xsd:enumeration value="CM-GI16"/>
+				<xsd:enumeration value="CM-FP01"/>
+				<xsd:enumeration value="CM-FP02"/>
+				<xsd:enumeration value="CM-G03"/>
+				<xsd:enumeration value="CM-FP04"/>
+				<xsd:enumeration value="CM-FP05"/>
+				<xsd:enumeration value="CM-FP06"/>
+				<xsd:enumeration value="CM-G04"/>
+				<xsd:enumeration value="CM-FP08"/>
+				<xsd:enumeration value="CM-G05"/>
+				<xsd:enumeration value="CM-G06"/>
+				<xsd:enumeration value="CM-FP10"/>
+				<xsd:enumeration value="CM-FP11"/>
+				<xsd:enumeration value="CM-FP12"/>
+				<xsd:enumeration value="CM-FP13"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Prefix.V1.3.CT">
+		<xsd:annotation>
+			<xsd:documentation>a specific character string used to identify a type of XML message - Message ID
+				1) CM-GI01 : Summons Application
+				2) CM-GI02 : Summons Allocation
+				3) CM-GI03 : Court Result
+				4) CM-GI04 : Appeal Review Grant
+				5) CM-GI05 : Warrant Status Update
+				6) CM-GI06 : Witness Summons Application
+				7) CM-GI07 : Witness Summons Allocation
+				8) CM-GI08 : Latest Defendant Residential Address
+				9) CM-GI09 : Future Hearing Allocation
+				10)CM-GI10 : Reservice Result
+				11)CM-GI11 : Payment
+				12)CM-GI12 : SOD Application
+				13)CM-GI13 : SOD Application Result
+				14)CM-GI14 : Departmental Notice Application
+				15)CM-GI15 : Departmental Notice Allocation Result
+				16)CM-GI16 : Departmental Notice Hearing Result
+	    	    17)CM-FP01 : Fixed Penalty Notice of Order Application
+	            18)CM-FP02 : Fixed Penalty Summons Application
+	            19)CM-G03  : Witness Summons Application
+	            21)CM-FP04 : Notice of Order/ Summons Hearing Allocation Result
+	            22)CM-FP05 : Fixed Penalty Notice of Order Hearing Result
+	            23)CM-FP06 : Fixed Penalty Summons Hearing Result
+	            24)CM-G04  : Witness Summons Allocation Result
+	            25)CM-FP08 : Appeal/ Review Filing Interface
+	            26)CM-G05  : Warrant Status Change Notification
+				27)CM-G06  : Court Payment Interface
+				28)CM-FP10 : Fixed Penalty Distress Warrant Application
+				29)CM-FP11 : Distress Warrant Application Result
+				30)CM-FP12 : Distress Warrant Status Change
+				31)CM-FP13 : Court Payment for Distress Warrant Costs
+                                32)CM-CC01 : Charge Case Application
+                                33)CM-CC02 : Charge Case Allocation
+                                34)CM-GI17 : Case Document Submission
+                                35)CM-GI18 : Case Document Acknowledgement
+                                36)CM-CC03 : Case Amendment Application
+                                37)CM-CC04 : Case Amendment Result
+                                38)CM-CC05 : Bail Register
+                                39)CM-CC06 : Charge Case Hearing Result
+                                40)CM-GI19 : Court Document
+                                41)CM-GI20 : SOD Details Update
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="30"/>
+				<xsd:enumeration value="CM-GI01"/>
+				<xsd:enumeration value="CM-GI02"/>
+				<xsd:enumeration value="CM-GI03"/>
+				<xsd:enumeration value="CM-GI04"/>
+				<xsd:enumeration value="CM-GI05"/>
+				<xsd:enumeration value="CM-GI06"/>
+				<xsd:enumeration value="CM-GI07"/>
+				<xsd:enumeration value="CM-GI08"/>
+				<xsd:enumeration value="CM-GI09"/>
+				<xsd:enumeration value="CM-GI10"/>
+				<xsd:enumeration value="CM-GI11"/>
+				<xsd:enumeration value="CM-GI12"/>
+				<xsd:enumeration value="CM-GI13"/>
+				<xsd:enumeration value="CM-GI14"/>
+				<xsd:enumeration value="CM-GI15"/>
+				<xsd:enumeration value="CM-GI16"/>
+				<xsd:enumeration value="CM-FP01"/>
+				<xsd:enumeration value="CM-FP02"/>
+				<xsd:enumeration value="CM-G03"/>
+				<xsd:enumeration value="CM-FP04"/>
+				<xsd:enumeration value="CM-FP05"/>
+				<xsd:enumeration value="CM-FP06"/>
+				<xsd:enumeration value="CM-G04"/>
+				<xsd:enumeration value="CM-FP08"/>
+				<xsd:enumeration value="CM-G05"/>
+				<xsd:enumeration value="CM-G06"/>
+				<xsd:enumeration value="CM-FP10"/>
+				<xsd:enumeration value="CM-FP11"/>
+				<xsd:enumeration value="CM-FP12"/>
+				<xsd:enumeration value="CM-FP13"/>
+                                <xsd:enumeration value="CM-CC01"/>
+                                <xsd:enumeration value="CM-CC02"/>
+                                <xsd:enumeration value="CM-GI17"/>
+                                <xsd:enumeration value="CM-GI18"/>
+                                <xsd:enumeration value="CM-CC03"/>
+                                <xsd:enumeration value="CM-CC04"/>
+                                <xsd:enumeration value="CM-CC05"/>
+                                <xsd:enumeration value="CM-CC06"/>
+                                <xsd:enumeration value="CM-GI19"/>
+                                <xsd:enumeration value="CM-GI20"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BatchSerialNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>interface serial number for the version control mechanism</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Count.CT">
+				<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="9999"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="XMLRecordCount.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>number of records generated for a particular XML Message type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Count.CT">
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="9999"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDetails.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Details
+	               a) Offence Date Format
+	               b) Offence Date
+	               c) Time Bar Method
+	               d) Discover Date
+	               e) Interface Offence Code
+	               f) Offence Description Format
+	               g) Offence Location
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffenceDateFormat" type="OffenceDateFormat.V1.0.CT"/>
+			<xsd:element name="OffenceDateTime" type="OffenceDateTime.V1.0.CT" minOccurs="1" maxOccurs="2"/>
+			<xsd:element name="TimeBarMethod" type="TimeBarMethod.V1.0.CT"/>
+			<xsd:element name="DiscoverDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="InterfaceOffenceCode" type="InterfaceOffenceCode.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="OffenceDescFormat" type="OffenceDescFormat.V1.0.CT"/>
+			<xsd:element name="OffenceLocation" type="Address.V1.1.CT" minOccurs="0"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+        
+        <xsd:complexType name="OffenceDetails.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Details
+	               a) Offence Date Format
+	               b) Offence Date
+	               c) Time Bar Method
+	               d) Discover Date
+	               e) Interface Offence Code
+	               f) Offence Description Format
+	               g) Offence Location
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffenceDateFormat" type="OffenceDateFormat.V1.0.CT"/>
+			<xsd:element name="OffenceDateTime" type="OffenceDateTime.V1.0.CT" minOccurs="1" maxOccurs="2"/>
+			<xsd:element name="TimeBarMethod" type="TimeBarMethod.V1.0.CT"/>
+			<xsd:element name="DiscoverDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="InterfaceOffenceCode" type="InterfaceOffenceCode.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="OffenceDescFormat" type="OffenceDescFormat.V1.0.CT"/>
+			<xsd:element name="OffenceLocation" type="Address.V1.2.CT" minOccurs="0"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDateTime.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Date and Time</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffenceDate" type="cct:Date.CT"/>
+			<xsd:element name="OffenceTime" type="cct:Time.CT"/>	
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDateFormat.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Date Format 1,2,3,4 or 5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>
+				<xsd:enumeration value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="TimeBarMethod.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Time Bar Format 1 or 2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>               
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterfaceOffenceCode.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Interface Offence Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="4"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDescFormat.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Description Format</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="F"/>
+				<xsd:enumeration value="X"/>               
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AuthorizeUserID.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Authorize User ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="InputUserID.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Input User ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="InterfaceID.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Interface ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="20"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ProcessStatus.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Process Status
+            					"1" New or Modify
+            					"2" Authorize
+            					"3" First upload
+            					"4" Download case with case no
+            					"5" Down case with return code
+            					"6" Reauthorize
+            					"7" Reupload
+            					"9" Assign case no or reject summon
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>
+				<xsd:enumeration value="5"/>
+				<xsd:enumeration value="6"/>
+				<xsd:enumeration value="7"/>
+				<xsd:enumeration value="9"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="HostReturnCode.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Host Return Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDesc.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Description
+	               a) PGBL Allow
+	               b) Law in English
+	               c) Law in Chinese
+	               d) Short Description in English
+	               e) Short Description in Chinse
+	               f) Long Description in English
+	               g) Long Description in Chinese
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Law" type="Law.V1.0.CT"/>
+			<xsd:element name="LawChinese" type="LawChinese.V1.1.CT"/>
+			<xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT"/>
+			<xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.1.CT"/>
+			<xsd:element name="LongDescription" type="OffenceDescription.V1.0.CT"/>
+			<xsd:element name="LongDescriptionChinese" type="OffenceDescriptionChinese.V1.1.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDesc.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Description
+	               a) PGBL Allow
+	               b) Law in English
+	               c) Law in Chinese
+	               d) Short Description in English
+	               e) Short Description in Chinse
+	               f) Long Description in English
+	               g) Long Description in Chinese
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="Law" type="Law.V1.0.CT"/>
+			<xsd:element name="LawChinese" type="LawChinese.V1.1.CT"/>
+			<xsd:element name="ShortDescription" type="ShortDescription.V1.0.CT"/>
+			<xsd:element name="ShortDescriptionChinese" type="ShortDescriptionChinese.V1.1.CT"/>
+			<xsd:element name="LongDescription" type="OffenceDescription.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="LongDescriptionChinese" type="OffenceDescriptionChinese.V1.2.CT" minOccurs="0"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+        
+        <xsd:complexType name="OffenceDesc.V1.2.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Description
+	               a) PGBL Allow
+	               b) Contrary to Law in English
+	               c) Contrary to Law in Chinese
+	               d) Offence Description in English
+	               e) Offence Description in Chinse
+	               f) Charge Particulars in English
+	               g) Charge Particulars in Chinese
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PGBLAllow" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ContraryToLaw" type="ContraryToLaw.V1.0.CT"/>
+                        <xsd:element name="ContraryToLawChinese" type="ContraryToLawChinese.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="OffenceDescription" type="OffenceDescription.V1.2.CT"/>
+                        <xsd:element name="OffenceDescriptionChinese" type="OffenceDescriptionChinese.V1.3.CT" minOccurs="0"/>
+                        <xsd:element name="ChargeParticular" type="ChargeParticular.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ChargeParticularChinese" type="ChargeParticularChinese.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceVariable.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Ofference Variable		   
+                           a) Offence Variable Code
+                           b) Offence Variable Name/Description
+                           c) Offence Variable Value
+                           d) Offence Variable Value Chinese
+			</xsd:documentation>	        
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffenceVarCode" type="VariableNumber.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="OffenceVarDesc" type="VariableDescription.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="OffenceVarValue" type="OffenceVarValue.V1.0.CT"/>
+			<xsd:element name="OffenceVarValueChinese" type="OffenceVarValueChinese.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceVarValue.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Variable Value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="300"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceVarValueChinese.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Variable Chinese Value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="200"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RecordStatus.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>record status
+                               a) 'N'   - Normal
+                               b) 'R'	- Rollback
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">				
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="R"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RecordStatus.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>Appeal/ Review record status
+                               a) blank - Normal entry
+                               b) 'C'   - Indicates that this same entry had been sent in previous batch
+                               				and it has now been cancelled due to mis-entry. If a correct 
+                               				entry is re-entered by the Magistrates' Courts user, then a 
+                               				new entry is to be followed.
+                               c) 'R'	 - Rollback
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value=" "/>
+				<xsd:enumeration value="C"/>
+				<xsd:enumeration value="R"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="RecordStatus.V1.2.CT">
+		<xsd:annotation>
+			<xsd:documentation>Appeal/ Review record status
+                               a) blank - Normal entry
+                               a) 'N'   - Normal entry
+                               b) 'C'   - Indicates that this same entry had been sent in previous batch
+                               				and it has now been cancelled due to mis-entry. If a correct 
+                               				entry is re-entered by the Magistrates' Courts user, then a 
+                               				new entry is to be followed.
+                               c) 'R'	 - Rollback
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value=" "/>
+                                <xsd:enumeration value="N"/>
+				<xsd:enumeration value="C"/>
+				<xsd:enumeration value="R"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RecordSequenceNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>interface record sequence number of this given batch</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Count.CT">
+				<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="9999"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ApplicationStatus.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>application status for the case allocation:
+                A - Accepted
+                J - Rejected
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="J"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RemarkLine.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Remark Line</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="400"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>    
+
+	<xsd:complexType name="PartyType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>party type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="PartyNo.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>party number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="3"/>
+				<xsd:fractionDigits value="0"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DemandNoteNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>demand note number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="16"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DemandNoteNumber.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>demand note number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="25"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="CaseRowSequenceNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>case row sequence number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Count.CT">
+				<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="9999"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="Amount.V1.1.CT">
+		<xsd:annotation>
+			<xsd:documentation>penalty amount</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Numeric.CT">
+				<xsd:totalDigits value="8"/>
+				<xsd:fractionDigits value="2"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AdditionalSection.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Additional Section</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="PreferredWarrantType.V1.0.CT">
+            <xsd:annotation>
+                <xsd:documentation>Preferred Warrant Type
+                                                    N - Non-Payment Warrant
+                                                    D - Distress Warrant
+                </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleContent>
+                <xsd:restriction base="cct:Code.CT">
+                                    <xsd:enumeration value="N"/>
+                                    <xsd:enumeration value="D"/>
+                </xsd:restriction>
+            </xsd:simpleContent>
+        </xsd:complexType>
+        
+        <xsd:complexType name="FixedPenaltyApplicationNature.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Fixed Penalty Application Nature
+                                                    VI - Vehicle Idling
+                                                    AS - Anti-Smoking
+                                                    WI - Window Inspection
+                                                    PSB - Plastic Shopping Bag
+                        </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+            <xsd:complexType name="RecordType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Hearing Outcome Type
+            					N - Normal
+            					R - Rollback
+            					C - Chang of Order Detail
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="R"/>
+				<xsd:enumeration value="C"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PleaType.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Plea type
+            					1 - Plea Guilty
+            					2 - Plea Not Guilty
+            					3 - Plea Guilty by letter
+            					4 - No Plea taken
+			</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+	<xsd:complexType name="CommonAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Basic amendment object consists of
+						a) Action
+						b) Data Name
+						c) Data Value
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Action" type="AmendmentAction.V1.0.CT"/>
+			<xsd:element name="DataName" type="AmendmentDataName.V1.0.CT"/>
+			<xsd:element name="DataValue" type="AmendmentDataValue.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AmendmentAction.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Application Action
+	            	'A': Add
+	            	'U': Update	            	         	
+	            	'D': Delete
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="U"/>
+				<xsd:enumeration value="D"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AmendmentDataName.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Amendment Data Name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="50"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AmendmentDataValue.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Amendment Data Value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="2000"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence amendment object
+						Derived from CommonAmendment.V1.0.CT
+						Extension consists of
+						a) Offence Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CommonAmendment.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="OffenceSequenceNumber" type="OffenceSequenceNumber.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DefendantAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Defendant amendment object
+						Derived from CommonAmendment.V1.0.CT
+						Extension consists of
+						a) Defendant Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CommonAmendment.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="DefendantSequenceNumber" type="DefendantSequenceNumber.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="WitnessAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Witness amendment object
+							Derived from CommonAmendment.V1.0.CT
+							Extension consists of
+							a) Witness Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CommonAmendment.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="WitnessSequenceNumber" type="WitnessSequenceNumber.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="SuretyAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Surety amendment object
+							Derived from CommonAmendment.V1.0.CT
+							Extension consists of
+							a) Surety Sequence Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CommonAmendment.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="SuretySequenceNumber" type="SuretySequenceNumber.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailRemandAmendment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Bail Remand amendment object
+							Derived from CommonAmendment.V1.0.CT
+							Extension consists of
+							a) Bail Remand Identifier
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CommonAmendment.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="BailRemandIdentifier" type="BailRemandIdentifier.V1.0.CT"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChargeType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Charge Type
+	            	'P': Primary
+	            	'A': Alternate	            	         	
+	            	'D': Additional
+                        'C': Consolidated
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="P"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="D"/>
+				<xsd:enumeration value="C"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDateType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Date Type for Charge Case
+	            	'1': On date1
+	            	'2': On or about date1	            	         	
+	            	'3': between date1 and date2
+                        '4': on a day in year
+                        '5': on a day in month and year
+                        '6': others
+                        '7': no time information
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="1"/>
+				<xsd:enumeration value="2"/>
+				<xsd:enumeration value="3"/>
+				<xsd:enumeration value="4"/>
+				<xsd:enumeration value="5"/>
+				<xsd:enumeration value="6"/>
+				<xsd:enumeration value="7"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceDateFreetext.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Date Free Text</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="70"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="BailRemand.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>bail/remand details object for charge case 
+                               consists of
+                               a) Defendant Sequence Number
+                               b) Period Type
+                               c) Bail Form Reference Number (Pol.40 no.)
+                               d) Surety Sequency Number
+                               e) Relationship code/free text between defendant and surety
+                               f) From Date
+                               g) To Date
+                               h) Bail Type
+                               i) Cash Amount
+                               j) Own/Undertaking Amount
+                               k) Bail Condition
+                               l) Report/Remand Location
+                               m) Report Frequency
+                               n) Report on Monday Indicator
+                               o) Report on Tuesday Indicator
+                               p) Report on Wednesday Indicator
+                               q) Report on Thursday Indicator
+                               r) Report on Friday Indicator
+                               s) Report on Saturday Indicator
+                               t) Report on Sunday Indicator
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DefendantSequenceNumber" type="DefendantSequenceNumber.V1.0.CT"/>
+			<xsd:element name="PeriodType" type="PeriodType.V1.0.CT"/>
+			<xsd:element name="BailFormReferenceNumber" type="BailBookSerialNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="SuretySequenceNumber" type="SuretySequenceNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="RelationshipCode" type="RelationshipCode.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="RelationshipText" type="RelationshipText.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="FromDate" type="cct:Date.CT"/>
+			<xsd:element name="ToDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="BailType" type="BailType.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="CashAmount" type="Amount.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="OwnUndertakingAmount" type="Amount.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="BailCondition" type="BailCondition.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportRemandLocation" type="ProsecutionDepartmentStation.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportFrequency" type="ReportFrequency.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportMondayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportTuesdayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportWednesdayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportThursdayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportFridayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportSaturdayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+                        <xsd:element name="ReportSundayIndicator" type="FieldIndicator.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PeriodType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Period Type
+	            	'B': Bail offered
+	            	'R': Remand
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="B"/>
+				<xsd:enumeration value="R"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Bail Type
+	            	'A': ICAC
+	            	'C': Court
+                        'H': Hawker
+                        'P': Police
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="1"/>
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="C"/>
+				<xsd:enumeration value="H"/>
+				<xsd:enumeration value="P"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RelationshipCode.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Relationship code between parties</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="RelationshipText.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Relationship free text between parties</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="100"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailCondition.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Bail condition</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="500"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="ReportFrequency.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Reporting frequency</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="20"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailRegisterNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Bail register number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="8"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailBookSerialNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Bail book serial number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Code.CT">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="8"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+        
+<!--
+ * ORDER BY CHARGE DETAILS VERSION 1.0
+-->
+    <xsd:complexType name="OrderByCharge.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>order details per charge version 1.0 consists of
+								a) Party Type
+								b) Party Sequence Number
+								c) Offence Sequence Number
+								d) JJO Name
+								e) Plea Type
+								f) Hearing Result Code
+								g) Hearing Result Description
+								h) Sentence Period Year
+								i) Sentence Period Month
+								j) Sentence Period Week
+								k) Sentence Period Day
+								l) Payment Order Details Object
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PartyType" type="PartyType.V1.0.CT"/>
+            <xsd:element name="PartySequenceNumber" type="BasicSequenceNumber.V1.0.CT"/>
+            <xsd:element name="OffenceSequenceNumber" type="OffenceSequenceNumber.V1.0.CT"/>
+            <xsd:element name="JJO" type="PartyEnglishName.V1.0.CT"/>
+            <xsd:element name="PleaType" type="PleaType.V1.0.CT"/>
+            <xsd:element name="HearingResultCode" type="OrderCode.V1.0.CT"/>
+            <xsd:element name="SentenceType" type="OrderCode.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Year" type="xsd:gYear" minOccurs="0"/>
+            <xsd:element name="Month" type="xsd:gMonth" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="xsd:gDay" minOccurs="0"/>
+            <xsd:element name="PaymentOrder" type="PaymentOrder.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HearingResultDescription.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Hearing result description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+				<xsd:maxLength value="60"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+<!--
+ * ORDER BY DEFENDANT DETAILS VERSION 1.0
+-->
+    <xsd:complexType name="OrderByDefendant.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>consolidated order details per defendant version 1.0 consists of
+								a) Defendant Sequence Number
+								b) Sentence Period Year
+								c) Sentence Period Month
+								d) Sentence Period Week
+								e) Sentence Period Day
+                                                                f) Suspended Sentence Period Year
+								g) Suspended Sentence Period Month
+								h) Suspended Sentence Period Week
+								i) Suspended Sentence Period Day
+								j) Payment Order Details Object
+								k) Start Date
+								l) End Date
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="DefendantSequenceNumber" type="DefendantSequenceNumber.V1.0.CT"/>
+            <xsd:element name="Year" type="xsd:gYear" minOccurs="0"/>
+            <xsd:element name="Month" type="xsd:gMonth" minOccurs="0"/>
+            <xsd:element name="Week" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="Day" type="xsd:gDay" minOccurs="0"/>
+            <xsd:element name="SuspendedYear" type="xsd:gYear" minOccurs="0"/>
+            <xsd:element name="SuspendedMonth" type="xsd:gMonth" minOccurs="0"/>
+            <xsd:element name="SuspendedWeek" type="Week.V1.0.CT" minOccurs="0"/>
+            <xsd:element name="SuspendedDay" type="xsd:gDay" minOccurs="0"/>
+            <xsd:element name="PaymentOrder" type="PaymentOrder.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="StartDate" type="cct:Date.CT"/>
+            <xsd:element name="EndDate" type="cct:Date.CT" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

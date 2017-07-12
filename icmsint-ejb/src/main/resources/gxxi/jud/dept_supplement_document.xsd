@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--*******************************************
+	*	SUPPLEMENT DOCUMENT
+	*******************************************-->
+	<xsd:complexType name="SupplementDocument.V1.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>Multiple Supplement Document</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:sequence>
+	        <xsd:element name="Document" type="Document.V1.0.CT" maxOccurs="5"/>
+	    </xsd:sequence>
+	</xsd:complexType>	    
+	
+	<xsd:complexType name="Document.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Document 
+				a) Prosecution department code
+				b) Departmental reference number (v1.1)
+				c) Link serial number (v1.1)
+				d) LEA Reference Number (Ticket number)
+				e) DOP offence code type
+				f) DOP offence code
+				g) Offence date
+				h) Conviction date
+				i) Document description (e.g. DOP points)
+			</xsd:documentation>	        
+		</xsd:annotation>		
+		<xsd:sequence>						
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="LinkSerialNumber" type="LinkSerialNumber.V1.1.CT"/>
+			<xsd:element name="LEAReferenceNumber" type="LEAReferenceNumber.V1.0.CT"/>
+			<xsd:element name="OffenceCodeType" type="OffenceCodeType.V1.0.CT"/>
+			<xsd:element name="OffenceCode" type="OffenceCode.V1.0.CT"/>
+			<xsd:element name="OffenceDate" type="cct:Date.CT"/>
+			<xsd:element name="ConvictionDate" type="cct:Date.CT"/>
+			<xsd:element name="OffencePoint" type="OffencePoint.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="LEAReferenceNumber.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Legal Entity Agent Reference Number(Ticket Number)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+			<xsd:maxLength value="8"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="OffenceCodeType.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>Offence Code Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="cct:Text.CT">
+			<xsd:maxLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+   <xsd:complexType name="OffenceCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Offence Code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="6"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+   </xsd:complexType>
+
+   <xsd:complexType name="OffencePoint.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Offence Point</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Numeric.CT">
+			<xsd:totalDigits value="2"/>
+            <xsd:fractionDigits value="0"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+ 
+</xsd:schema>

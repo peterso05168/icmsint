@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+<!--****************************************************************
+	*	COURT PAYMENT
+	**************************************************************** -->
+    <xsd:complexType name="CourtPayment.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Court Payment
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Payment Sequence Number
+				d) Party Type
+				e) Party Number
+				f) Payment Date
+				g) Payment Center
+				h) Payment Type
+				i) Receipt Type				
+				j) Dishonored Cheque Indicator
+				k) Receipt Number
+				l) Receipt Status
+				m) Payment Object				
+			</xsd:documentation>
+       </xsd:annotation>
+       <xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>		            
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="PaymentSequenceNumber" type="PaymentSequenceNumber.V1.0.CT"/>		            
+					<xsd:element name="PartyType" type="PartyType.V1.0.CT"/>
+					<xsd:element name="PartyNo" type="PartyNo.V1.0.CT"/>
+					<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+					<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+					<xsd:element name="PaymentTypeCode" type="PaymentTypeCode.V1.0.CT"/>
+					<xsd:element name="PaymentMethod" type="PaymentMethod.V1.0.CT"/>										
+					<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+					<xsd:element name="ReceiptNumber" type="ReceiptNumber.V1.0.CT"/>
+					<xsd:element name="ReceiptStatus" type="ReceiptStatus.V1.0.CT"/>
+					<xsd:element name="Payments" type="Payments.V1.0.CT"/>					
+				</xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentSequenceNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Payment Sequence Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+	    		<xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="4"/>
+	    		</xsd:restriction>
+		  </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentCentre.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>payment centre that the payment made
+                	'35' - ES - Eastern Magistrates' Courts
+                	'36' - FL - Fanling Magistrates' Courts
+                	'37' - KT - Kwun Tong Magistrates' Courts
+                	'40' - KC - Kowloon City Magistrates' Courts
+                	'41' - ST - Shatin Magistrates' Courts
+                	'42' - TM - Tuen Mun Magistrates' Courts
+                	'43' - TW - Tsuen Wan Magistrates' Courts
+                	'55' - PP - Public Payment (Electronic Payment)
+                	'90' - RF - Refund
+                	'91' - IP - Imprisonment
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:length value="2"/>
+					<xsd:enumeration value="ES"/>
+					<xsd:enumeration value="FL"/>
+					<xsd:enumeration value="KT"/>
+					<xsd:enumeration value="KC"/>
+					<xsd:enumeration value="ST"/>
+					<xsd:enumeration value="TM"/>
+					<xsd:enumeration value="TW"/>
+					<xsd:enumeration value="PP"/>
+					<xsd:enumeration value="RF"/>
+					<xsd:enumeration value="IP"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentTypeCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>type of payment (i.e. Notice/Summons court payment
+                                            or Summons pre-hearing payment)
+                	'0' - court payment of Notice of Order/Summons
+                	'3' - Summons pre-hearing payment
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:length value="1"/>
+               <xsd:enumeration value="0"/>
+               <xsd:enumeration value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentMethod.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>type of payment made (i.e. By cash/cheque/EPS)
+				'1' - by cash
+				'2' - by cheque
+             	'4' - by EPS
+             	'5' - by ESPCO
+             	'6' - by JETCO
+             	'7' - refund
+             	'8' - imprisonment
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+					<xsd:length value="1"/>
+               <xsd:enumeration value="1"/>
+               <xsd:enumeration value="2"/>
+               <xsd:enumeration value="4"/>
+               <xsd:enumeration value="5"/>
+               <xsd:enumeration value="6"/>
+               <xsd:enumeration value="7"/>
+               <xsd:enumeration value="8"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+     <xsd:complexType name="ReceiptNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>receipt number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="14"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ReceiptNumber.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>year portion of case no.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+	    		<xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="6"/>
+            </xsd:restriction>
+		  </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ReceiptStatus.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>receipt status
+                               a) 'N'   - Normal
+                               b) 'C'	- Cancel
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">				
+				<xsd:enumeration value="N"/>
+				<xsd:enumeration value="C"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Payments.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>multiple payment</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PaymentDetail" type="PaymentDetail.V1.0.CT" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PaymentDetail.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Payment detail
+                               a) Payment Item Internal Number
+                               b) Payment Order Code (e.g.FPP, COS,...)
+                               c) Paid Amount                               
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PaymentItemInternalNumber" type="PaymentItemInternalNumber.V1.0.CT"/>
+            <xsd:element name="PaymentCode" type="PaymentCode.V1.0.CT"/>            
+            <xsd:element name="PaymentCodeAmount" type="Amount.V1.0.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentItemInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Payment item internal number</xsd:documentation>
+        </xsd:annotation>
+         <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PaymentCode.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Payment Order Code(e.g.FPP, COS,...)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="4"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+	
+<!--
+ *COURT PAYMENT
+-->
+    <xsd:complexType name="CourtPayment.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>court payment information consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Payment Date
+				d) Payment Centre
+				e) Payment Type Code
+				f) Receipt Type
+				g) Demand Note Number
+				h) Case Number Object
+				i) Court Fine Amount
+				j) Additional Penalty Amount
+				k) Court Costs Amount
+				l) Dishonored Cheque Indicator
+				m) Receipt ID
+				n) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+			<xsd:element name="PaymentTypeCode" type="PaymentTypeCode.V1.0.CT"/>
+			<xsd:element name="ReceiptType" type="PaymentMethod.V1.0.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+			<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+			<xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CourtPayment.V1.2.CT">
+        <xsd:annotation>
+            <xsd:documentation>court payment information consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Payment Date
+				d) Payment Centre
+				e) Payment Type Code
+				f) Receipt Type
+				g) Demand Note Number
+				h) Case Number Object
+				i) Court Fine Amount
+				j) Additional Penalty Amount
+				k) Court Costs Amount
+				l) Dishonored Cheque Indicator
+				m) Receipt ID
+				n) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+			<xsd:element name="PaymentTypeCode" type="PaymentTypeCode.V1.0.CT"/>
+			<xsd:element name="ReceiptType" type="PaymentMethod.V1.0.CT"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+			<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+			<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+			<xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+	<xsd:complexType name="ReceiptID.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Receipt ID consists of
+                               a) centre no.
+                               b) workstation no.
+                               c) shroff no.
+                               d) receipt no.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CentreNumber" type="CentreNumber.V1.0.CT"/>
+            <xsd:element name="WorkstationNumber" type="WorkstationNumber.V1.0.CT"/>
+            <xsd:element name="ShroffNumber" type="ShroffNumber.V1.0.CT"/>
+            <xsd:element name="ReceiptNumber" type="ReceiptNumber.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CentreNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Payment Centre Number
+                                1.ES - 35
+                                2.FL - 36
+                                3.KT - 37
+                                4.KC - 40
+                                5.ST - 41
+                                6.TM - 42
+                                7.TW - 43
+                                8.PP - 55 (Public Payment)
+                                9.RF - 90 (Refund)
+                               10.IP - 91 (Imprisonment)
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent> 
+	    		<xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="2"/>
+					<xsd:enumeration value="35"/>
+					<xsd:enumeration value="36"/>
+					<xsd:enumeration value="37"/>
+					<xsd:enumeration value="40"/>
+					<xsd:enumeration value="41"/>
+					<xsd:enumeration value="42"/>
+					<xsd:enumeration value="43"/>
+					<xsd:enumeration value="55"/>
+					<xsd:enumeration value="90"/>
+					<xsd:enumeration value="91"/>
+	    		</xsd:restriction>
+		  </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="WorkstationNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Workstation Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+	    		<xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+	    		</xsd:restriction>
+		  </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ShroffNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Shroff Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+	    		<xsd:restriction base="cct:Numeric.CT">
+					<xsd:totalDigits value="3"/>
+            </xsd:restriction>
+		  </xsd:simpleContent>
+    </xsd:complexType>
+
+<!--
+ *COURT PAYMENT FOR DISTRESS WARRANT
+-->
+    <xsd:complexType name="FixedPenaltyDistressWarrantCourtPayment.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court payment for distress warrant information consists of
+				a) Record Prefix
+				b) Interface Date
+				c) Payment Date
+				d) Payment Centre
+				e) Receipt Type
+				f) Department Reference Number
+				g) Distress Warrant Case Number
+				h) Court Costs Amount
+				i) Dishonored Cheque Indicator
+				j) Receipt ID
+				k) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+			<xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+			<xsd:element name="ReceiptType" type="PaymentMethod.V1.0.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantCosts" type="Amount.V1.1.CT"/>
+			<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+			<xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FixedPenaltyDistressWarrantCourtPayment.V2.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>court payment for distress warrant information consists of
+				a) Record Prefix
+				b) Payment Date
+				c) Payment Centre
+				d) Receipt Type
+				e) Department Reference Number
+				f) Distress Warrant Case Number
+				g) Court Costs Amount
+				h) Dishonored Cheque Indicator
+				i) Receipt ID
+				j) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+			<xsd:element name="ReceiptType" type="PaymentMethod.V1.0.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="DistressWarrantCosts" type="Amount.V1.1.CT"/>
+			<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+			<xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--
+ *EXTENDED COURT PAYMENT FOR DEPARTMENTAL SUMMONS/NOTICE & FP SUMMONS
+-->
+    <xsd:complexType name="CourtPaymentExtended.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Court Payment
+	  							Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID
+				c) Payment Sequence Number
+				d) Party Type
+				e) Party Number
+				f) Payment Date
+				g) Payment Center
+				h) Payment Type
+				i) Receipt Type
+				j) Demand Note Number
+                k) Dishonored Cheque Indicator
+				l) Receipt Number
+				m) Receipt Status
+				n) Payment Object
+			</xsd:documentation>
+        </xsd:annotation>
+		<xsd:sequence>
+		    <xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+			<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+	        <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="PaymentSequenceNumber" type="PaymentSequenceNumber.V1.0.CT"/>
+            <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT" minOccurs="0"/>
+            <xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="PartyType" type="PartyType.V1.0.CT"/>
+			<xsd:element name="PartyNo" type="PartyNo.V1.0.CT"/>
+			<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+			<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+			<xsd:element name="PaymentTypeCode" type="PaymentTypeCode.V1.0.CT"/>
+			<xsd:element name="PaymentMethod" type="PaymentMethod.V1.0.CT"/>
+			<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+            <xsd:choice>
+                <xsd:sequence>
+                    <xsd:element name="ReceiptNumber" type="ReceiptNumber.V1.0.CT"/>
+			        <xsd:element name="ReceiptStatus" type="ReceiptStatus.V1.0.CT"/>
+                </xsd:sequence>
+                <xsd:sequence>
+			        <xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+			        <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+  			        <xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+			        <xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+                </xsd:sequence>
+            </xsd:choice>
+			<xsd:element name="Payments" type="Payments.V1.0.CT"/>
+		</xsd:sequence>
+    </xsd:complexType>
+	
+	<xsd:complexType name="CourtPayment.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Court Payment
+				a) Record Prefix
+				b) Case Number
+				c) Prosecution Department Code
+				d) Department Reference Number /
+					Demand Note Number
+				e) Payment Sequence Number
+				f) Party Type
+				g) Party Number
+				h) Payment Date
+				i) Payment Center
+				j) Payment Type
+				k) Payment Method
+				l) Dishonored Cheque Indicator
+				m) Receipt Number / Receipt ID
+				n) Record Status
+					o) Payment Object
+						or
+					o) Penalty 
+					p) Additional Penalty
+					q) Court Costs
+			</xsd:documentation>
+       </xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+				<xsd:choice>
+					<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+					<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+				</xsd:choice>
+				<xsd:element name="PaymentSequenceNumber" type="RecordSequenceNumber.V1.0.CT"/>
+				<xsd:element name="PartyType" type="PartyType.V1.0.CT" minOccurs="0"/>
+				<xsd:element name="PartyNo" type="PartyNo.V1.0.CT" minOccurs="0"/>
+				<xsd:element name="PaymentDate" type="cct:Date.CT"/>
+				<xsd:element name="PaymentCentre" type="PaymentCentre.V1.0.CT"/>
+				<xsd:element name="PaymentTypeCode" type="PaymentTypeCode.V1.0.CT"/>
+				<xsd:element name="PaymentMethod" type="PaymentMethod.V1.0.CT"/>
+				<xsd:element name="DishonoredChequeIndicator" type="FieldIndicator.V1.0.CT"/>
+				<xsd:choice>
+					<xsd:element name="ReceiptNumber" type="ReceiptNumber.V1.0.CT"/>
+					<xsd:element name="ReceiptID" type="ReceiptID.V1.0.CT"/>
+				</xsd:choice>
+				<xsd:element name="RecordStatus" type="RecordStatus.V1.2.CT"/>
+				<xsd:choice>
+					<xsd:sequence>
+						<xsd:element name="Payments" type="Payments.V1.0.CT"/>
+					</xsd:sequence>
+					<xsd:sequence>
+						<xsd:element name="Penalty" type="Amount.V1.0.CT"/>
+						<xsd:element name="AdditionalPenalty" type="Amount.V1.0.CT"/>
+						<xsd:element name="CourtCosts" type="Amount.V1.0.CT"/>
+					</xsd:sequence>
+				</xsd:choice>
+			</xsd:sequence>
+    </xsd:complexType>
+    
+<!--
+ * Public Payment Transaction Number
+-->
+    <xsd:complexType name="PublicPaymentTransactionNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>public payment transaction number consists of
+				a) Record Prefix
+				b) Demand Note Number
+				c) Case Number
+				d) Public Payment Transaction Number
+				e) Record Status
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                        <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+                        <xsd:element name="PPSTransactionNumber" type="PPSTransactionNumber.V1.0.CT"/>
+			<xsd:element name="RecordStatus" type="RecordStatus.V1.1.CT"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PPSTransactionNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Public Payment Transaction Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Text.CT">
+                <xsd:maxLength value="18"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+</xsd:schema>
+
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GDSNIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-GI07</Prefix>
+		<BatchSerialNumber>47</BatchSerialNumber>
+		<InterfaceDate>2016-09-22</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<WitnessSummonsAllocation>
+		<RecordPrefix>CM-GI07</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>ES</CourtSys>
+			<CaseType>S</CaseType>
+			<CaseSerialNumber>30</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>AFCD</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>PU0666/2016/1</DepartmentReferenceNumber>
+		<WitnessSummonsNumber>
+			<CourtSys>ES</CourtSys>
+			<CaseType>Z</CaseType>
+			<CaseSerialNumber>3</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</WitnessSummonsNumber>
+		<WitnessSequenceNumber>1</WitnessSequenceNumber>
+		<WitnessSummonsGenerationDate>2016-09-20</WitnessSummonsGenerationDate>
+		<WitnessEnglishSurname>Chan</WitnessEnglishSurname>
+		<WitnessEnglishGivenName>Dai</WitnessEnglishGivenName>
+		<WitnessChineseSurname>陳</WitnessChineseSurname>
+		<WitnessChineseGivenName>大</WitnessChineseGivenName>
+		<WitnessIdentificationType>I</WitnessIdentificationType>
+		<WitnessIdentificationNumber>
+			<HKIDNumber>
+				<Identifier xmlns="HKID">V223344</Identifier>
+				<CheckDigit xmlns="HKID">1</CheckDigit>
+			</HKIDNumber>
+		</WitnessIdentificationNumber>
+		<HearingDate>2016-10-10</HearingDate>
+		<HearingTime>09:30:00</HearingTime>
+		<ApplicationStatus>A</ApplicationStatus>
+	</WitnessSummonsAllocation>
+</GDSNIMsgJ2D>

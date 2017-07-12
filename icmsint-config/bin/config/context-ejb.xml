@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           				   http://www.springframework.org/schema/context 
+           				   http://www.springframework.org/schema/context/spring-context-3.2.xsd                            
+                           http://www.springframework.org/schema/aop  
+ 						   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+		<!-- There are application objects , please do not update and remove this section   -->	   
+		<!-- Application Config (start)   -->	   
+		
+		   	<context:annotation-config />
+			<aop:aspectj-autoproxy proxy-target-class="true"/>
+			<bean id="applicationEJBContextProvder" class="hk.judiciary.fmk.common.springcontext.ApplicationEJBContextProvider"/>
+			<bean id="defaultBizInterceptor" class="hk.judiciary.fmk.ejb.biz.DefaultBizInterceptor" />
+			<bean id="defaultDaoInterceptor" class="hk.judiciary.fmk.ejb.dao.DefaultDaoInterceptor" />
+		
+		<!-- Application Config (end)   -->	 
+
+
+
+		<!-- Spring AOP config (start)   -->	   
+		<aop:config>
+		   	<aop:aspect id="defaultBizAOP" ref="defaultBizInterceptor">
+	      		<aop:pointcut id="defaultBizAOP" 
+		      		expression="execution(*   hk.judiciary.icmsint.model.*.biz.*.*(..))" />
+		      	<aop:around  pointcut-ref="defaultBizAOP" method="logAround" />
+	    	</aop:aspect>
+
+		<aop:aspect id="defaultDaoAOP" ref="defaultDaoInterceptor">
+		      <aop:pointcut id="defaultDaoAOP" expression="target(hk.judiciary.fmk.ejb.dao.AbstractJpaDAO)"/>
+		      <aop:around  pointcut-ref="defaultDaoAOP" method="logAround" />
+		    </aop:aspect>		    
+		</aop:config>
+		<!-- Spring AOP config (end)   -->	   
+
+
+		<!-- BO and DAO classes define under in this section, [please mark the scope="prototype"] -->
+<!--  
+		<bean id="projectBO" class="hk.judiciary.icmsint.model.sample.biz.ProjectBO" scope="prototype"/>
+		<bean id="projectDAO" class="hk.judiciary.icmsint.model.sample.dao.ProjectDAO" scope="prototype"/>
+-->
+		<!--fmk -->
+		<bean id="commonCodeBO" class="hk.judiciary.fmk.ejb.cct.biz.CommonCodeBO" scope="prototype" />
+		<bean id="commonCodeDAO" class="hk.judiciary.fmk.ejb.cct.dao.CommonCodeDAO" scope="prototype" />
+		
+		<!-- sysinf -->    
+	    <bean id="caseAppBO" class="hk.judiciary.icmsint.model.sysinf.biz.CaseAppBO" scope="prototype"/>
+		<bean id="sodBO" class="hk.judiciary.icmsint.model.sysinf.biz.SodBO" scope="prototype"/>
+		<bean id="hearingBO" class="hk.judiciary.icmsint.model.sysinf.biz.HearingBO" scope="prototype"/>
+		<bean id="paymentBO" class="hk.judiciary.icmsint.model.sysinf.biz.PaymentBO" scope="prototype"/>
+		<bean id="appealReviewBO" class="hk.judiciary.icmsint.model.sysinf.biz.AppealReviewBO" scope="prototype"/>
+		<bean id="documentBO" class="hk.judiciary.icmsint.model.sysinf.biz.DocumentBO" scope="prototype"/>
+		<bean id="reserviceBO" class="hk.judiciary.icmsint.model.sysinf.biz.ReserviceBO" scope="prototype"/>
+		<bean id="warrantBO" class="hk.judiciary.icmsint.model.sysinf.biz.WarrantBO" scope="prototype"/>
+		<bean id="witnessBO" class="hk.judiciary.icmsint.model.sysinf.biz.WitnessBO" scope="prototype"/>
+		<bean id="controlBO" class="hk.judiciary.icmsint.model.sysinf.biz.ControlBO" scope="prototype"/>
+	    
+	    <bean id="pdDAO" class="hk.judiciary.icmsint.model.sysinf.dao.PdDAO" scope="prototype"/>
+	    <bean id="caseTypeDAO" class="hk.judiciary.icmsint.model.sysinf.dao.CaseTypeDAO" scope="prototype"/>
+	    
+	    <bean id="sysInfBatDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfBatDAO" scope="prototype"/>
+	    <bean id="sysInfMsgDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfMsgDAO" scope="prototype"/>
+	    <bean id="sysInfMsgTypeDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfMsgTypeDAO" scope="prototype"/>
+	    
+	    <bean id="sysInfRecDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfRecDAO" scope="prototype"/>
+	    
+	    <bean id="sysInfCtrlDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfCtrlDAO" scope="prototype"/>
+	    <bean id="sysInfCtrlTypeDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfCtrlTypeDAO" scope="prototype"/>
+	    
+	    <bean id="sysInfErrDAO" class="hk.judiciary.icmsint.model.sysinf.dao.SysInfErrDAO" scope="prototype"/>    
+	    <bean id="dfCriminalCaseDAO " class="hk.judiciary.icmsint.model.sysinf.dao.DfCriminalCaseDAO" scope="prototype"/>
+	    
+</beans> 

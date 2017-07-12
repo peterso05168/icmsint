@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:include schemaLocation="charge_case.xsd"/>
+	<xsd:include schemaLocation="document.xsd"/>
+	<xsd:include schemaLocation="dept_witness_summons.xsd"/>
+	<xsd:include schemaLocation="bail.xsd"/>
+	<xsd:element name="GCCIMsgD2J">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="InterfaceFileHeader"
+                             type="InterfaceFileHeader.V1.3.CT"/>
+				<xsd:choice>
+					<xsd:element name="ChargeCase"
+                                 type="ChargeCase.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="CaseDocument"
+                                 type="CaseDocument.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ChargeCaseAmendment"
+                                 type="ChargeCaseAmendment.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="WitnessSummonsApplication"
+                                 type="WitnessSummonsApplication.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="BailRegister"
+                                 type="BailRegister.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

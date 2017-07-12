@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgD2J>
+  <InterfaceFileHeader>
+    <Prefix>CM-CC05</Prefix>
+    <BatchSerialNumber>1</BatchSerialNumber>
+    <InterfaceDate>2016-07-20</InterfaceDate>
+    <RecordCount>1</RecordCount>
+  </InterfaceFileHeader>
+  <BailRegister>
+    <RecordPrefix>CM-CC05</RecordPrefix>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <CourtAppearanceDate>2016-07-20</CourtAppearanceDate>
+    <CourtAppearanceTime>16:30:00</CourtAppearanceTime>
+    <CourtSys>ES</CourtSys>
+    <CourtSubTotal>5600.00</CourtSubTotal>
+    <BailPol458>
+      <PDStation>ABDDIV</PDStation>
+      <BailRegisterNumber>15000077</BailRegisterNumber>
+      <PDStationSubTotal>4600.00</PDStationSubTotal>
+      <ConsolidatedReportSubTotal>4600.00</ConsolidatedReportSubTotal>
+      <BailPol40>
+        <BailBookSerialNumber>15000291</BailBookSerialNumber>
+        <BailAmount>3000.00</BailAmount>
+      </BailPol40>
+      <BailPol40>
+        <BailBookSerialNumber>15000292</BailBookSerialNumber>
+        <BailAmount>1000.00</BailAmount>
+      </BailPol40>
+      <BailPol40>
+        <BailBookSerialNumber>15000293</BailBookSerialNumber>
+        <BailAmount>600.00</BailAmount>
+      </BailPol40>
+    </BailPol458>
+    <BailPol458>
+      <PDStation>CDIV</PDStation>
+      <BailRegisterNumber>15000088</BailRegisterNumber>
+      <PDStationSubTotal>1000.00</PDStationSubTotal>
+      <ConsolidatedReportSubTotal>1000.00</ConsolidatedReportSubTotal>
+      <BailPol40>
+        <BailBookSerialNumber>15000358</BailBookSerialNumber>
+        <BailAmount>1000.00</BailAmount>
+      </BailPol40>
+    </BailPol458>
+  </BailRegister>
+</GCCIMsgD2J>

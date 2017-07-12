@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:include schemaLocation="dept_notice_of_order.xsd"/>
+	<xsd:include schemaLocation="dept_court_result.xsd"/>
+	<xsd:include schemaLocation="dept_witness_summons.xsd"/>
+	<xsd:include schemaLocation="dept_appeal_review_grant.xsd"/>
+	<xsd:include schemaLocation="dept_warrant_status_change.xsd"/>
+	<xsd:include schemaLocation="dept_court_payment.xsd"/>
+	<xsd:include schemaLocation="dept_distress_warrant.xsd"/>
+        <xsd:include schemaLocation="dept_next_hrng.xsd"/>
+        <xsd:include schemaLocation="document.xsd"/>
+	
+   <xsd:element name="GFPIMsgJ2D">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InterfaceFileHeader"
+                             type="InterfaceFileHeader.V1.3.CT"/>
+                <xsd:choice>
+                    <xsd:element name="FixedPenaltyNoticeSummonsAllocation"
+                                 type="FixedPenaltyNoticeSummonsAllocation.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="FixedPenaltyNoticeOfOrderCourtResult"
+                                 type="FixedPenaltyNoticeOfOrderCourtResult.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="FixedPenaltySummonsCourtResult"
+                                 type="FixedPenaltySummonsCourtResult.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="FixedPenaltyWitnessSummonsAllocation"
+                                 type="WitnessSummonsAllocation.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="AppealReviewGrant"
+                                 type="AppealReviewGrant.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="WarrantStatusChange"
+                                 type="WarrantStatusChange.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="CourtPayment"
+                                 type="CourtPayment.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="FixedPenaltyDistressWarrantAllocation"
+                                 type="FixedPenaltyDistressWarrantAllocation.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>  
+                    <xsd:element name="FixedPenaltyDistressWarrantStatusChange"
+                                 type="FixedPenaltyDistressWarrantStatusChange.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>								 
+                    <xsd:element name="FixedPenaltyDistressWarrantCourtPayment"
+                                 type="FixedPenaltyDistressWarrantCourtPayment.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="NextHearing"
+                                 type="NextHearing.V2.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="PublicPaymentTransactionNumber"
+                                 type="PublicPaymentTransactionNumber.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="CaseDocumentAcknowledgement"
+                                 type="CaseDocumentAcknowledgement.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="CourtDocument"
+                                 type="CourtDocument.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:choice>
+           </xsd:sequence>
+       </xsd:complexType>
+   </xsd:element>
+
+</xsd:schema>

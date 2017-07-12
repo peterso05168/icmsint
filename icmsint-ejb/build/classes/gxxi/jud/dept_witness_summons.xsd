@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"            
+            xmlns:cct="CCT">
+
+	<xsd:include schemaLocation="common_jud.xsd"/>
+    <xsd:include schemaLocation="common_caseman.xsd"/>
+    <xsd:include schemaLocation="dept_msg.xsd"/>
+    <xsd:import namespace="CCT"	schemaLocation="../ref/gov/cct/cct.xsd"/>		
+	
+
+<!--**********************************************************
+	*	WITNESS SUMMONS APPLICATION
+	**********************************************************-->
+	<xsd:complexType name="WitnessSummonsApplication.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Witness Summons Application Message
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix
+				b) Interface ID											
+				c) Hearing Date
+				d) Hearing Time
+				e) Apply Party								
+				f) Witness Object (v1.1)
+				g) Bailiff District
+				h) Informant Details Object (v1.1)				
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Case.V1.0.CT">			
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>										
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="HearingDate" type="cct:Date.CT"/>					
+					<xsd:element name="HearingTime" type="cct:Time.CT"/>					
+					<xsd:element name="ApplyParty" type="ApplyParty.V1.0.CT"/>					
+					<xsd:element name="WitnessDetails" type="Witness.V1.1.CT"/> 
+					<xsd:element name="BailiffDistrict" type="BailiffDistrictCode.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>															
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="WitnessSummonsApplication.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Witness Summons Application Message
+				a) Record Prefix
+				b) Case Number
+				c) Prosecution Department Code
+				d) Department Reference Number
+				e) Demand Note Number
+				f) Hearing Date
+				g) Hearing Time
+				h) Apply Party
+				i) Defendant Sequence Number
+				j) Witness Object (v1.2)
+				k) Bailiff District
+				l) Informant Details Object (v1.2)
+				m) Additional Section
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+            <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT"/>
+			<xsd:element name="HearingTime" type="cct:Time.CT"/>
+			<xsd:element name="ApplyParty" type="ApplyParty.V1.0.CT"/>
+			<xsd:element name="DefendantSequenceNumber" type="DefendantSequenceNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessDetails" type="Witness.V1.2.CT"/>
+			<xsd:element name="BailiffDistrict" type="BailiffDistrictCode.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="InformantDetails" type="Informant.V1.2.CT"/>
+			<xsd:element name="AdditionalSection" type="AdditionalSection.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--**************************************************************
+ 	*	WITNESS SUMMONS ALLOCATION
+	************************************************************** -->
+	<xsd:complexType name="WitnessSummonsAllocation.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Witness Summons Allocation 
+								Derived from Case.V1.0.CT
+								Extension consists of
+				a) Record Prefix		
+				b) Interface ID
+				c) Witness Summons Number (Writ No.)
+				d) Witness Summons Internal Number
+				e) Witness Summons Generation Date
+				f) Witness English Name
+				g) Witness Chinese Name
+				h) Witness Identification Type
+				i) Witness Identification Number
+				j) Hearing Date
+				k) Hearing Time
+				l) Application Status
+				m) Witness Summons Allocation Remark			
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+        	<xsd:extension base="Case.V1.0.CT">
+				<xsd:sequence>
+					<xsd:element name="RecordPrefix" type="Prefix.V1.0.CT"/>										
+					<xsd:element name="InterfaceID" type="InterfaceID.V1.0.CT"/>
+					<xsd:element name="WitnessSummonsNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+					<xsd:element name="WitnessSummonsInternalNumber" type="WitnessSummonsInternalNumber.V1.0.CT" minOccurs="0"/> 
+					<xsd:element name="WitnessSummonsGenerationDate" type="cct:Date.CT" minOccurs="0"/>
+					<xsd:element name="WitnessEnglishName" type="PartyEnglishName.V1.0.CT" minOccurs="0"/>
+            		<xsd:element name="WitnessChineseName" type="PartyChineseName.V1.1.CT" minOccurs="0"/>            
+            		<xsd:element name="WitnessIdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+            		<xsd:element name="WitnessIdentificationNumber" type="IdentificationNumber.V1.1.CT" minOccurs="0"/>
+					<xsd:element name="HearingDate" type="cct:Date.CT" />
+					<xsd:element name="HearingTime" type="cct:Time.CT" />
+					<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+					<xsd:element name="WitnessSummonsAllocationRemark" type="WitnessSummonsAllocationRemark.V1.0.CT" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>      
+		</xsd:complexContent>  
+	</xsd:complexType>
+        
+	<xsd:complexType name="WitnessSummonsAllocation.V2.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>	Witness Summons Allocation 
+							a) Record Prefix
+							b) Case Number
+							c) Prosecution Department Code
+							d) Department Reference Number /
+								Demand Note Number
+							e) Witness Summons Number (Writ No.)
+							f) Witness Sequence Number
+							g) Witness Summons Generation Date
+							h) Witness English Surname, Given Name
+							i) Witness Chinese Surname, Given Name
+							j) Witness Identification Type
+							k) Witness Identification Number
+							l) Hearing Date
+							m) Hearing Time
+							n) Application Status
+							o) Witness Summons Allocation Remark			
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+			<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+			<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+			<xsd:choice>
+				<xsd:element name="DepartmentReferenceNumber" type="DepartmentReferenceNumber.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+			</xsd:choice>
+			<xsd:element name="WitnessSummonsNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessSequenceNumber" type="WitnessSequenceNumber.V1.0.CT"/>
+			<xsd:element name="WitnessSummonsGenerationDate" type="cct:Date.CT" minOccurs="0"/>
+			<xsd:element name="WitnessEnglishSurname" type="PartyEnglishSurname.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessEnglishGivenName" type="PartyEnglishGivenName.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessChineseSurname" type="PartyChineseSurname.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessChineseGivenName" type="PartyChineseGivenName.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessIdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+			<xsd:element name="WitnessIdentificationNumber" type="IdentificationNumber.V1.1.CT" minOccurs="0"/>
+			<xsd:element name="HearingDate" type="cct:Date.CT" />
+			<xsd:element name="HearingTime" type="cct:Time.CT" />
+			<xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+			<xsd:element name="WitnessSummonsAllocationRemark" type="WitnessSummonsAllocationRemark.V1.0.CT" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+    	
+	<xsd:complexType name="WitnessSummonsInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Witness Summons internal number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+				<xsd:minInclusive value="1"/>
+				<xsd:maxInclusive value="9999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ApplyParty.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>apply party of the witness summons, P - Prosecution, D - Defendant</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:enumeration value="P"/>
+				<xsd:enumeration value="D"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>    
+
+    <xsd:complexType name="BailiffDistrict.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>bailiff district code</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Code.CT">
+				<xsd:maxLength value="3"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="WitnessSummonsAllocationRemark.V1.0.CT">
+	    <xsd:annotation>
+	        <xsd:documentation>multiple remark line</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:sequence>
+	        <xsd:element name="RemarkLine" type="RemarkLine.V1.0.CT" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+	</xsd:complexType>
+	
+<!--
+ *FIXED PENALTY WITNESS SUMMONS APPLICATION
+-->
+    <xsd:complexType name="FixedPenaltyWitnessSummonsApplication.V1.0.CT">
+        	<xsd:annotation>
+            <xsd:documentation>Fixed Penalty Witness Summons consists of
+				a) Record Prefix
+				b) Case Number Object
+				c) Prosecution Department Code
+				d) Demand Note Number
+				e) Interface Date
+				f) Hearing Date/Time
+				g) Apply Party
+				h) Witness Details
+				i) Bailiff District
+				j) Informant Details
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>   
+				<xsd:element name="HearingDate" type="cct:Date.CT"/>
+				<xsd:element name="HearingTime" type="cct:Time.CT"/>
+				<xsd:element name="ApplyParty" type="ApplyParty.V1.0.CT"/>
+				<xsd:element name="WitnessDetails" type="Witness.V1.0.CT"/> 
+				<xsd:element name="BailiffDistrict" type="BailiffDistrict.V1.0.CT" minOccurs="0"/>
+				<xsd:element name="InformantDetails" type="Informant.V1.0.CT"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltyWitnessSummonsApplication.V1.1.CT">
+        	<xsd:annotation>
+            <xsd:documentation>Fixed Penalty Witness Summons consists of
+				a) Record Prefix
+				b) Case Number Object
+				c) Prosecution Department Code
+				d) Demand Note Number
+				e) Interface Date
+				f) Hearing Date/Time
+				g) Apply Party
+				h) Witness Details
+				i) Bailiff District
+				j) Informant Details
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>   
+				<xsd:element name="HearingDate" type="cct:Date.CT"/>
+				<xsd:element name="HearingTime" type="cct:Time.CT"/>
+				<xsd:element name="ApplyParty" type="ApplyParty.V1.0.CT"/>
+				<xsd:element name="WitnessDetails" type="Witness.V1.1.CT"/> 
+				<xsd:element name="BailiffDistrict" type="BailiffDistrict.V1.0.CT" minOccurs="0"/>
+				<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltyWitnessSummonsApplication.V1.2.CT">
+        	<xsd:annotation>
+            <xsd:documentation>Fixed Penalty Witness Summons consists of
+				a) Record Prefix
+				b) Case Number Object
+				c) Prosecution Department Code
+				d) Demand Note Number
+				e) Interface Date
+				f) Hearing Date/Time
+				g) Apply Party
+				h) Witness Details
+				i) Bailiff District
+				j) Informant Details
+                        k) Additional Section
+            </xsd:documentation>
+        	</xsd:annotation>
+        	<xsd:sequence>
+				<xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+				<xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT"/>
+				<xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.0.CT"/>
+				<xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+				<xsd:element name="InterfaceDate" type="cct:Date.CT"/>   
+				<xsd:element name="HearingDate" type="cct:Date.CT"/>
+				<xsd:element name="HearingTime" type="cct:Time.CT"/>
+				<xsd:element name="ApplyParty" type="ApplyParty.V1.0.CT"/>
+				<xsd:element name="WitnessDetails" type="Witness.V1.1.CT"/> 
+				<xsd:element name="BailiffDistrict" type="BailiffDistrict.V1.0.CT" minOccurs="0"/>
+				<xsd:element name="InformantDetails" type="Informant.V1.1.CT"/>
+                        <xsd:element name="AdditionalSection" type="AdditionalSection.V1.0.CT" minOccurs="0"/>
+    		</xsd:sequence>
+    </xsd:complexType>
+
+
+
+<!--
+ *FIXED PENALTY WITNESS SUMMONS ALLOCATION RESULT
+-->
+    <xsd:complexType name="FixedPenaltyWitnessSummonsAllocation.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Witness Summons allocation details for Fixed Penalty 
+                               Notice/Summons sent from CASEMAN to TCO.  Message consists of
+                               a) Record Prefix
+                               b) Interface Date
+                               c) Demand Note Number
+                               d) Case Number Object
+                               e) Witness Summons Number
+                               f) Witness Summons Internal Number
+                               g) Witness Summons Generation Date
+                               h) ID Type
+                               i) ID Number
+                               j) Witness English Name
+                               k) Witness Chinese Name
+                               j) Hearing Date
+                               k) Application Status
+                               l) Rejection Details
+           </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+              <xsd:element name="RecordPrefix" type="Prefix.V1.1.CT"/>
+              <xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+              <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.0.CT"/>
+              <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WritNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WritInternalNumber" type="WritInternalNumber.V1.0.CT" minOccurs="0"/> 
+              <xsd:element name="WritGenerationDate" type="cct:Date.CT" minOccurs="0"/>
+              <xsd:element name="IdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="IdentificationNumber" type="IdentificationNumber.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WitnessEnglishName" type="PartyEnglishName.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WitnessChineseName" type="PartyChineseName.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="HearingDate" type="cct:Date.CT"/>
+              <xsd:element name="HearingTime" type="cct:Time.CT"/>
+              <xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+              <xsd:element name="RejectionDetails" type="ErrorDetails.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FixedPenaltyWitnessSummonsAllocation.V1.1.CT">
+        <xsd:annotation>
+            <xsd:documentation>Witness Summons allocation details for Fixed Penalty 
+                               Notice/Summons sent from CASEMAN to TCO.  Message consists of
+                               a) Record Prefix
+                               b) Interface Date
+                               c) Demand Note Number
+                               d) Case Number Object
+                               e) Witness Summons Number
+                               f) Witness Summons Internal Number
+                               g) Witness Summons Generation Date
+                               h) ID Type
+                               i) ID Number
+                               j) Witness English Name
+                               k) Witness Chinese Name
+                               j) Hearing Date
+                               k) Application Status
+                               l) Rejection Details
+           </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+              <xsd:element name="RecordPrefix" type="Prefix.V1.2.CT"/>
+              <xsd:element name="InterfaceDate" type="cct:Date.CT"/>
+              <xsd:element name="DemandNoteNumber" type="DemandNoteNumber.V1.1.CT"/>
+              <xsd:element name="CaseNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WritNumber" type="CaseNumber.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WritInternalNumber" type="WritInternalNumber.V1.0.CT" minOccurs="0"/> 
+              <xsd:element name="WritGenerationDate" type="cct:Date.CT" minOccurs="0"/>
+              <xsd:element name="IdentificationType" type="IdentificationType.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="IdentificationNumber" type="IdentificationNumber.V1.1.CT" minOccurs="0"/>
+              <xsd:element name="WitnessEnglishName" type="PartyEnglishName.V1.0.CT" minOccurs="0"/>
+              <xsd:element name="WitnessChineseName" type="PartyChineseName.V1.1.CT" minOccurs="0"/>
+              <xsd:element name="HearingDate" type="cct:Date.CT"/>
+              <xsd:element name="HearingTime" type="cct:Time.CT"/>
+              <xsd:element name="ApplicationStatus" type="ApplicationStatus.V1.0.CT"/>
+              <xsd:element name="RejectionDetails" type="ErrorDetails.V1.0.CT" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="WritInternalNumber.V1.0.CT">
+        <xsd:annotation>
+            <xsd:documentation>Witness Summons internal number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:restriction base="cct:Count.CT">
+               <xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="9999"/>
+            </xsd:restriction>
+        </xsd:simpleContent>
+    </xsd:complexType>
+	
+</xsd:schema>

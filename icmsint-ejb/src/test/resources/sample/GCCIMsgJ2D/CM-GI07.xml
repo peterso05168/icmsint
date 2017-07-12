@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgJ2D>
+	<InterfaceFileHeader>
+		<Prefix>CM-G04</Prefix>
+		<BatchSerialNumber>1</BatchSerialNumber>
+		<InterfaceDate>2016-07-22</InterfaceDate>
+		<RecordCount>1</RecordCount>
+	</InterfaceFileHeader>
+	<WitnessSummonsAllocation>
+		<RecordPrefix>CM-GI07</RecordPrefix>
+		<CaseNumber>
+			<CourtSys>KC</CourtSys>
+			<CaseType>HW</CaseType>
+			<CaseSerialNumber>101</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</CaseNumber>
+		<ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+		<DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+		<WitnessSummonsNumber>
+			<CourtSys>KC</CourtSys>
+			<CaseType>Z</CaseType>
+			<CaseSerialNumber>13</CaseSerialNumber>
+			<CaseYear>2016</CaseYear>
+		</WitnessSummonsNumber>
+		<WitnessSequenceNumber>1</WitnessSequenceNumber>
+		<WitnessSummonsGenerationDate>2016-07-22</WitnessSummonsGenerationDate>
+		<WitnessEnglishSurname>Wong</WitnessEnglishSurname>
+		<WitnessEnglishGivenName>Tin</WitnessEnglishGivenName>
+		<WitnessChineseSurname>王</WitnessChineseSurname>
+		<WitnessChineseGivenName>天</WitnessChineseGivenName>
+		<WitnessIdentificationType>I</WitnessIdentificationType>
+		<WitnessIdentificationNumber>
+			<HKIDNumber>
+				<Identifier xmlns="HKID">W112233</Identifier>
+				<CheckDigit xmlns="HKID">4</CheckDigit>
+			</HKIDNumber>
+		</WitnessIdentificationNumber>
+		<HearingDate>2016-08-01</HearingDate>
+		<HearingTime>09:30:00</HearingTime>
+		<ApplicationStatus>A</ApplicationStatus>
+	</WitnessSummonsAllocation>
+</GCCIMsgJ2D>

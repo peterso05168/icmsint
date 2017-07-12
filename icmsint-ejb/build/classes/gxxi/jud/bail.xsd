@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cct="CCT">
+	<xsd:include schemaLocation="common_jud.xsd"/>
+	<xsd:include schemaLocation="common_caseman.xsd"/>
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:import namespace="CCT" schemaLocation="../ref/gov/cct/cct.xsd"/>
+
+	<!--**********************************************************
+	*	BAIL REGISTER
+	**********************************************************-->
+	<xsd:complexType name="BailRegister.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation> Bail Register Message consists of
+								a) Record Prefix
+								b) Prosecution Department Code
+								c) Court Appearance Date/Time
+								d) Magistrates' Courts Code
+								e) Court Sub-total
+								f) Bail (Pol.458) Data Object
+			</xsd:documentation>
+		</xsd:annotation>
+                <xsd:sequence>
+                        <xsd:element name="RecordPrefix" type="Prefix.V1.3.CT"/>
+                        <xsd:element name="ProsecutionDepartmentCode" type="ProsecutionDepartmentCode.V1.1.CT"/>
+                        <xsd:element name="CourtAppearanceDate" type="cct:Date.CT"/>
+                        <xsd:element name="CourtAppearanceTime" type="cct:Time.CT"/>
+                        <xsd:element name="CourtSys" type="CourtSys.V1.0.CT"/>
+                        <xsd:element name="CourtSubTotal" type="Amount.V1.0.CT"/>
+                        <xsd:element name="BailPol458" type="BailPol458.V1.0.CT" maxOccurs="unbounded"/>
+                </xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailPol458.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>bail (Pol.458) details consists of 
+                               a) PD Station
+                               b) Bail Register Number (Pol.458 no.)
+                               c) PD Station Sub-total
+                               d) Consolidated Report Sub-total
+                               e) Bail (Pol.40) Data Object
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PDStation" type="ProsecutionDepartmentStation.V1.0.CT"/>
+			<xsd:element name="BailRegisterNumber" type="BailRegisterNumber.V1.0.CT"/>
+			<xsd:element name="PDStationSubTotal" type="Amount.V1.0.CT"/>
+			<xsd:element name="ConsolidatedReportSubTotal" type="Amount.V1.0.CT"/>
+			<xsd:element name="BailPol40" type="BailPol40.V1.0.CT" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BailPol40.V1.0.CT">
+		<xsd:annotation>
+			<xsd:documentation>bail (Pol.40) details consists of 
+                               a) Bail Book Serial Number (Pol.40 no.)
+                               b) Bail Amount (in HKD)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BailBookSerialNumber" type="BailBookSerialNumber.V1.0.CT"/>
+			<xsd:element name="BailAmount" type="Amount.V1.0.CT"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

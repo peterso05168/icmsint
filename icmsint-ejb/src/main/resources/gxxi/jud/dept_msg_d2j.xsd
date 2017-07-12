@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:include schemaLocation="dept_msg.xsd"/>
+	<xsd:include schemaLocation="dept_summons.xsd"/>
+	<xsd:include schemaLocation="dept_notice.xsd"/>
+	<xsd:include schemaLocation="dept_witness_summons.xsd"/>
+	<xsd:include schemaLocation="dept_deft_address.xsd"/>
+	<xsd:include schemaLocation="dept_sod.xsd"/>	
+
+	<xsd:element name="DeptMsgD2J">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InterfaceFileHeader"
+                             type="InterfaceFileHeader.V1.2.CT"/>
+                <xsd:choice>
+                    <xsd:element name="NoticeApplication"
+                                 type="NoticeApplication.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="SummonsApplication"
+                                 type="DeptSummons.V1.1.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="WitnessSummonsApplication"
+                                 type="WitnessSummonsApplication.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>                    
+					<xsd:element name="DefendantAddressApplication"
+                                 type="DefendantAddressApplication.V1.0.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>                                                     
+                    <xsd:element name="SODApplication"
+                                 type="SODApplication.V1.1.CT"
+                                 minOccurs="0" maxOccurs="unbounded"/>                                                     
+                </xsd:choice>
+           </xsd:sequence>
+       </xsd:complexType>
+   </xsd:element>
+
+</xsd:schema>

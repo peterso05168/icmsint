@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GCCIMsgD2J>
+  <InterfaceFileHeader>
+    <Prefix>CM-GI17</Prefix>
+    <BatchSerialNumber>1</BatchSerialNumber>
+    <InterfaceDate>2016-07-20</InterfaceDate>
+    <RecordCount>1</RecordCount>
+  </InterfaceFileHeader>
+  <CaseDocument>
+    <RecordPrefix>CM-GI17</RecordPrefix>
+    <ProsecutionDepartmentCode>HKPF</ProsecutionDepartmentCode>
+    <DepartmentReferenceNumber>16006531</DepartmentReferenceNumber>
+    <DocumentTitle>Charge Sheet Form 19</DocumentTitle>
+    <DocumentType>CS</DocumentType>
+    <DocumentFormat>pdf</DocumentFormat>
+    <DocumentCreateDate>2016-07-10</DocumentCreateDate>
+    <DocumentCreateTime>12:00:00</DocumentCreateTime>
+    <SubmitParty>P</SubmitParty>
+    <SubmitterName>LEE Siu Ming</SubmitterName>
+    <SubmitterPhoneNumber>22334455</SubmitterPhoneNumber>
+    <DocumentBinaryContent>VGhpcyBpcyBhIHRleHQgZmlsZSB0ZXN0aW5nIEJhc2U2NCBlbmNvZGUvZGVjb2RlLg==</DocumentBinaryContent>
+  </CaseDocument>
+</GCCIMsgD2J>
