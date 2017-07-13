@@ -159,6 +159,26 @@ public class GenericServiceImpl extends BaseController implements GenericService
 		return getGenericFacade().sendAcknowledgementofCaseDocumentGenerator(this.getUser(),partyCd );
 	}
 	
+	@Override
+	public GDSNIMsgDTO sendCourtDocumentGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendCourtDocumentGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendSODDetailsUpdateGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendSODDetailsUpdateGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendDepartmentalNoticeHearingResultGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendDepartmentalNoticeHearingResultGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendFixedPenaltyNoticeofOrderCourtResultGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendFixedPenaltyNoticeofOrderCourtResultGenerator(this.getUser(),partyCd );
+	}
+	
 }
 
 

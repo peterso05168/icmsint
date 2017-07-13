@@ -20,14 +20,19 @@ public interface ControlService {
 	static final String NAMESPACE = "http://webservice.icmsint.judiciary.hk/";
 	public static final String SYSINF_CTRL_TYPE_CD_CASE_ALLOCATION="CA";
 	public static final String SYSINF_CTRL_TYPE_CD_FIXED_PENALTY_NOTICE_SUMMONS_ALLOCATION="FPNSA";
+	public static final String SYSINF_CTRL_TYPE_CD_FIXED_PENALTY_NOTICE_OF_ORDER_COURT_RESULT="FPNOCR";
 	public static final String SYSINF_CTRL_TYPE_CD_COURT_RESULT_UPDATE="CRU";
 	public static final String SYSINF_CTRL_TYPE_CD_CASE_DOCUMENT_ACK="CDA";
-	
+	public static final String SYSINF_CTRL_TYPE_CD_COURT_DOCUMENT="CD";
+
 	public static final String SYSINF_CTRL_TYPE_CD_PAYMENT_UPDATE="PU";
 	public static final String SYSINF_CTRL_TYPE_CD_APPEAL_REVIEW_GRANT="ARG";
 	public static final String SYSINF_CTRL_TYPE_CD_APPEAL_REVIEW_GRANT_UPDATE="ARGU";
 	public static final String SYSINF_CTRL_TYPE_CD_SUMMON_HEARING_RESULT="SHR";
+	public static final String SYSINF_CTRL_TYPE_CD_DEPARTMENTAL_NOTICE_HEARING_RESULT="DNHR";
 	public static final String SYSINF_CTRL_TYPE_CD_WITNESS_SUMMONS_ALLOCATION="WSA";
+	public static final String SYSINF_CTRL_TYPE_CD_NOTICE_OF_ORDER_HEARING_RESULT="NOHR";
+	
 	public static final String SYSINF_CTRL_TYPE_CD_WARRANT_STATUS_UPDATE="WSU";
 	public static final String SYSINF_CTRL_TYPE_CD_WARRANT_STATUS_CHANGE="WSC";
 	public static final String SYSINF_CTRL_TYPE_CD_WITNESS_SUMMONS_APPLICATION_RESULT="WSAR";

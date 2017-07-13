@@ -6,16 +6,20 @@ import hk.judiciary.fmk.common.security.user.JudiciaryUser;
 import hk.judiciary.icmsint.model.BaseBO;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.CommonWsDTO;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.GDSNIMsgDTO;
-import hk.judiciary.icmsint.model.sysinf.biz.generator.CourtPaymentGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.AcknowledgementofCaseDocumentGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.GDSNICourtDocumentGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.CourtPaymentGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.DepartmentalNoticeAllocationResultGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.DepartmentalNoticeHearingResultGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.FixedPenaltyDistressWarrantAllocationGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.FixedPenaltyDistressWarrantStatusChangeGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.FixedPenaltyNoticeSummonsAllocationGenerator;
-import hk.judiciary.icmsint.model.sysinf.biz.generator.FutureHearingAllocationGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.GDSNIFutureHearingAllocationGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.FixedPenaltyNoticeofOrderCourtResultGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.GxxiMsgGenerator;
-import hk.judiciary.icmsint.model.sysinf.biz.generator.PaymentUpdateGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.GDSNIPaymentUpdateGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.SODApplicationResultGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.SODDetailsUpdateGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.SummonsAllocationResultGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.SummonsHearingResultGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.handler.ChargeCaseApplicationHandler;
@@ -174,6 +178,11 @@ public class CaseAppBO extends BaseBO {
 		return (GDSNIMsgDTO) generator.generate();
 	}
 	
+	public GDSNIMsgDTO sendFixedPenaltyNoticeofOrderCourtResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		GxxiMsgGenerator generator = new FixedPenaltyNoticeofOrderCourtResultGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		return (GDSNIMsgDTO) generator.generate();
+	}
+	
 	
 	public GDSNIMsgDTO sendFixedPenaltyDistressWarrantAllocationGenerator(JudiciaryUser user,String partyCd) throws Exception {
 		GxxiMsgGenerator generator = new FixedPenaltyDistressWarrantAllocationGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
@@ -191,12 +200,12 @@ public class CaseAppBO extends BaseBO {
 	}
 	
 	public GDSNIMsgDTO sendFutureHearingAllocationGenerator(JudiciaryUser user,String partyCd) throws Exception {
-		GxxiMsgGenerator generator = new FutureHearingAllocationGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		GxxiMsgGenerator generator = new GDSNIFutureHearingAllocationGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
 		return (GDSNIMsgDTO) generator.generate();
 	}
 	
 	public GDSNIMsgDTO sendPaymentUpdateGenerator(JudiciaryUser user,String partyCd) throws Exception {
-		GxxiMsgGenerator generator = new PaymentUpdateGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		GxxiMsgGenerator generator = new GDSNIPaymentUpdateGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
 		return (GDSNIMsgDTO) generator.generate();
 	}
 	
@@ -210,6 +219,20 @@ public class CaseAppBO extends BaseBO {
 		return (GDSNIMsgDTO) generator.generate();
 	}
 
+	public GDSNIMsgDTO sendCourtDocumentGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		GxxiMsgGenerator generator = new GDSNICourtDocumentGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		return (GDSNIMsgDTO) generator.generate();
+	}
+	
+	public GDSNIMsgDTO sendSODDetailsUpdateGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		GxxiMsgGenerator generator = new SODDetailsUpdateGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		return (GDSNIMsgDTO) generator.generate();
+	}
+	
+	public GDSNIMsgDTO sendDepartmentalNoticeHearingResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		GxxiMsgGenerator generator = new DepartmentalNoticeHearingResultGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		return (GDSNIMsgDTO) generator.generate();
+	}
 	
 	
 	private File getSchemaFile(String fileName) {

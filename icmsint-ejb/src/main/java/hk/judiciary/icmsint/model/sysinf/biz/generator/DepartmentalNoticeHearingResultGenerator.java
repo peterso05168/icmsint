@@ -18,11 +18,11 @@ import hk.judiciary.icmsint.webservice.sysinf.ControlService;
 import hk.judiciary.icmswar.model.warrant.biz.dto.ws.WarrantWsDTO;
 import hk.judiciary.icmswar.webservice.warrant.WarrantService;
 
-public class WitnessSummonsAllocationResultGenerator extends BaseGDSNIMsgGenerator {
+public class DepartmentalNoticeHearingResultGenerator extends BaseGDSNIMsgGenerator {
 	
-	public WitnessSummonsAllocationResultGenerator(JudiciaryUser judiciaryUser, String partyCd, 
+	public DepartmentalNoticeHearingResultGenerator(JudiciaryUser judiciaryUser, String partyCd, 
 			SysInfCtrlDAO sysInfCtrlDao, SysInfCtrlTypeDAO sysInfCtrlTypeDao, PdDAO pdDao) {
-		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GDSNI_J2D_WITNESS_SUMMONS_ALLOCATION, ControlService.SYSINF_CTRL_TYPE_CD_WITNESS_SUMMONS_ALLOCATION, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
+		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GDSNI_J2D_NOTICE_OF_ORDER_HEARING_RESULT, ControlService.SYSINF_CTRL_TYPE_CD_DEPARTMENTAL_NOTICE_HEARING_RESULT, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
 	}
 
 	@Override

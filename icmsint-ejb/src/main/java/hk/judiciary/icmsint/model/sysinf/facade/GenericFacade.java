@@ -80,4 +80,17 @@ public interface GenericFacade {
 	
 	public GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(JudiciaryUser user, String partyCd) throws Exception;
 	
+	public GDSNIMsgDTO sendCourtDocumentGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendSODDetailsUpdateGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendDepartmentalNoticeHearingResultGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendFixedPenaltyNoticeofOrderCourtResultGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	
+	
+	
+	
+	
 }

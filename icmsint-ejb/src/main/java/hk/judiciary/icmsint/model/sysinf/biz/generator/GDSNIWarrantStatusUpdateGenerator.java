@@ -18,11 +18,11 @@ import hk.judiciary.icmsint.webservice.sysinf.ControlService;
 import hk.judiciary.icmswar.model.warrant.biz.dto.ws.WarrantWsDTO;
 import hk.judiciary.icmswar.webservice.warrant.WarrantService;
 
-public class FutureHearingAllocationGenerator extends BaseGDSNIMsgGenerator {
+public class GDSNIWarrantStatusUpdateGenerator extends BaseGDSNIMsgGenerator {
 	
-	public FutureHearingAllocationGenerator(JudiciaryUser judiciaryUser, String partyCd, 
+	public GDSNIWarrantStatusUpdateGenerator(JudiciaryUser judiciaryUser, String partyCd, 
 			SysInfCtrlDAO sysInfCtrlDao, SysInfCtrlTypeDAO sysInfCtrlTypeDao, PdDAO pdDao) {
-		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GDSNI_J2D_FUTURE_HEARING_ALLOCATION, ControlService.SYSINF_CTRL_TYPE_CD_FUTURE_HEARING_ALLOCATION, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
+		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GDSNI_J2D_WARRANT_STATUS_UPDATE, ControlService.SYSINF_CTRL_TYPE_CD_WARRANT_STATUS_UPDATE, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
 	}
 
 	@Override
@@ -33,6 +33,33 @@ public class FutureHearingAllocationGenerator extends BaseGDSNIMsgGenerator {
 		List<SysInfCtrl> sysInfCtrlList = getSysInfCtrlList();
 		
 		GDSNIMsgJ2D gdsni = new GDSNIMsgJ2D();
+		if (sysInfCtrlList.size() > 0) {
+			List<WarrantStatusChangeV20CT> lstWarrant = gdsni.getWarrantStatusChange();
+			WarrantWsDTOConvert wcConv=new WarrantWsDTOConvert();
+			for (SysInfCtrl sysInfCtrl : sysInfCtrlList) { //foreach WarrantChange in Ctrl Table
+				Integer caseId = sysInfCtrl.getKey1();
+				//  call Warrant ws to get corresponding Warrant status.
+				//	convert the response to WarrantStatusChange
+				//	Add to GDSNIMsgJ2D
+
+				WarrantWsDTO warrant;
+				try {
+					warrant = warrantService.getWarrant(caseId);
+				} catch (Exception e) {
+					//TODO process fail record
+					throw new SysInfGeneratorException("", e);
+				}
+				
+				WarrantStatusChangeV20CT wsc=wcConv.convert(warrant);
+
+				lstWarrant.add(wsc);
+		
+				//  update Ctrl Table Status
+				sysInfCtrl.setSysInfCtrlStatus(SysInfCtrlStatus.DONE.code());
+				sysInfCtrl.setPreviousVersion(sysInfCtrl.getVersion());
+				getSysInfCtrlDAO().persist(sysInfCtrl);
+			}
+		}
 		return gdsni;
 	}
 }

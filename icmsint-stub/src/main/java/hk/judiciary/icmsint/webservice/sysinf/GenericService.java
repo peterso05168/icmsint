@@ -177,4 +177,24 @@ public interface GenericService {
 			@WebParam(name = "partyCd") String partyCd
 			) throws Exception;
 	
+	@WebResult(name = "sendCourtDocumentGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendCourtDocumentGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendSODDetailsUpdateGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendSODDetailsUpdateGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendDepartmentalNoticeHearingResultGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendDepartmentalNoticeHearingResultGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendFixedPenaltyNoticeofOrderCourtResultGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendFixedPenaltyNoticeofOrderCourtResultGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
 }

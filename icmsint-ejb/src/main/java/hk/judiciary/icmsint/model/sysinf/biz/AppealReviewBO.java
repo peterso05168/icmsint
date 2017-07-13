@@ -4,7 +4,7 @@ package hk.judiciary.icmsint.model.sysinf.biz;
 import hk.judiciary.fmk.common.security.user.JudiciaryUser;
 import hk.judiciary.icmsint.model.BaseBO;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.GDSNIMsgDTO;
-import hk.judiciary.icmsint.model.sysinf.biz.generator.AppealOrReviewGrantUpdateGenerator;
+import hk.judiciary.icmsint.model.sysinf.biz.generator.GDSNIAppealOrReviewGrantUpdateGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.AppealReviewGrantGenerator;
 import hk.judiciary.icmsint.model.sysinf.biz.generator.GxxiMsgGenerator;
 
@@ -20,7 +20,7 @@ public class AppealReviewBO extends BaseBO {
 
 	
 	public GDSNIMsgDTO sendAppealOrReviewGrantUpdate(JudiciaryUser user,String partyCd) throws Exception {
-		GxxiMsgGenerator generator = new AppealOrReviewGrantUpdateGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
+		GxxiMsgGenerator generator = new GDSNIAppealOrReviewGrantUpdateGenerator(user, partyCd, getSysInfCtrlDAO(), getSysInfCtrlTypeDAO(), getPdDAO());
 		return (GDSNIMsgDTO) generator.generate();
 	}
 	

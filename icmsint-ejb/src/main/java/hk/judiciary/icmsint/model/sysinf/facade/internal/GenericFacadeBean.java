@@ -143,6 +143,13 @@ public class GenericFacadeBean extends BaseFacade implements GenericFacade {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	@Override
+	public GDSNIMsgDTO sendFixedPenaltyNoticeofOrderCourtResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendFixedPenaltyNoticeofOrderCourtResultGenerator(user,partyCd);
+	}
+	
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
 	public GDSNIMsgDTO sendFixedPenaltyDistressWarrantAllocationGenerator(JudiciaryUser user,String partyCd) throws Exception {
 		return getCaseAppBO().sendFixedPenaltyDistressWarrantAllocationGenerator(user,partyCd);
 	}
@@ -189,5 +196,25 @@ public class GenericFacadeBean extends BaseFacade implements GenericFacade {
 	public GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(JudiciaryUser user,String partyCd) throws Exception {
 		return getCaseAppBO().sendAcknowledgementofCaseDocumentGenerator(user, partyCd);
 	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendCourtDocumentGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendCourtDocumentGenerator(user, partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendSODDetailsUpdateGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendSODDetailsUpdateGenerator(user, partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendDepartmentalNoticeHearingResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendDepartmentalNoticeHearingResultGenerator(user, partyCd);
+	}
+	
+	
 	
 }
