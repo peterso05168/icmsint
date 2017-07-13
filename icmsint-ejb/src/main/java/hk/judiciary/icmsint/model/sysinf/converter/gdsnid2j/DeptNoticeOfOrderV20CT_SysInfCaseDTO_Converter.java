@@ -61,10 +61,11 @@ public class DeptNoticeOfOrderV20CT_SysInfCaseDTO_Converter extends AbstractPopu
 		ComprisingCourtDTO compsCourt = new ComprisingCourtDTO();		
 		
 		compsCourt.setCourtLvlType(courtLvlType);
-		PrefixV13CT prefixV = deptNoticeOfOrder.getRecordPrefix();
-		if(!CommonUtil.isNullOrEmpty(prefixV)) {
-		    compsCourt.setCompsCourtPrfx(prefixV.getValue());
-		}
+		//THIS IS CM SOMETHING, NOT RELATED TO CASE PROBABLY.
+//		PrefixV13CT prefixV = deptNoticeOfOrder.getRecordPrefix();
+//		if(!CommonUtil.isNullOrEmpty(prefixV)) {
+//		    compsCourt.setCompsCourtPrfx(prefixV.getValue());
+//		}
 		
 		InformantV12CT informantDetails = deptNoticeOfOrder.getInformantDetails();
 		if(!CommonUtil.isNullOrEmpty(informantDetails)) {

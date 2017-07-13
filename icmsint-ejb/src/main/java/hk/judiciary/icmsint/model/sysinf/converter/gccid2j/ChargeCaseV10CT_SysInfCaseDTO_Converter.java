@@ -83,7 +83,7 @@ public class ChargeCaseV10CT_SysInfCaseDTO_Converter extends AbstractPopulatingC
 		}	
 
 		//FIXME: DEMAND NOTE AND DEMAND NOTE ISSUE DATE NO NOT FOUND IN chargeCase
-		details.setDemandNoteNo("");	
+		details.setDemandNoteNo(null);	
 		details.setDemandNoteIssueDate(null);
 		
 		
@@ -255,7 +255,8 @@ public class ChargeCaseV10CT_SysInfCaseDTO_Converter extends AbstractPopulatingC
 			ofncLoc.setRegion(null);
 			ofncLoc.setAddressIndex(0);
 			ofncLoc.setAddressType(AddressTypeEnum.OFFENCE_LOCATION);
-			caseNature.setOffenceLocation(ofncLoc);	
+			//Assign null if no values is found
+			caseNature.setOffenceLocation(null);	
 			
 			//FIXME: DATE OF OCC RELATED CANNOT BE FOUND IN chargeCase
 			caseNature.setDateOfOccType(null);
@@ -265,20 +266,25 @@ public class ChargeCaseV10CT_SysInfCaseDTO_Converter extends AbstractPopulatingC
 			//FIXME: CHARGE TO PARTCPS CANNOT BE FOUND IN chargeCase
 			List<SysInfPartcpDTO> chargeToPartcps = new ArrayList<SysInfPartcpDTO>();
 			SysInfPartcpDTO chargeToPartcp = new SysInfPartcpDTO();
-			chargeToPartcps.add(chargeToPartcp);
-			caseNature.setChargeToPartcps(chargeToPartcps);
+			//chargeToPartcps.add(chargeToPartcp);
+			//caseNature.setChargeToPartcps(chargeToPartcps);
+			//Assign null if no values is found
+			caseNature.setChargeToPartcps(null);
 			
 			//FIXME: SOD VAR VALUES CANNOT BE FOUND IN chargeCase
 			List<SysInfSodVarValueDTO> sodVarValues = new ArrayList<SysInfSodVarValueDTO>();
 			SysInfSodVarDTO sodVar = new SysInfSodVarDTO();			
 			SysInfSodVarValueDTO sodVarValue1 = new SysInfSodVarValueDTO();
 			sodVarValue1.setSodVarValueId(null);
-			sodVarValue1.setSodVarDTO(sodVar);
+			//Assign null if no values is found
+			//sodVarValue1.setSodVarDTO(sodVar);
+			sodVarValue1.setSodVarDTO(null);
 			sodVarValue1.setVarValue(null);
 			sodVarValue1.setVarValueChin(null);			
 			sodVarValues.add(sodVarValue1);
-
-			caseNature.setSodVarValues(sodVarValues);
+			//Assign null if no values is found
+			//caseNature.setSodVarValues(sodVarValues);
+			caseNature.setSodVarValues(null);
 			caseNature.setSeqNo(chargeCaseOffence.getOffenceSequenceNumber().getValue().toString());
 			caseOffence.setCaseNature(caseNature);
 			offences.add(caseNature);

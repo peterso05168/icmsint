@@ -67,10 +67,11 @@ public class WitnessSummonsV20CT_SysInfCaseDTO_Converter extends AbstractPopulat
 		CourtLvlTypeDTO courtLvlType = new CourtLvlTypeDTO();
 		ComprisingCourtDTO compsCourt = new ComprisingCourtDTO();
 		compsCourt.setCourtLvlType(courtLvlType);
-		PrefixV13CT prefixV = witnessSummons.getRecordPrefix();
-		if(!CommonUtil.isNullOrEmpty(prefixV)) {
-		    compsCourt.setCompsCourtPrfx(prefixV.getValue());
-		}
+		//THIS IS CM SOMETHING, NOT RELATED TO CASE PROBABLY.
+//		PrefixV13CT prefixV = witnessSummons.getRecordPrefix();
+//		if(!CommonUtil.isNullOrEmpty(prefixV)) {
+//		    compsCourt.setCompsCourtPrfx(prefixV.getValue());
+//		}
 		
 		CaseNumberV10CT caseNumber = witnessSummons.getCaseNumber();
 		if(!CommonUtil.isNullOrEmpty(caseNumber)) {

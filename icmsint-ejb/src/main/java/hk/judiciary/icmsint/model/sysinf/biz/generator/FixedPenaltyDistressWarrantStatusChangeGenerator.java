@@ -17,7 +17,7 @@ public class FixedPenaltyDistressWarrantStatusChangeGenerator extends BaseGFPIMs
 	public FixedPenaltyDistressWarrantStatusChangeGenerator(JudiciaryUser judiciaryUser, String partyCd, 
 			SysInfCtrlDAO sysInfCtrlDao, SysInfCtrlTypeDAO sysInfCtrlTypeDao, PdDAO pdDao) {
 		//TODO no summons allocation result sysInfCtrlTypeCd
-		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GFPI_J2D_FIXED_PENALTY_DISTRESS_WARRANT_STATUS_CHANGE, ControlService.SYSINF_CTRL_TYPE_CD_FIXED_PENALTY_DISTRESS_WARRANT_STATUS_CHANGE, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
+		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GFPI_J2D_FIXED_PENALTY_DISTRESS_WARRANT_STATUS_CHANGE, null, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
 	}
 
 	@Override
