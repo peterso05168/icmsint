@@ -3,7 +3,7 @@ package hk.judiciary.icmsint.model.sysinf.biz.handler;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.ParserConfigurationException; 
 import javax.xml.transform.TransformerException;
 
 import hk.judiciary.fmk.common.security.user.JudiciaryUser;
@@ -11,7 +11,7 @@ import hk.judiciary.icmscase.model.cmcCriminalEdi.biz.xmlWriter.CriminalCaseElem
 import hk.judiciary.icmscase.model.cmcCriminalEdi.biz.xmlWriter.CriminalCaseXMLWriter;
 import hk.judiciary.icmsint.model.common.SysInfConstant;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.CommonWsDTO;
-import hk.judiciary.icmsint.model.sysinf.converter.gdsnid2j.WitnessSummonsV20CT_SysInfCaseDTO_Converter;
+import hk.judiciary.icmsint.model.sysinf.converter.gdsnid2j.WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter;
 import hk.judiciary.icmsint.model.sysinf.dao.DAOException;
 import hk.judiciary.icmsint.model.sysinf.enumObj.ReturnStatus;
 import hk.judiciary.icmsint.model.sysinf.enumObj.SysInfStatus;
@@ -32,7 +32,7 @@ public class WitnessSummonsApplicationHandler extends BaseGDSNIMsgHandler {
         int failCnt = 0;
         for (WitnessSummonsApplicationV20CT witnessSummons : msg.getWitnessSummonsApplication()) {
 			try {
-	        	WitnessSummonsV20CT_SysInfCaseDTO_Converter converter = new WitnessSummonsV20CT_SysInfCaseDTO_Converter();
+				WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter converter = new WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter();
 	        	SysInfCaseDTO sysInfCaseDto = converter.convert(witnessSummons);
 	        	String fileName = genFileName(witnessSummons);
 	        	byte[] bytes = genByteArray(sysInfCaseDto);

@@ -1,8 +1,4 @@
-package hk.judiciary.icmsint.model.sysinf.converter.gdsnid2j;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+package hk.judiciary.icmsint.model.sysinf.converter.gfpid2j;
 
 import hk.judiciary.fmk.common.util.CommonUtil;
 import hk.judiciary.icmsint.model.common.ConverterUtil;
@@ -10,46 +6,23 @@ import hk.judiciary.icmsint.model.sysinf.converter.impl.AbstractPopulatingConver
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.CodeTableDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.ComprisingCourtDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.CourtLvlTypeDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfAddrDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfAddrDTO.AddressTypeEnum;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDefendantDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDetailsDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseOffenceDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfChrgAppDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfPartcpDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfPartcpDTO.DefendantTypeEnum;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.AdditionalSectionV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.AddressV12CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.AgeV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.ApplyPartyV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.BailiffDistrictCodeV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.CaseNumberV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.ChineseAddressLineV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.ChineseAddressV12CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.CourtSysV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DateCT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DefendantSequenceNumberV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DefendantV13CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DemandNoteNumberV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DepartmentReferenceNumberV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.EnglishAddressLineV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.EnglishAddressV12CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.InformantV12CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PartyChineseGivenNameV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PartyChineseSurnameV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PartyEnglishGivenNameV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PartyEnglishSurnameV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PersonGenderCodeV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PhoneNumberV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PrefixV13CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.ProsecutionDepartmentCodeV11CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.StaffNumberV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.TimeCT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.WitnessSummonsApplicationV20CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.WitnessV12CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.AdditionalSectionV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.ApplyPartyV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.BailiffDistrictCodeV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.CaseNumberV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.DateCT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.DefendantSequenceNumberV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.DemandNoteNumberV11CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.DepartmentReferenceNumberV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.InformantV12CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.ProsecutionDepartmentCodeV11CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.TimeCT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.WitnessSummonsApplicationV20CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.WitnessV12CT;
 
-public class WitnessSummonsV20CT_SysInfCaseDTO_Converter extends AbstractPopulatingConverter<WitnessSummonsApplicationV20CT, SysInfCaseDTO> {
+public class WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter extends AbstractPopulatingConverter<WitnessSummonsApplicationV20CT, SysInfCaseDTO> {
 
 	@Override
 	protected SysInfCaseDTO createTarget() {

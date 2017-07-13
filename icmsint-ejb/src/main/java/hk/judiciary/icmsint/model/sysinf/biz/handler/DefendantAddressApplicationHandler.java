@@ -12,14 +12,12 @@ import hk.judiciary.icmscase.model.cmcCriminalEdi.biz.xmlWriter.CriminalCaseXMLW
 import hk.judiciary.icmsint.model.common.SysInfConstant;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.CommonWsDTO;
 import hk.judiciary.icmsint.model.sysinf.converter.gdsnid2j.DefendantAddressApplicationV20CT_SysInfCaseDTO_Converter;
-import hk.judiciary.icmsint.model.sysinf.converter.gdsnid2j.WitnessSummonsV20CT_SysInfCaseDTO_Converter;
 import hk.judiciary.icmsint.model.sysinf.dao.DAOException;
 import hk.judiciary.icmsint.model.sysinf.enumObj.ReturnStatus;
 import hk.judiciary.icmsint.model.sysinf.enumObj.SysInfStatus;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DefendantAddressApplicationV20CT;
 import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.GDSNIMsgD2J;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.WitnessSummonsApplicationV20CT;
 
 public class DefendantAddressApplicationHandler extends BaseGDSNIMsgHandler {
 	

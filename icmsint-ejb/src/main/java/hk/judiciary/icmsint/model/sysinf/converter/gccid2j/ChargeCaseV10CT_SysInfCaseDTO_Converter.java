@@ -1,7 +1,6 @@
 package hk.judiciary.icmsint.model.sysinf.converter.gccid2j;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import hk.judiciary.fmk.common.util.CommonUtil;
@@ -78,8 +77,9 @@ public class ChargeCaseV10CT_SysInfCaseDTO_Converter extends AbstractPopulatingC
 		}
 		
 		if (!CommonUtil.isNullOrEmpty(chargeCase.getProsecutionDepartmentCode())) {
-			prosDept = new CodeTableDTO(chargeCase.getProsecutionDepartmentCode().getValue());	
-			details.setProsDept(prosDept);
+			if (!CommonUtil.isNullOrEmpty(chargeCase.getProsecutionDepartmentCode().getCodeName())) {
+				details.setProsDept(new CodeTableDTO(chargeCase.getProsecutionDepartmentCode().getCodeName()));
+			}
 		}	
 
 		//FIXME: DEMAND NOTE AND DEMAND NOTE ISSUE DATE NO NOT FOUND IN chargeCase

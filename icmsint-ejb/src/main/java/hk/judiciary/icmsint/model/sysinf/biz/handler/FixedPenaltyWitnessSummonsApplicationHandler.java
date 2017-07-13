@@ -11,31 +11,34 @@ import hk.judiciary.icmscase.model.cmcCriminalEdi.biz.xmlWriter.CriminalCaseElem
 import hk.judiciary.icmscase.model.cmcCriminalEdi.biz.xmlWriter.CriminalCaseXMLWriter;
 import hk.judiciary.icmsint.model.common.SysInfConstant;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.CommonWsDTO;
-import hk.judiciary.icmsint.model.sysinf.converter.gccid2j.ChargeCaseV10CT_SysInfCaseDTO_Converter;
+import hk.judiciary.icmsint.model.sysinf.converter.gfpid2j.FixedPenaltyDistressWarrantApplicationV20CT_SysInfCaseDTO_Converter;
+import hk.judiciary.icmsint.model.sysinf.converter.gfpid2j.WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter;
 import hk.judiciary.icmsint.model.sysinf.dao.DAOException;
 import hk.judiciary.icmsint.model.sysinf.enumObj.ReturnStatus;
 import hk.judiciary.icmsint.model.sysinf.enumObj.SysInfStatus;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.gccid2j.ChargeCaseV10CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gccid2j.GCCIMsgD2J;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.FixedPenaltyDistressWarrantApplicationV20CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.FixedPenaltyWitnessSummonsAllocationV10CT;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.GFPIMsgD2J;
+import hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.WitnessSummonsApplicationV20CT;
 
-public class ChargeCaseApplicationHandler extends BaseGCCIMsgHandler {
+public class FixedPenaltyWitnessSummonsApplicationHandler extends BaseGFPIMsgHandler {
 	
-	public ChargeCaseApplicationHandler(JudiciaryUser judiciaryUser, String partyCd) {
-		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GDSNI_D2J_SUMMON_APPLICATION, SysInfConstant.SYSINF_MSG_TYPE_CD_GCCI, SysInfConstant.SYSINF_MSG_MSGNAT_IN);
+	public FixedPenaltyWitnessSummonsApplicationHandler(JudiciaryUser judiciaryUser, String partyCd) {
+		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GFPI_D2J_FIXED_PENALTY_WITNESS_SUMMONS_APPLICATION, SysInfConstant.SYSINF_MSG_TYPE_CD_GFPI, SysInfConstant.SYSINF_MSG_MSGNAT_IN);
 	}
 
 	@Override
-	public CommonWsDTO handleMsg(GCCIMsgD2J msg) throws SysInfHandlerException {
+	public CommonWsDTO handleMsg(GFPIMsgD2J msg) throws SysInfHandlerException {
 		int seqNo = 0;
         int failCnt = 0;
-        for (ChargeCaseV10CT chargeCase : msg.getChargeCase()) {
+        for (WitnessSummonsApplicationV20CT fixedPenaltyWitnessSummonsApp : msg.getFixedPenaltyWitnessSummonsApplication()) {
 			try {
-	        	ChargeCaseV10CT_SysInfCaseDTO_Converter converter = new ChargeCaseV10CT_SysInfCaseDTO_Converter();
-	        	SysInfCaseDTO sysInfCaseDto = converter.convert(chargeCase);
-				String fileName = genFileName(chargeCase);
-				byte[] bytes = genByteArray(sysInfCaseDto);
-				saveXml(getJudiciaryUser(), bytes, fileName + ".xml");
+				WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter converter = new WitnessSummonsApplicationV20CT_SysInfCaseDTO_Converter();
+	        	SysInfCaseDTO sysInfCaseDto = converter.convert(fixedPenaltyWitnessSummonsApp);
+	        	String fileName = genFileName(fixedPenaltyWitnessSummonsApp);
+	        	byte[] bytes = genByteArray(sysInfCaseDto);
+	        	saveXml(getJudiciaryUser(), bytes, fileName + ".xml");
 				try {
 					insertSysInfRec(seqNo++, fileName, SysInfStatus.SUCCESS.code());
 				} catch (DAOException e) {
@@ -45,7 +48,7 @@ public class ChargeCaseApplicationHandler extends BaseGCCIMsgHandler {
 				failCnt++;
 				try {
 					String errMsg = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
-					insertSysInfErr(insertSysInfRec(seqNo++, genFileName(chargeCase), SysInfStatus.FAIL.code()), errMsg);
+					insertSysInfErr(insertSysInfRec(seqNo++, genFileName(fixedPenaltyWitnessSummonsApp), SysInfStatus.FAIL.code()), errMsg);
 				} catch (DAOException e1) {
 					e1.printStackTrace();
 				}
@@ -57,10 +60,11 @@ public class ChargeCaseApplicationHandler extends BaseGCCIMsgHandler {
 	    return returnVal;
 	}
 	
-	private String genFileName(ChargeCaseV10CT chargeCase) {
+	private String genFileName(WitnessSummonsApplicationV20CT fixedPenaltyDistressWarrant) {
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-    	return getPartyCd() + "-" + chargeCase.getCaseType().getValue() + "-" + sdf.format(timestamp);
+    	String type = "WS"; //TODO TBC
+    	return getPartyCd() + "-" + type + "-" + sdf.format(timestamp);
 	}
 	
 	private byte[] genByteArray(SysInfCaseDTO sysInfCaseDto) throws ParserConfigurationException, IllegalArgumentException, IllegalAccessException, TransformerException {

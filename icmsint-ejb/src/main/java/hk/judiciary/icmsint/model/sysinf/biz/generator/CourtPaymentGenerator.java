@@ -12,23 +12,19 @@ import hk.judiciary.icmsint.model.sysinf.dao.SysInfCtrlTypeDAO;
 import hk.judiciary.icmsint.model.sysinf.inf.gfpij2d.GFPIMsgJ2D;
 import hk.judiciary.icmsint.webservice.sysinf.ControlService;
 
-public class FixedPenaltyDistressWarrantStatusChangeGenerator extends BaseGFPIMsgGenerator {
+public class CourtPaymentGenerator extends BaseGFPIMsgGenerator {
 	
-	public FixedPenaltyDistressWarrantStatusChangeGenerator(JudiciaryUser judiciaryUser, String partyCd, 
+	public CourtPaymentGenerator(JudiciaryUser judiciaryUser, String partyCd, 
 			SysInfCtrlDAO sysInfCtrlDao, SysInfCtrlTypeDAO sysInfCtrlTypeDao, PdDAO pdDao) {
-		//TODO no summons allocation result sysInfCtrlTypeCd
-		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GFPI_J2D_FIXED_PENALTY_DISTRESS_WARRANT_STATUS_CHANGE, ControlService.SYSINF_CTRL_TYPE_CD_FIXED_PENALTY_DISTRESS_WARRANT_STATUS_CHANGE, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
+		super(judiciaryUser, partyCd, SysInfConstant.SYSINF_MSG_CD_GFPI_J2D_COURT_PAYMENT, ControlService.SYSINF_CTRL_TYPE_CD_COURT_PAYMENT, sysInfCtrlDao, sysInfCtrlTypeDao, pdDao);
 	}
 
 	@Override
 	public GFPIMsgJ2D generateGFPIMsg() throws SysInfGeneratorException, DAOException {
 		List<SysInfCtrl> sysInfCtrlList = getSysInfCtrlList();
 		
-		GFPIMsgJ2D gdsni = new GFPIMsgJ2D();
-		
-		
-//		List<WarrantStatusChangeV20CT> lstWarrant = gdsni.getWarrantStatusChange();
+		GFPIMsgJ2D gfpi = new GFPIMsgJ2D();
 		//TODO
-		return gdsni;
+		return gfpi;
 	}
 }

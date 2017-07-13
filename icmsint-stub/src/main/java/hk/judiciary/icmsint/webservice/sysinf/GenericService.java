@@ -63,6 +63,20 @@ public interface GenericService {
 			@WebParam(name = "partyCd") String partyCd
 			) throws Exception;
 	
+	@WebResult(name = "receiveSODApplication", targetNamespace = NAMESPACE)
+	@WebMethod CommonWsDTO receiveSODApplication(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "receiveDefendantAddressApplication", targetNamespace = NAMESPACE)
+	@WebMethod CommonWsDTO receiveDefendantAddressApplication(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "receiveFixedPenaltyWitnessSummonsApplication", targetNamespace = NAMESPACE)
+	@WebMethod CommonWsDTO receiveFixedPenaltyWitnessSummonsApplication(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
 	
 	@WebResult(name = "sendSummonsAllocationResult", targetNamespace = NAMESPACE)
 	@WebMethod GDSNIMsgDTO sendSummonsAllocationResult(
@@ -72,6 +86,11 @@ public interface GenericService {
 	
 	@WebResult(name = "receiveChargeCaseApplication", targetNamespace = NAMESPACE)
 	@WebMethod CommonWsDTO receiveChargeCaseApplication(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "receiveCaseDocument", targetNamespace = NAMESPACE)
+	@WebMethod CommonWsDTO receiveCaseDocument(
 			@WebParam(name = "partyCd") String partyCd
 			) throws Exception;
 	
@@ -114,6 +133,47 @@ public interface GenericService {
 	
 	@WebResult(name = "sendFixedPenaltyDistressWarrantAllocationGenerator", targetNamespace = NAMESPACE)
 	@WebMethod GDSNIMsgDTO sendFixedPenaltyDistressWarrantAllocationGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendCourtPaymentGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendCourtPaymentGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendFixedPenaltyDistressWarrantStatusChangeGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendFixedPenaltyDistressWarrantStatusChangeGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendSummonsHearingResultGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendSummonsHearingResultGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+
+	
+	@WebResult(name = "sendSODApplicationResultGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendSODApplicationResultGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendWitnessSummonsAllocationResultGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendWitnessSummonsAllocationResultGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendFutureHearingAllocationGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendFutureHearingAllocationGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendPaymentUpdateGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendPaymentUpdateGenerator(
+			@WebParam(name = "partyCd") String partyCd
+			) throws Exception;
+	
+	@WebResult(name = "sendAcknowledgementofCaseDocumentGenerator", targetNamespace = NAMESPACE)
+	@WebMethod GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(
 			@WebParam(name = "partyCd") String partyCd
 			) throws Exception;
 	

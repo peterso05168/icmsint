@@ -67,13 +67,54 @@ public class ConverterUtil {
 	}
 
 	public static SysInfPartcpDTO toSysInfPartcpDto(
+			hk.judiciary.icmsint.model.sysinf.inf.gfpid2j.InformantV12CT informant) {
+		SysInfPartcpDTO sysInfPartcpDto = new SysInfPartcpDTO();
+		sysInfPartcpDto.setDefendantType(DefendantTypeEnum.ADULT);
+		sysInfPartcpDto.setPartcpRoleType(SysInfPartcpDTO.PartcpRoleTypeEnum.INFORMANT);
+		if (!CommonUtil.isNullOrEmpty(informant.getPartyEnglishSurname())) {
+			sysInfPartcpDto.setSurnameEng(informant.getPartyEnglishSurname().getValue());					
+		}
+		if (!CommonUtil.isNullOrEmpty(informant.getPartyEnglishGivenName())) {
+			sysInfPartcpDto.setGivenNameEng(informant.getPartyEnglishGivenName().getValue());					
+		}
+		if (!CommonUtil.isNullOrEmpty(informant.getPartyChineseSurname())) {
+			sysInfPartcpDto.setSurnameChi(informant.getPartyChineseSurname().getValue());					
+		}
+		if (!CommonUtil.isNullOrEmpty(informant.getPartyChineseGivenName())) {
+			sysInfPartcpDto.setGivenNameChi(informant.getPartyChineseGivenName().getValue());					
+		}	
+		if (!CommonUtil.isNullOrEmpty(informant.getPhoneNumber())) {
+			sysInfPartcpDto.setTelNo(informant.getPhoneNumber().getValue());					
+		}	
+		if (!CommonUtil.isNullOrEmpty(informant.getAge())) {
+			sysInfPartcpDto.setPersonAge(informant.getAge().getValue().toString());
+		}	
+		if (!CommonUtil.isNullOrEmpty(informant.getGender())) {
+			if (!CommonUtil.isNullOrEmpty(informant.getGender().getCodeName())) {
+				sysInfPartcpDto.setGendrType(new CodeTableDTO(informant.getGender().getCodeName()));
+			}				
+		}	
+		if (!CommonUtil.isNullOrEmpty(informant.getPhoneNumber())) {
+			sysInfPartcpDto.setTelNo(informant.getPhoneNumber().getValue());
+		}
+		
+		//FIXME: FILL IN WHEN THE FIELDS IS CLARIFIED, CANNOT BE FOUND IN chargeCase
+		sysInfPartcpDto.setAddresses(null);
+		sysInfPartcpDto.setDefendantIndex(0);
+		sysInfPartcpDto.setDocumentNo(null);
+		sysInfPartcpDto.setLangType(new CodeTableDTO("PUT"));
+		sysInfPartcpDto.setOfficerInChargeNo(null);
+		return sysInfPartcpDto;
+	}
+	
+	public static SysInfPartcpDTO toSysInfPartcpDto(
 			hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.InformantV12CT informant) {
 		SysInfPartcpDTO sysInfPartcpDto = new SysInfPartcpDTO();
 		sysInfPartcpDto.setDefendantType(DefendantTypeEnum.ADULT);
 		sysInfPartcpDto.setPartcpRoleType(SysInfPartcpDTO.PartcpRoleTypeEnum.INFORMANT);
 		if (!CommonUtil.isNullOrEmpty(informant.getPartyEnglishSurname())) {
 			sysInfPartcpDto.setSurnameEng(informant.getPartyEnglishSurname().getValue());					
-		} 
+		}
 		if (!CommonUtil.isNullOrEmpty(informant.getPartyEnglishGivenName())) {
 			sysInfPartcpDto.setGivenNameEng(informant.getPartyEnglishGivenName().getValue());					
 		}

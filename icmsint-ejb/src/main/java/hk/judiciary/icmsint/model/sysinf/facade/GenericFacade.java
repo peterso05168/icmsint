@@ -31,16 +31,22 @@ public interface GenericFacade {
 	
 	public CommonWsDTO receiveFixedPenaltyDistressWarrantApplication(JudiciaryUser user, String partyCd) throws Exception;
 	
+	public CommonWsDTO receiveChargeCaseApplication(JudiciaryUser user, String partyCd) throws Exception;
 	
+	public CommonWsDTO receiveDefendantAddressApplication(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public CommonWsDTO receiveSODApplication(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public CommonWsDTO receiveCaseDocument(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public CommonWsDTO receiveFixedPenaltyWitnessSummonsApplication(JudiciaryUser user, String partyCd) throws Exception;
 	/**
 	 * send Departmental Summons (S) allocation data to external party
 	 * 
 	 * @param user.
 	 * @return status code, desc
 	 */
-	public GDSNIMsgDTO sendSummonsAllocationResult(JudiciaryUser user, String partyCd) throws Exception;
-	
-	public CommonWsDTO receiveChargeCaseApplication(JudiciaryUser user, String partyCd) throws Exception;
+	public GDSNIMsgDTO sendSummonsAllocationResult(JudiciaryUser user, String partyCd) throws Exception;	
 	
 	public GDSNIMsgDTO sendWarrantStatusUpdate(JudiciaryUser user, String partyCd) throws Exception;
 	
@@ -59,5 +65,19 @@ public interface GenericFacade {
 	public GDSNIMsgDTO sendFixedPenaltyDistressWarrantAllocationGenerator(JudiciaryUser user, String partyCd) throws Exception;
 	
 	public GDSNIMsgDTO sendFixedPenaltyDistressWarrantStatusChangeGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendCourtPaymentGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendSummonsHearingResultGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendSODApplicationResultGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendWitnessSummonsAllocationResultGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendFutureHearingAllocationGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendPaymentUpdateGenerator(JudiciaryUser user, String partyCd) throws Exception;
+	
+	public GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(JudiciaryUser user, String partyCd) throws Exception;
 	
 }

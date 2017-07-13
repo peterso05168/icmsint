@@ -14,9 +14,7 @@ import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDefendantDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfCaseDetailsDTO;
 import hk.judiciary.icmsint.model.sysinf.inf.cmc.sysInt.SysInfPartcpDTO;
-import hk.judiciary.icmsint.model.sysinf.inf.gccid2j.ChargeCaseDefendantV10CT;
 import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.DefendantAddressApplicationV20CT;
-import hk.judiciary.icmsint.model.sysinf.inf.gdsnid2j.PrefixV13CT;
 
 public class DefendantAddressApplicationV20CT_SysInfCaseDTO_Converter extends AbstractPopulatingConverter<DefendantAddressApplicationV20CT, SysInfCaseDTO> {
 
@@ -39,13 +37,22 @@ public class DefendantAddressApplicationV20CT_SysInfCaseDTO_Converter extends Ab
 			compsCourt.setCompsCourtCode(defendantAddrApp.getCourtSys().getValue());
 			sysInfCaseDetailsDto.setCompsCourt(compsCourt);
 		}
+		if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getCaseType())) {
+			if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getCaseType().getCodeName())) {
+				sysInfCaseDetailsDto.setCaseType(new CodeTableDTO(defendantAddrApp.getCaseType().getCodeName()));
+			}
+		}
+		if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getProsecutionDepartmentCode())) {
+			if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getProsecutionDepartmentCode().getCodeName())) {
+				sysInfCaseDetailsDto.setProsDept(new CodeTableDTO(defendantAddrApp.getProsecutionDepartmentCode().getCodeName()));
+			}
+		}
+		if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getDepartmentReferenceNumber())) {
+			sysInfCaseDetailsDto.setProsRefNo(defendantAddrApp.getDepartmentReferenceNumber().getValue());
+		}
 		
-		sysInfCaseDetailsDto.setCaseType(new CodeTableDTO(defendantAddrApp.getCaseType().getCodeName()));
 		sysInfCaseDetailsDto.setReceiveDate(null); //TODO: AddressUpdateDate?
-		sysInfCaseDetailsDto.setProsDept(new CodeTableDTO(defendantAddrApp.getProsecutionDepartmentCode().getCodeName()));
-		sysInfCaseDetailsDto.setProsRefNo(defendantAddrApp.getDepartmentReferenceNumber().getValue());
-		
-		
+
 
 		/**
 		 * =================================================FILL IN DEFENDANTS=================================================
@@ -54,11 +61,15 @@ public class DefendantAddressApplicationV20CT_SysInfCaseDTO_Converter extends Ab
 		List<SysInfCaseDefendantDTO> defendants = new ArrayList<SysInfCaseDefendantDTO>();
 		SysInfCaseDefendantDTO defendant = new SysInfCaseDefendantDTO();
 		SysInfPartcpDTO partcp = new SysInfPartcpDTO();
-		SysInfAddrDTO addr = new SysInfAddrDTO();
-		List<SysInfAddrDTO> addrs = new ArrayList<SysInfAddrDTO>();
-		addr = ConverterUtil.toSysInfAddrDto(defendantAddrApp.getDefendantAddress());
-		addrs.add(addr);
-		partcp.setAddresses(addrs);
+				
+		if (!CommonUtil.isNullOrEmpty(defendantAddrApp.getDefendantAddress())) {
+			List<SysInfAddrDTO> addrs = new ArrayList<SysInfAddrDTO>();
+			SysInfAddrDTO addr = new SysInfAddrDTO();
+			addr = ConverterUtil.toSysInfAddrDto(defendantAddrApp.getDefendantAddress());
+			addrs.add(addr);
+			partcp.setAddresses(addrs);
+		}		
+				
 		defendant.setDefendant(partcp);
 		defendants.add(defendant);
 		

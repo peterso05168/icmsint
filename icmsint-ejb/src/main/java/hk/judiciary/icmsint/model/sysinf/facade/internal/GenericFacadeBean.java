@@ -8,11 +8,8 @@ import javax.interceptor.Interceptors;
 import javax.persistence.PersistenceContext;
 
 import hk.judiciary.fmk.common.security.user.JudiciaryUser;
-
 import hk.judiciary.fmk.ejb.facade.DefaultFacadeInterceptor;
 import hk.judiciary.icmsint.model.BaseFacade;
-
-
 import hk.judiciary.icmsint.model.sysinf.biz.dto.CommonWsDTO;
 import hk.judiciary.icmsint.model.sysinf.biz.dto.GDSNIMsgDTO;
 import hk.judiciary.icmsint.model.sysinf.facade.GenericFacade;
@@ -73,6 +70,30 @@ public class GenericFacadeBean extends BaseFacade implements GenericFacade {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	@Override
+	public CommonWsDTO receiveDefendantAddressApplication(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().receiveDefendantAddressApplication(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public CommonWsDTO receiveSODApplication(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().receiveSODApplication(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public CommonWsDTO receiveCaseDocument(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().receiveCaseDocument(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public CommonWsDTO receiveFixedPenaltyWitnessSummonsApplication(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().receiveFixedPenaltyWitnessSummonsApplication(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
 	public GDSNIMsgDTO sendWarrantStatusUpdate(JudiciaryUser user,String partyCd) throws Exception {
 		return getWarrantBO().GDSNIMsgJ2D_CM_GI05(user,partyCd);
 	}
@@ -126,5 +147,47 @@ public class GenericFacadeBean extends BaseFacade implements GenericFacade {
 		return getCaseAppBO().sendFixedPenaltyDistressWarrantAllocationGenerator(user,partyCd);
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendSummonsHearingResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendSummonsHearingResultGenerator(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendSODApplicationResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendSODApplicationResultGenerator(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendFutureHearingAllocationGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendFutureHearingAllocationGenerator(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendPaymentUpdateGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendPaymentUpdateGenerator(user,partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendWitnessSummonsAllocationResultGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getWitnessBO().sendWitnessSummonsAllocationResultGenerator(user, partyCd);
+	}
+	
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendCourtPaymentGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendCourtPaymentGenerator(user, partyCd);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(JudiciaryUser user,String partyCd) throws Exception {
+		return getCaseAppBO().sendAcknowledgementofCaseDocumentGenerator(user, partyCd);
+	}
 	
 }

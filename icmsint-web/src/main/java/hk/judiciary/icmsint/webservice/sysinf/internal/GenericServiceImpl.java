@@ -58,6 +58,26 @@ public class GenericServiceImpl extends BaseController implements GenericService
 		return getGenericFacade().receiveChargeCaseApplication(this.getUser(),partyCd);
 	}
 	
+	@Override
+	public CommonWsDTO receiveDefendantAddressApplication(String partyCd) throws Exception {
+		return getGenericFacade().receiveDefendantAddressApplication(this.getUser(),partyCd);
+	}
+	
+	@Override
+	public CommonWsDTO receiveSODApplication(String partyCd) throws Exception {
+		return getGenericFacade().receiveSODApplication(this.getUser(),partyCd);
+	}
+	
+	@Override
+	public CommonWsDTO receiveCaseDocument(String partyCd) throws Exception {
+		return getGenericFacade().receiveCaseDocument(this.getUser(),partyCd);
+	}
+	
+	@Override
+	public CommonWsDTO receiveFixedPenaltyWitnessSummonsApplication(String partyCd) throws Exception {
+		return getGenericFacade().receiveFixedPenaltyWitnessSummonsApplication(this.getUser(),partyCd);
+	}
+	
 	
 	@Override
 	public GDSNIMsgDTO sendWarrantStatusUpdate(String partyCd) throws Exception {
@@ -99,6 +119,45 @@ public class GenericServiceImpl extends BaseController implements GenericService
 		return getGenericFacade().sendFixedPenaltyDistressWarrantAllocationGenerator(this.getUser(),partyCd );
 	}
 	
+	@Override
+	public GDSNIMsgDTO sendFixedPenaltyDistressWarrantStatusChangeGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendFixedPenaltyDistressWarrantStatusChangeGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendCourtPaymentGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendCourtPaymentGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendSummonsHearingResultGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendSummonsHearingResultGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendSODApplicationResultGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendSODApplicationResultGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendWitnessSummonsAllocationResultGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendWitnessSummonsAllocationResultGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendFutureHearingAllocationGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendFutureHearingAllocationGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendPaymentUpdateGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendPaymentUpdateGenerator(this.getUser(),partyCd );
+	}
+	
+	@Override
+	public GDSNIMsgDTO sendAcknowledgementofCaseDocumentGenerator(String partyCd) throws Exception {
+		return getGenericFacade().sendAcknowledgementofCaseDocumentGenerator(this.getUser(),partyCd );
+	}
 	
 }
 
